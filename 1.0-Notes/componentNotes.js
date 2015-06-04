@@ -1,7 +1,8 @@
 /*
  * COMPONENT STATE & LIFE CYCLE
  *  - components are classes in react js
- * 
+ *  - All components should start with a capital letter
+ *  - Components are functions
  * 
  *  - render
  *  - getInitialState
