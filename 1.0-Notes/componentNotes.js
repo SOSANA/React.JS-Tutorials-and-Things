@@ -5,22 +5,40 @@
  *  - Components are functions
  * 
  *  - render
+ *      -
  *  - getInitialState
+ *      -
  *  - getDefaultProps
+ *      -
  *  - propTypes
+ *      -
  *  - mixins
+ *      -
  *  - statics
+ *      -
  *  - displayName
+ *      -
  *  - States & Methods
+ *      -
  *  - Mount
+ *      -
  *  - componentWillMount
+ *      -
  *  - componentDidMount
+ *      -
  *  - Update
+ *      -
  *  - componentWillReceiveProps
+ *      -
  *  - shouldComponentUpdate
+ *      -
  *  - componentWillUpdate
+ *      -
  *  - componentDidUpdate
+ *      -
  *  - Unmount
+ *      -
  *  - componentWillUnmount
+ *      -
  * 
 */
