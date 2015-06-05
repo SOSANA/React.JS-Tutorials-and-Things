@@ -1,0 +1,14 @@
+{
+  "name": "react-flux-concepts",
+  "version": "0.0.1",
+  "description": "Branches of this repo cover the concepts of react and flux in a hands on way",
+  "main": "index.js",
+  "scripts": {
+    "start" : "http-server -p 9009"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "mcfly": "0.0.8"
+  }
+}
