@@ -10,8 +10,5 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "mcfly": "0.0.8"
-  },
-  "devDependencies": {
-    "http-server": "^0.8.0"
   }
 }
