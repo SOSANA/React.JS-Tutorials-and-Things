@@ -1,0 +1,35 @@
+<!-- https://docs.google.com/drawings/d/1kMuI0J7GTbAGifhH2CpajqT1Vb2PXKYpunVlCsk6e0c/edit?usp=sharing -->
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+	</style>
+	<script src="http://fb.me/react-0.12.2.js"></script>
+	<script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+</head>
+<body>
+	<!-- create a container -->
+	<div id="app-container"></div>
+
+	<!-- note this is not type javascript -->
+	<script type="text/jsx">
+	/* create a class */
+	var RecipeBook = React.createClass({
+	  render: function() {
+	    return (
+	      <div>
+	        Hello, world! I am a RecipeBook.
+	      </div>
+	    );
+	  }
+	});
+	/* controller view calls render */
+	React.render(
+		/* Recipe book is just a function, attrs are args */
+	  <RecipeBook />,
+	  document.getElementById('app-container')
+	);
+	</script>
+</body>
+</html>

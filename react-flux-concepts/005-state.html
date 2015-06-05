@@ -1,0 +1,41 @@
+<!-- https://docs.google.com/drawings/d/1A54z39-AOHDAZG-FPNKpmVLZOPZa8hU9rPL-ceP2kEY/edit?usp=sharing -->
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+	</style>
+	<script src="http://fb.me/react-0.12.2.js"></script>
+	<script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+</head>
+<body>
+	<!--https://medium.com/react-tutorials/react-state-14a6d4f736f5
+			http://facebook.github.io/react/docs/tutorial.html#reactive-state -->
+
+
+	<script type="text/jsx">
+
+
+      var Recipe = React.createClass({
+        getInitialState : function() {
+          return {
+            ingredient : "Eggplant"
+          };
+        },
+        render : function() {
+          return (
+            <div>
+            We need {this.state.ingredient}
+            </div>
+          )
+        }
+      });
+
+      React.renderComponent(
+        <Recipe />,
+        document.body
+      );
+
+	</script>
+</body>
+</html>

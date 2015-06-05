@@ -1,0 +1,64 @@
+<!-- https://docs.google.com/drawings/d/1VqwmAajZVHKolVNLge5SyTUxsvPXTpowzl0n6tncgTY/edit?usp=sharing -->
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+	</style>
+	<script src="http://fb.me/react-0.12.2.js"></script>
+	<script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+</head>
+<body>
+	<div id="app-container"></div>
+
+	<script type="text/jsx">
+	/**
+	*
+	* Assignment:
+	* 1. Create another component
+	* 2. Nest it inside of an existing component, render something to the screen
+	*
+	*/
+
+
+	var RecipeList = React.createClass({
+	  render: function() {
+	    return (
+	      <div>
+	      	RecipeList component text
+	      </div>
+	    );
+	  }
+	});
+
+	var RecipeForm = React.createClass({
+	  render: function() {
+	    return (
+	      <div>
+	        RecipeForm component text
+	      </div>
+	    );
+	  }
+	});
+
+	var RecipeBook = React.createClass({
+	  render: function() {
+	    /* component composition == function componsition */
+	    return (
+	      <div>
+	        Hello, world! I am a RecipeBook.
+	        <RecipeList/>
+	        <RecipeForm/>
+	      </div>
+	    );
+	  }
+	});
+
+	React.render(
+	  <RecipeBook/>,
+	  document.getElementById('app-container')
+	);
+
+	</script>
+</body>
+</html>
