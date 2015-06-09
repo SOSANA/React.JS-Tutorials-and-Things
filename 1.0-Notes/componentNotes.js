@@ -7,23 +7,46 @@
  * Life Cycle State and Methods
  *  - We have 3 states: Mount, Update, Unmount 
  *  - Each state has their own methods
- *  - Mount
- *      - componentWillMount
- *          -
- *      - componentDidMount
- *          -
- *  - Update
- *      - componentWillReceiveProps
- *          -
- *      - shouldComponentUpdate
- *          -
- *      - componentWillUpdate
- *          -
- *      - componentDidUpdate
- *          -
- *  - Unmount
- *      - componentWillUnmount
- *          -
+ *  - Mount State
+ *      - componentWillMount Method
+ *          - is invoked once both on the client and on the server
+ *          - immediately before the inital render occurs, if you call setState() within this method, render will 
+ *            see this updated state and will be excuted only once despite the state change
+ *      - componentDidMount Method
+ *          - is invoked once only on the client, not on the server
+ *          - immediately after the inital render occurs, at this point in the life cycle the component has DOM
+ *            representation which you can access via React.findDOMNode(component)
+ *          - if you want to integrate with other js frameworks, set timers using setTimeout() or setInterval() or
+ *            send ajax requests, you can perform those operations in this method. Soon as component is mounted, we can do 
+ *            our stuff inside that method.
+ *  - Update State
+ *      - componentWillReceiveProps Method
+ *          - is invoked when a component is receiving new properties. 
+ *          - this method is not called for the inital render. We can use this as an opportunity to react to a property
+ *            transition before render is called by updating the state using this.setState(). The old properties can be
+ *            accessed via this.props calling this.setState() within this function will not a trigger an additional render
+ *      - shouldComponentUpdate Method
+ *          - is invoked before rendering when new properties or state are being received. This method is not called for the
+ *            inital render or than a forced update is used. We can use this as an opportunity to reinforce when you are certain 
+ *            that the transition to the new props and state will not require a component update. Should the component update
+ *            returns false, than render will be completely skipped, handling the next state change. In addition 
+ *            componentWillUpdate and componentDidUpdate will not be called as well. By default shouldComponentUpdate always
+ *            return true to prevent settled bugs and state is mutated in place, but if your careful to always treat state as
+ *            immutable and to read only from properties and state in render. Than you can over ride shouldComponentUpdate with
+ *            a implentation that compares the old properties and state to their replacements
+ *      - componentWillUpdate Method
+ *          - is invoked immediately before rendering. When new properties or state are being recieved. This method is not 
+ *            called for the inital render
+ *      - componentDidUpdate Method
+ *          - is invoked immediately after the components updates are flushed to the DOM
+ *          - This method is not called for the inital render 
+ *          - We can use this method to operate on the DOM when the component 
+ *            has been updated
+ *  - Unmount State
+ *      - componentWillUnmount Method
+ *          - is invoked immediately before a component is unmonted from the DOM. We can perform any necessary clean up in this
+ *            method or you can say garbage collection. Such as invalidating timers or clearing up any DOM elements that were 
+ *            created in componentDidMount
  * 
  * COMPONENT STATE Methods
  *  - render
@@ -51,27 +74,5 @@
  *      - statics object allows you to define static methods that can be called on the component class
  *  - displayName
  *      - displayName is a string used in debugging msgs and usually jsx sets this value automatically
- *  - States & Methods
- *      -
- *  - Mount
- *      -
- *  - componentWillMount
- *      -
- *  - componentDidMount
- *      -
- *  - Update
- *      -
- *  - componentWillReceiveProps
- *      -
- *  - shouldComponentUpdate
- *      -
- *  - componentWillUpdate
- *      -
- *  - componentDidUpdate
- *      -
- *  - Unmount
- *      -
- *  - componentWillUnmount
- *      -
  * 
 */
