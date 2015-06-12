@@ -1,7 +1,7 @@
 /*
  *  using multiple components with getInitialState and some the events that are associated with components
  *  such as change events that we can associate with textboxes, drop downs and form submitting events
- *  left off at 2:15
+ *  left off at 3:09
 */
 
 var courseList = [
@@ -31,7 +31,7 @@ var ReviewControl = React.createClass({
         this.setState({course: el.target.value})
     },
     submitReview: function(el) {
-        el.preventdefault();
+        el.preventDefault();
         this.state.reviews.push({
             name: this.state.name, 
             feedback: this.state.feedback, 
@@ -54,14 +54,21 @@ var ReviewControl = React.createClass({
         });
                                           
         return (
-            /* the value we are getting from the state that we created */
+            // the value we are getting from the state that we created
+            // onSubmit is calling a function submitReview event
+            // onChange is calling a function onChangeName event
+            // onChange is calling a function onChangeFeedback event
+            // onChange is calling a function onChangeCourse event
+            // we have assigned these events to select and input
             <div>
                 <form onSubmit = {this.submitReview}>
                     <label> Name </label>                   
                     <input type="text" placeholder="Enter Your Name" value={this.state.name} onChange={this.onChangeName} />
                     <br/><br/>
+                    <input type="text" defaultValue="All Things JavaScript"/>
+                    <br/><br/>
                     <label> Feedback </label>
-                    <input type="text" placeholder="Enter Your Feedback" value={this.state.feedback} onChange={this.onChangeFeedback} />
+                    <textarea placeholder="Enter Your Feedback" value={this.state.feedback} onChange={this.onChangeFeedback}></textarea>
                     <br/><br/>
                     <select onChange={this.onChangeCourse}>
                         // once our options variable is return, its getting passed here
@@ -71,9 +78,9 @@ var ReviewControl = React.createClass({
                     <br/><br/>                      
                     <input type="submit" value="Submit" />
                 </form>
-                <ReviewCollection reviews = {this.state.reviews} />
+                <ReviewCollection reviews={this.state.reviews} />
             </div>
-        );
+        )
     }
 });
 
@@ -85,18 +92,17 @@ var ReviewCollection = React.createClass({
         
         return (<div> {reviews} </div>)
     }
-});
+})
 
 var Review = React.createClass({
     render: function() {
-        return 
-            <div>
-                <span> Name </span> {this.props.Name}
-                <br />
+        return  <div>
+                <span> Name </span> {this.props.name}
+                <br/>
                 <span> Course </span> {this.props.course}
-                <br />
+                <br/>
                 <span> Feedback </span> {this.props.feedback}
-            </div>
+                </div>
     }
 });
 
