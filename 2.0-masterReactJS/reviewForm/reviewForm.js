@@ -1,8 +1,6 @@
 /**
- * 
  *  using multiple components with getInitialState and some the events that are associated with components
  *  such as change events that we can associate with textboxes, drop downs and form submitting events
- * 
  */
 
 var courseList = [
