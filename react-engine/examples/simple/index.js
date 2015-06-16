@@ -43,7 +43,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/', function(req, res) {
   res.render('index', {
-    title: 'The React Engine Express Sample App',
+    title: 'React Engine Express Sample App',
     name: 'Jordan'
   });
 });

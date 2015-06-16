@@ -30,7 +30,7 @@ module.exports = React.createClass({
       <Layout {...this.props}>
         <div id='index'>
           <h1>Hello {this.props.name}!</h1>
-          <button onClick={this.onButtonClick}>Click Me Sucka Lips!!</button>
+          <button onClick={this.onButtonClick}>___Click Me___</button>
         </div>
       </Layout>
     );
