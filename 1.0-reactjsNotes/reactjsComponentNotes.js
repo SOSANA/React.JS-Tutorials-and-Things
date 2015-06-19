@@ -1,4 +1,4 @@
-/*
+/**
  * COMPONENT STATE & LIFE CYCLE
  *  - components are classes in react js
  *  - All components should start with a capital letter
@@ -74,5 +74,4 @@
  *      - statics object allows you to define static methods that can be called on the component class
  *  - displayName
  *      - displayName is a string used in debugging msgs and usually jsx sets this value automatically
- * 
-*/
+ */
