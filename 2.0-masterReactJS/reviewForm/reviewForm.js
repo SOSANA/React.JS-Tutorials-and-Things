@@ -82,7 +82,7 @@ var ReviewControl = React.createClass({
                         // once our options variable is return, its getting passed here
                         // and is how our drop down is being generated
                         {options}
-                    </select> 
+                    </select>
                     <br/><br/>                      
                     <input type="submit" value="Submit" />
                 </form>
