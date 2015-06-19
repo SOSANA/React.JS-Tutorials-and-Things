@@ -1,4 +1,4 @@
-/*
+/**
  * WHY REACT
  *  - UI code is readable and maintainable
  *  - Creating UI components allows for modularity and code reusability
@@ -10,6 +10,4 @@
  *  - Reconcilition where it updates the document object model with the results of diff
  *  - in other words it will only change the child attributes we updated while not affecting the parent 
  *    or changing the other child elements
- * 
- * 
-*/
+ */
