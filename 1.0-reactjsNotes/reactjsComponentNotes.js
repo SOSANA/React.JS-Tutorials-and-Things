@@ -1,5 +1,5 @@
 /**
- * COMPONENT STATE & LIFE CYCLE
+ * COMPONENT STATE & LIFE CYCLE IN REACTJS
  *  - components are classes in react js
  *  - All components should start with a capital letter
  *  - Components are functions
