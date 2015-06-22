@@ -2,7 +2,7 @@
  * Following shows how to use properties which are external to components and could be used 
  * to further define that component does
  */
-var Courses = React.createClass({ 
+var Courses = React.createClass({displayName: "Courses", 
     // if you need a property that is manditory you can use propTypes with .isRequired and also if 
     // its a boolean you can add that at well
    propTypes: {
@@ -27,46 +27,46 @@ var Courses = React.createClass({
   
    render: function() {
     return (
-      <p>
-        Course Name: {this.props.course}
-        <br/>
-        The original Date {this.props.date.toString()}
-        <br/>
-        The current Date is: {this.props.currentDate.toString()}
-        <br/>
-        This course is {this.state.sold}
-        <br/>
-        Course will Launch in {this.props.launch}
-        <br/>
-        Author is {this.props.author}
-        <br/>
-        Student Count {this.props.students}
-        <br/>
-        Course is {this.props.published.toString()}
-        <br/>
-        Course will be availble on {this.props.platform}
-        <br/>
-        Course review: {this.props.review}
-      </p>
+      React.createElement("p", null, 
+        "Course Name: ", this.props.course, 
+        React.createElement("br", null), 
+        "The original Date ", this.props.date.toString(), 
+        React.createElement("br", null), 
+        "The current Date is: ", this.props.currentDate.toString(), 
+        React.createElement("br", null), 
+        "This course is ", this.state.sold, 
+        React.createElement("br", null), 
+        "Course will Launch in ", this.props.launch, 
+        React.createElement("br", null), 
+        "Author is ", this.props.author, 
+        React.createElement("br", null), 
+        "Student Count ", this.props.students, 
+        React.createElement("br", null), 
+        "Course is ", this.props.published.toString(), 
+        React.createElement("br", null), 
+        "Course will be availble on ", this.props.platform, 
+        React.createElement("br", null), 
+        "Course review: ", this.props.review
+      )
       );
    }
 });
 // this component can transfer properties when working with multple components. There may be a situation 
 // where its need to send properties down the structual tree. This has the benefit of reducing code 
 // duplication with DRY (Don't Repeat Yourself)
-var CourseCollection = React.createClass({
+var CourseCollection = React.createClass({displayName: "CourseCollection",
   render : function() {
     return (
       // you can overwrite the getDefaultProps here by passing in new property and value
       // this another way to define a new property and as well overwrite original property and value
-      <Courses author="Sosana" review="this is not to shabby" platform={this.props.platform} />
+      React.createElement(Courses, {author: "Sosana", review: "this is not to shabby", platform: this.props.platform})
     );
   }
 });
 
 // here we are over writing the original property by passing a new property and value
 // and shows how to pass properties
-var courseElement=<CourseCollection platform={"udemy"} />;
+var courseElement=React.createElement(CourseCollection, {platform: "udemy"});
 React.render(courseElement,document.getElementById('divContainer'));
 
 /*

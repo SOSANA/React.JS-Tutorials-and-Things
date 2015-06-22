@@ -7,24 +7,24 @@
 
 // noticed this variable starts with a capital letter. All components should start with a capital letter
 // Components are functions
-var Courses = React.createClass({
+var Courses = React.createClass({displayName: "Courses",
     // making use of the render method to render this particular output
     render: function() {
         return (
-            <div>
-            <p>
-                Course Name: <input type="text" placeholder="Course Name Here"/>
-            </p>
-            <p>
-                The Date is {this.props.date.toString()}
-            </p>
-            </div>
+            React.createElement("div", null, 
+            React.createElement("p", null, 
+                "Course Name: ", React.createElement("input", {type: "text", placeholder: "Course Name Here"})
+            ), 
+            React.createElement("p", null, 
+                "The Date is ", this.props.date.toString()
+            )
+            )
         );
     }
 });
 // storing the Courses element inside the courseElement variable
 // the variable name assigned will be camel cased
-var courseElement = <Courses />;
+var courseElement = React.createElement(Courses, null);
 // third way to store properties (aka properties) in a javascript literal
 var properties = {};
 properties.date = new Date();

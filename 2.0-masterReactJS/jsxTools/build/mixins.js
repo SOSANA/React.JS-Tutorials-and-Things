@@ -21,7 +21,7 @@ var AuthorMixin = {
 };
 // here we are passing in multiple mixins using an array
 // our mixins will always get excuted first from left to right
-var Courses = React.createClass({ 
+var Courses = React.createClass({displayName: "Courses", 
 mixins:[SimpleMixin,AuthorMixin],
 // this is an example of trying to return two objects with clashing keys (name & author properties)
 //getDefaultProps:function(){
@@ -32,24 +32,24 @@ mixins:[SimpleMixin,AuthorMixin],
 //},
    render: function() {
     return (
-      <p>
-        Course will be availble on {this.props.name}
-        <br/>
-        Authored by {this.props.author}
-      </p>
+      React.createElement("p", null, 
+        "Course will be availble on ", this.props.name, 
+        React.createElement("br", null), 
+        "Authored by ", this.props.author
+      )
       );
    }
 });
 
-var Students = React.createClass({
+var Students = React.createClass({displayName: "Students",
    mixins:[SimpleMixin],
    render: function() {
     return (
-      <p>
-       Students says I love {this.props.name}
-      </p>
+      React.createElement("p", null, 
+       "Students says I love ", this.props.name
+      )
       );
    }
 });
-React.render(<Courses />,document.getElementById("divContainer"));
-React.render(<Students />,document.getElementById("divStudentContainer"));
+React.render(React.createElement(Courses, null),document.getElementById("divContainer"));
+React.render(React.createElement(Students, null),document.getElementById("divStudentContainer"));

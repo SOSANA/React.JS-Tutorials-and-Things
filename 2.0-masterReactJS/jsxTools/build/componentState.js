@@ -4,7 +4,7 @@
  *  
 */
 
-var Courses = React.createClass({ 
+var Courses = React.createClass({displayName: "Courses", 
    // allows you to control the presence and type of properties your component has
    propTypes: {
      published: React.PropTypes.bool.isRequired
@@ -21,22 +21,22 @@ var Courses = React.createClass({
   
    render: function() {
     return (
-      <p>
-        Course Name: <input type="text" placeholder="Course Name Here"/>!
-        <br/>
-        // in order to get access to getDefaultProps method we make use of "this.props.date.toString()"
-        The Date is {this.props.date.toString()}
-        <br/>
-        // in order to get access to getInitialState method we make use of "this.state.sold"  
-        This course is {this.state.sold}
-        <br/>
-        Course will Launch in {this.props.launch}
-        <br/>
-      </p>
+      React.createElement("p", null, 
+        "Course Name: ", React.createElement("input", {type: "text", placeholder: "Course Name Here"}), "!", 
+        React.createElement("br", null), 
+        "// in order to get access to getDefaultProps method we make use of \"this.props.date.toString()\"" + ' ' +
+        "The Date is ", this.props.date.toString(), 
+        React.createElement("br", null), 
+        "// in order to get access to getInitialState method we make use of \"this.state.sold\"" + ' ' +  
+        "This course is ", this.state.sold, 
+        React.createElement("br", null), 
+        "Course will Launch in ", this.props.launch, 
+        React.createElement("br", null)
+      )
       );
    }
 });
-var courseElement = <Courses date={new Date()} published={false}/>;
+var courseElement = React.createElement(Courses, {date: new Date(), published: false});
 //var properties={};
 //properties.date=new Date();
 //properties.students=0;
