@@ -10,6 +10,7 @@
 *.map
 .tags
 .tags_sorted_by_file
+.codio
 
 *.module-cache*
 node_modules
