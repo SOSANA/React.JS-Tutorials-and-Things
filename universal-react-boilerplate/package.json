@@ -1,0 +1,65 @@
+{
+  "name": "isomorphic-express-boilerplate",
+  "version": "1.2.3",
+  "description": "A boilerplate Node.js / Express app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/index.js && npm run start-healthcheck",
+    "debug": "node --debug app/index.js",
+    "inspect": "node-inspector",
+    "test": "node app/test/unit/index.js | tap-bail",
+    "test-dev": "node app/test/unit/index.js | tap-bail | faucet",
+    "functional": "node app/test/functional/index.js",
+    "lint": "jshint .",
+    "build": "mkdir -p config && git rev-parse --short HEAD > config/BUILD && npm run browserify",
+    "validate": "npm run lint && npm run build && npm run test && npm run functional && npm outdated --depth 0",
+    "validate-dev": "npm run lint && npm run build && npm outdated && npm run test-dev",
+    "watch:build": "watch --wait=8 'npm run validate-dev' ./app/",
+    "dev": "npm run watch:build",
+    "start-healthcheck": "node app/healthcheck.js",
+    "browserify": "browserify app/node_modules/client -d -p [minifyify --map bundle.map.json --output app/node_modules/public/js/bundle.map.json] > app/node_modules/public/js/bundle.js"
+  },
+  "directories": {
+    "test": "test",
+    "lib": "lib"
+  },
+  "dependencies": {
+    "bunyan-request-logger": "^1.0.1",
+    "connect-cache-control": "^1.0.0",
+    "duplex": "^1.0.0",
+    "express": "^4.12.4",
+    "page": "^1.6.3",
+    "qconf": "^2.2.0",
+    "rootrequire": "^1.0.0",
+    "version-healthcheck": "^0.1.2"
+  },
+  "devDependencies": {
+    "minifyify": "^7.0.1",
+    "array-intersection": "^0.1.2",
+    "faucet": "0.0.1",
+    "jshint": "^2.8.0",
+    "node-inspector": "^0.10.2",
+    "selenium-sauce": "^0.3.4",
+    "supertest": "^1.0.1",
+    "tap-bail": "0.0.0",
+    "tape": "^4.0.0",
+    "watch": "^0.16.0",
+    "browserify": "^10.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ericelliott/isomorphic-express-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "node",
+    "express",
+    "html5"
+  ],
+  "author": "Eric Elliott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericelliott/isomorphic-express-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ericelliott/isomorphic-express-boilerplate"
+}

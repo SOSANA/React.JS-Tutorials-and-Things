@@ -14,8 +14,8 @@ var Courses = React.createClass({displayName: "Courses",
    }
 });
 var courseElement=React.createElement(Courses, null);
-var properties = {};
-properties.date = new Date();
+var properties={};
+properties.date=new Date();
 courseElement.props=properties;
 
 React.render(courseElement,document.getElementById('divContainer'));

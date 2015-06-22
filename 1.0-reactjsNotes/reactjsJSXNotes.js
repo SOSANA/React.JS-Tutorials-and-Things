@@ -8,5 +8,5 @@
  *      - npm install -g react-tools
  *      - cd into folder you want to compile jsx
  *      - in command type following
- *      > jsx --watch /jsxTools
+ *      > jsx --watch js/ build/
  */
