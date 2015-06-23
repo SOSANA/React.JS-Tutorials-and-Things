@@ -1,8 +1,6 @@
 /*
- * To communicate between Parent-Child we can make use of props.
- * 
- * To communicate between Child-Parent components we can make use 
- * of some pure JavaScript concepts like subscribing to events. 
+ * We communicate between Child-Parent components to make use of some pure JavaScript 
+ * concepts like subscribing to events. 
  */
 var courseList=[
     {courseName:"Master ReactJS"},
