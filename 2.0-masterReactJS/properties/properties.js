@@ -1,6 +1,7 @@
 /**
  * Following shows how to use properties which are external to components and could be used 
- * to further define that component does
+ * to further define that component does. 
+ * We communicate between Parent-Child to make use of props.
  */
 var Courses = React.createClass({ 
     // if you need a property that is manditory you can use propTypes with .isRequired and also if 
