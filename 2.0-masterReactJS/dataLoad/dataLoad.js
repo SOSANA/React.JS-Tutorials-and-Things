@@ -1,7 +1,7 @@
 /*
  * Using the jquery library with reactjs
  * Another example of child parent component communication
- * left off at 3:30
+ * make sure to use http instead of https as it will block northwind url
  */
 var CustomerCollection = React.createClass({
    getInitialState: function() {
