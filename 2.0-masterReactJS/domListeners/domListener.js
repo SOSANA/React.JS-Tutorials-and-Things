@@ -1,3 +1,11 @@
+/*
+ * DOM event listeners that can be implemented in a component
+ * 
+ * Special Non-DOM Att
+ *  - key
+ *  - ref
+ *  - dangerously SetInnerHTML
+ */
 var Window = React.createClass({
   getInitialState: function() {
     return {windowWidth: window.innerWidth};
