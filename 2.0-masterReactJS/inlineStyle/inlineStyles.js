@@ -1,3 +1,8 @@
+/*
+ * Example working with inline styles
+ * 
+ */
+
 //classes
 var imgUrl="https://d2vvqscadf4c1f.cloudfront.net/9GOJj6mLTxGXvuJZaZIg_eee.png";
 var divStyle = {
