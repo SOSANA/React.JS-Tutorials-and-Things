@@ -22,12 +22,12 @@ var Courses = React.createClass({
    render: function() {
     return (
       <p>
-        Course Name: <input type="text" placeholder="Course Name Here"/>!
+        Course Name: <input type="text" placeholder="Course Name Here"/> !!
         <br/>
-        // in order to get access to getDefaultProps method we make use of "this.props.date.toString()"
+        {/* in order to get access to getDefaultProps method we make use of "this.props.date.toString()" */}
         The Date is {this.props.date.toString()}
         <br/>
-        // in order to get access to getInitialState method we make use of "this.state.sold"  
+        {/* in order to get access to getInitialState method we make use of "this.state.sold" */}  
         This course is {this.state.sold}
         <br/>
         Course will Launch in {this.props.launch}
