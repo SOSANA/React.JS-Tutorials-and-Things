@@ -7,7 +7,6 @@
  *    validation this way you can make use of danerouslySetInnerHTML property in reactjs to make use of
  *    symbols like the degree symbol used below 
  */
-
 var Weather = React.createClass({
    
    render: function() {
