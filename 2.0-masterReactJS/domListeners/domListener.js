@@ -21,6 +21,7 @@
  *  - dangerously SetInnerHTML
  *    - this provides the ability insert raw html and mainly for incorporating DOM string 
  *      manipulation librares
+ *    - example shown in /innerHTML folder
  * 
  * These events are not included in reactjs ex; "resize" event handlers. This implementation is
  * also good for integration with other libraries such as jquery.
