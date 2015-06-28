@@ -21,16 +21,18 @@ AppDispatcher.handleViewAction = function(action) {
 module.exports = AppDispatcher;
 
 CourseStore.dispatcherIndex = AppDispatcher.register(function(payload) {
-
+    switch(action.actionType) {
+    case 'BUY_COURSE':
+      AppDispatcher.waitFor([
+        CourseStore.dispatcherIndex
+      ], function() {
+        CheckoutStore.purchaseCourses(CourseStore.getSelectedCourses());
+      });
+      break;
+    }
 });
 
-case 'BUY_COURSE':
-  AppDispatcher.waitFor([
-    CourseStore.dispatcherIndex
-  ], function() {
-    CheckoutStore.purchaseCourses(CourseStore.getSelectedCourses());
-  });
-  break;
+
 
 
   //Store example
