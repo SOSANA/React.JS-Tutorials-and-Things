@@ -10,7 +10,9 @@
         requestChange: function() { ... } // function to call to update this.state[key]
       } 
  *  - these are add-ons that are accessible with the react-with-addons-0.13.1.js src file
- *  - mainly used for two way data binding to display and update the text
+ *  - mainly used for two way data binding to display and update the text but also used
+ *    cloning components with React.addons.cloneWithProps. See /cloneComponent folder
+ *    for example.
  *  - common in a component to contain state that should be editable by a child component 
  **/
 
