@@ -57,7 +57,7 @@ var ReviewControl = React.createClass({
         // using map array to iterate through each item from the list
         var options = this.props.list.map(function(course){
             // we are assigning values from the list, we only have one element courseName 
-            // and that is what we assigning to each of these properties of option component 
+            // and that is what we are assigning to each of these properties of option component 
             // key and the value, then its the text {course.courseName} that is displayed in 
             // the drop down menu 
             return <option key={course.courseName} value={course.courseName}>{course.courseName}</option>
