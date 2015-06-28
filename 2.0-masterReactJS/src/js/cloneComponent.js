@@ -17,7 +17,7 @@ var Form = React.createClass({
 
 
 var formElement=<Form />;
-var cloneElement=React.addons.cloneWithProps(formElement});
+var cloneElement=React.addons.cloneWithProps(formElement);
 
 React.render(formElement,document.getElementById('divContainer'));
 React.render(cloneElement,document.getElementById('divCloneContainer'));
