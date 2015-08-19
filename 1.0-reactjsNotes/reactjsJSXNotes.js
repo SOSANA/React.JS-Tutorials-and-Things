@@ -1,6 +1,8 @@
 /**
  * JSX COMPILER IN REACTJS
- *  - refer to jsxTools folder for example
+ *  - JSX lets us write HTML inside our javascript
+ *  - first we write jsx than compile it to javascript
+ *  - refer to ..masterReactJS/jsxTools folder for example
  *  - <script src="../js/JSXTransformer.js"></script> is a heavy file and advised to convert it to a 
  *    normal js file for use in production
  *  - you can visit https://facebook.github.io/react/jsx-compiler.html for a side by side comparison
