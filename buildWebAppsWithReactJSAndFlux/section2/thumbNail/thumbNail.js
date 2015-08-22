@@ -15,18 +15,20 @@ var Badge = React.createClass({
 });
 
 var ThumbNail = React.createClass({
-  render: function() {
-    return <div className="thumbnail">
-      <img src={this.props.imageUrl} />
-      <div className="caption">
-        <h3>{this.props.header}</h3>
-        <p>{this.props.description}</p>
-        <p>
-          <Badge title={this.props.title} number={this.props.number} />
-        </p>
+    render: function() {
+      return <div className="col-sm-6 col-md-4">
+        <div className="thumbnail">
+          <img src={this.props.imageUrl} alt="..."></img>
+          <div className="caption">
+            <h3>{this.props.header}</h3>
+            <p>{this.props.description}</p>
+            <p>
+              <Badge title={this.props.title} number={this.props.number} />
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  }
+    }
 });
 
 var options = {
@@ -41,4 +43,4 @@ var options = {
 var element = React.createElement(ThumbNail, options);
 
 // react, after you render this class, please place it in my body tag
-React.render(element, document.querySelector('.target'));
+React.render(element, document.querySelector('.container'));
