@@ -8,7 +8,7 @@
     }
   });
   
-  // react, please render this instance of our class
+  // react, please render this class
   var element = React.createElement(HelloWorld);
   
   // react, after you render this class, please place it in my body tag
