@@ -1,7 +1,10 @@
+var React = require('react');
+var ThumbnailList = require('./thumbnail-list');
+
 var options = {
-  thumbNailData: [{
+  thumbnailData: [{
     title: 'See Tutorials',
-    number: 12,
+    number: 120,
     header: 'Learn React',
     description: 'React is a fantastic new library for making fast, dynamic pages. React is a fantastic new library for making fast, dynamic pages.',
     imageUrl: 'http://formatjs.io/img/react.svg'
@@ -15,7 +18,7 @@ var options = {
 };
 
 // react, please render this class
-var element = React.createElement(ThumbNailList, options);
+var element = React.createElement(ThumbnailList, options);
 
 // react, after you render this class, please place it in my body tag
 React.render(element, document.querySelector('.container'));

@@ -1,7 +1,10 @@
-var ThumbNailList = React.createClass({
+var React = require('react');
+var Thumbnail = require('./thumbnail');
+
+module.exports = React.createClass({
   render: function() {
-    var list = this.props.thumbNailData.map(function(thumbNailProps){
-      return <ThumbNail {...thumbNailProps}/>
+    var list = this.props.thumbnailData.map(function(thumbnailProps){
+      return <Thumbnail {...thumbnailProps}/>
     });
 
     return <div>

@@ -9,8 +9,14 @@
   "author": "SOSANA",
   "license": "ISC",
   "dependencies": {
+    "browserify": "^11.0.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
-    "gulp-react": "^3.0.1"
+    "gulp-react": "^3.0.1",
+    "gulp-util": "^3.0.6",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.3.1"
   }
 }
