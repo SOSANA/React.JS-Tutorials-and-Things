@@ -24,6 +24,7 @@ module.exports = React.createClass({
   },
   render: function() {
     var list = this.props.items.map(function(item) {
+      // using ternary operator to show if state is active items and if not show nothing
       return <ListItem 
               item={item} 
               whenItemClicked={this.handleItemClick} 
