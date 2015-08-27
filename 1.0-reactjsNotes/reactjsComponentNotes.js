@@ -69,7 +69,7 @@
  *      - propTypes object allows you to validate props being passed to your components
  *  - mixins
  *      - a mixin is a group of methods that sits on one object, that gets copied over to another object
- *      - a fantastic method react provids us to easily resuse code
+ *      - a fantastic method react provides us to easily reuse code
  *      - mixins array allows you to use mixins to share behavior amoung multiple components. This will also be apart 
  *        of reusable components.
  *  - statics
