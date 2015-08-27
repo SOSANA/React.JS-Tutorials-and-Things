@@ -8,7 +8,7 @@ var rootURL = 'https://blistering-inferno-5460.firebaseio.com/';
 
 var App = React.createClass({
   // a mixin is a group of methods that sits on one object, that gets copied over to another object
-  // in this case 'this', bascially copys  code from this object (ReactFire) onto our component
+  // in this case 'this', basically cops code from this object (ReactFire) onto our component
   mixins: [ ReactFire ],
   componentWillMount: function() {
     // creating a new instance of Firebase which is the object that is going to make network requests
