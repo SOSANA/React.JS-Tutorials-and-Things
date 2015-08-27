@@ -3,8 +3,19 @@ var React = require('react');
 var ReactFire = require('reactfire');
 // bridge between online database and our app
 var Firebase = require('firebase');
+// where we want firebase to reach out too to look for our data
+var rootURL = 'https://blistering-inferno-5460.firebaseio.com/';
 
 var App = React.createClass({
+  // a mixin is a group of methods that sits on one object, that gets copied over to another object
+  // in this case 'this', bascially copys object method and properties from ReactFire object to our
+  // component
+  Mixins: [ ReactFire],
+  componentWillMount: function() {
+    // creating a new instance of Firebase which is the object that is going to make network requests
+    // and communicate with our online database. bindAsObject() is a method defined by ReactFire
+    this.bindAsObject(new Firebase(rootURL + 'items/'), 'items');
+  },
   render: function() {
     return <h1>
       Hello, React!
