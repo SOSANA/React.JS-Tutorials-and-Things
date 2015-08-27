@@ -3,8 +3,10 @@ var React = require('react');
 var ReactFire = require('reactfire');
 // bridge between online database and our app
 var Firebase = require('firebase');
+var Header = require('./header');
 // where we want firebase to reach out too to look for our data
 var rootURL = 'https://blistering-inferno-5460.firebaseio.com/';
+
 
 var App = React.createClass({
   // a mixin is a group of methods that sits on one object, that gets copied over to another object
@@ -16,11 +18,17 @@ var App = React.createClass({
     this.bindAsObject(new Firebase(rootURL + 'items/'), 'items');
   },
   render: function() {
-    // doing a little test to see if its working
-    console.log(this.state);
-    return <h1>
-      Hello, React!
-    </h1>
+    // top level div is going to make over all architechure container for our overall app
+    return <div className="row panel panel-default">
+      {/* here is our center column */}
+      <div className="col-md-8 col-md-offset-2">
+        {/* Then we have a header on the top of the column that say To-Do List*/}
+        <h2 className="text-center">
+          To-Do List
+        </h2>
+        <Header />
+      </div>
+    </div>
   }
 });
 
