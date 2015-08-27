@@ -12,7 +12,7 @@
 .tags_sorted_by_file
 .codio
 .settings
-main.js
+
 
 *.module-cache*
 node_modules
