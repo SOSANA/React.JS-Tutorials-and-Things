@@ -27,8 +27,8 @@ module.exports = React.createClass({
   handleClick: function() {
     // testing click button works
     console.log('the Add button  was clicked!');
+    console.log(this.state.text);
     // send value of text input to firebase
-    
   },
   handleInputChange: function(event) {
     // testing the event handler for inputing text works
