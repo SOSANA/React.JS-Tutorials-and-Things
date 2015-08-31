@@ -14,13 +14,16 @@ var App = React.createClass({
   mixins: [ ReactFire ],
   getInitialState: function() {
     return {
-      items: {}
+      items: {},
+      loaded: false
     }
   },
   componentWillMount: function() {
+    fb = new Firebase(rootURL + 'items/');
     // creating a new instance of Firebase which is the object that is going to make network requests
     // and communicate with our online database. bindAsObject() is a method defined by ReactFire
-    this.bindAsObject(new Firebase(rootURL + 'items/'), 'items');
+    this.bindAsObject(fb, 'items');
+    fb.on('value', this.handleDataLoaded);
   },
   render: function() {
     // top level div is going to make over all architechure container for our overall app
@@ -33,10 +36,16 @@ var App = React.createClass({
         </h2>
         {/* itemsStore is a direct reference to our firebase object */}
         <Header itemsStore={ this.firebaseRefs.items } />
-        {/* for right now items is a plain object (here is the data), only has the ability to read items not create it */}
-        <List items={this.state.items}/>
+        {/* using a ternary expression */}
+        <div className={"content " +(this.state.loaded ? 'loaded': '')}>
+          {/* for right now items is a plain object (here is the data), only has the ability to read items not create it */}
+          <List items={this.state.items}/>
+        </div>
       </div>
     </div>
+  },
+  handleDataLoaded: function() {
+    this.setState({loaded: true});
   }
 });
 
