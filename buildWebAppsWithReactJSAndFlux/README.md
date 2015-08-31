@@ -1,14 +1,14 @@
 # [Build Web Apps with React JS and Flux](https://www.udemy.com/learn-and-understand-reactjs/learn/#/)
 src: [ReactCasts](https://github.com/StephenGrider/ReactCasts)
 
-Section 1 - Start Here - Dive In! (Lecture 1 thru 6)
-Section 2 - Intermediate Concepts (Lecture 7 thru 11)
-Section 3 - Tooling (Lecture 12 thru 16)
-Section 4 - State and Events (Lecture 17 thru 22)
-Section 5 - Working with Remote Data on Firebase (Lecture 23 thru 37) 
-Section 6 - Flux and React Router (Lecture 38 thru 44)
-Section 7 - Flux - Downwards Data Flow (Lecture 45 thru 57)
-Section 8 - Combining Flux and React Router (Lecture 58 thru 71)
+###Section 1 - Start Here - Dive In! (Lecture 1 thru 6)
+###Section 2 - Intermediate Concepts (Lecture 7 thru 11)
+###Section 3 - Tooling (Lecture 12 thru 16)
+###Section 4 - State and Events (Lecture 17 thru 22)
+###Section 5 - Working with Remote Data on Firebase (Lecture 23 thru 37) 
+###Section 6 - Flux and React Router (Lecture 38 thru 44)
+###Section 7 - Flux - Downwards Data Flow (Lecture 45 thru 57)
+###Section 8 - Combining Flux and React Router (Lecture 58 thru 71)
 
 | Lecture Number | Lecture Name | Link to Commit |
 |---------------------------------------------------|------------| --- |
