@@ -10,6 +10,8 @@ src: [ReactCasts](https://github.com/StephenGrider/ReactCasts)
 ###Section 7 - Flux - Downwards Data Flow (Lecture 45 thru 57)
 ###Section 8 - Combining Flux and React Router (Lecture 58 thru 71)
 
+
+
 | Lecture Number | Lecture Name | Link to Commit |
 |---------------------------------------------------|------------| --- |
 |	1	|	Introduction                                                                    	|		|
