@@ -1,5 +1,19 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <style type="text/css">
+    /* wrapping a list element with a class content. Opacity talks about the fade of an item. 
+       With an opacity of 0 it will be completely faded out where as an opacity of 1 it will be 100%
+       visible. By defining a transition property we say any element that has class content that has its 
+       opacity changed we want that change to occur over 1 second as opposed to instantly using a animation
+       called 'ease-in' */
+    .content {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    .loaded {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
