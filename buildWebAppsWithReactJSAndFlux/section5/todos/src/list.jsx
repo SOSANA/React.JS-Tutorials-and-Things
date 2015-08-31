@@ -1,12 +1,13 @@
 var React = require('react');
+var ListItem = require('./list-item');
 
 module.exports = React.createClass({
   render: function() {
     // testing to see our objects 
     //console.log(this.props);
-    return <ul>
+    return <div>
       { this.renderList() }
-    </ul>
+    </div>
   },
   // defining our helper method
   renderList: function() {
@@ -23,13 +24,24 @@ module.exports = React.createClass({
       // We have 'this.props.items'object, each key represents a single item/todo/entry. We than loop over all the keys and 
       // than for each key, we are going to access the object that it represents and than access the text property. 
       // This will be put inside a li which in turn gets put inside of our children array and than the children array will 
-      // get rendered inside our ul
+      // get rendered inside our div
       for(var key in this.props.items) {
+        // this item represents a single todo, we are grabbing the item in the array
+        var item = this.props.items[key];
+        // assigning the key on top of the item, we now have a property on our todo called 'key'
+        item.key = key;
+        // we than create a ListItem with a list and key that gets pushed in our children array and than gets rendered in
+        // our render method to {this.renderList()}
         children.push(
-          <li>
-            {/* here we are saying look at the items object, access this given key and return the text property off of it */}
-            { this.props.items[key].text }
-          </li>
+          // here we are saying look at the items object, access this given key and return the text property off of it, 
+          // by assigning this key property we avoid the warning msg. The warning means is to keep track of which item
+          // in the list is which between renders of an component we need to manually specify a unique key, so the key has
+          // to be unique, since our firebase keys are guranteed to be unique, we will be using that as our key */
+          <ListItem
+            item={item}
+            key={key}
+            >
+          </ListItem>
         )
       }
       
