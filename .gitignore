@@ -13,6 +13,7 @@
 .codio
 .settings
 main.js
+apiKey.js
 
 *.module-cache*
 node_modules
