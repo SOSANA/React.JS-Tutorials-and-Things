@@ -1,4 +1,5 @@
 /**
- * imgur developer api: https://api.imgur.com/
- * 
+ * imgur developer api: 
+ *  login: https://api.imgur.com/
+ *  Api key creds: look at apiKey.js
  */
