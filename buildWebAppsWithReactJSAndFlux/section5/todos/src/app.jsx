@@ -21,13 +21,13 @@ var App = React.createClass({
   componentWillMount: function() {
     // creating a new instance of Firebase which is the object that is going to make network requests
     // and communicate with our online database. bindAsObject() is a method defined by ReactFire
-    fb = new Firebase(rootURL + 'items/');
-    this.bindAsObject(fb, 'items');
+    this.fb = new Firebase(rootURL + 'items/');
+    this.bindAsObject(this.fb, 'items');
     // this is where we bind our event handler
     // firebase has an on method that allows us to listen to any event and just so happens they have an event
     // called value. Firebase emits a value as soon as its sees data flow in or gets data from the server
     // the function 'this.handleDataLoaded' will get called everytime value is triggered
-    fb.on('value', this.handleDataLoaded);
+    this.fb.on('value', this.handleDataLoaded);
   },
   render: function() {
     // top level div is going to make over all architechure container for our overall app
@@ -46,9 +46,33 @@ var App = React.createClass({
         <div className={"content " + (this.state.loaded ? 'loaded': '')}>
           {/* for right now items is a plain object (here is the data), only has the ability to read items not create it */}
           <List items={this.state.items}/>
+          {this.deleteButton()}
         </div>
       </div>
     </div>
+  },
+  deleteButton: function() {
+    if(!this.state.loaded) {
+      return
+    } else {
+      return <div className="text-center clear-complete">
+        <hr />
+        <button
+          type="button"
+          onClick={this.onDeleteDoneClick}
+          className="btn btn-default">
+          Clear Complete
+        </button>
+      </div>
+    }
+  },
+  onDeleteDoneClick: function() {
+    for(var key in this.state.items) {
+      if(this.state.items[key].done === true) {
+        // find a particular element/key and when you find it remove it
+        this.fb.child(key).remove();
+      }
+    }
   },
   handleDataLoaded: function() {
     // this is inside our event handler to trigger true

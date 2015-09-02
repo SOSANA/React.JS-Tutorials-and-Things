@@ -11,10 +11,8 @@ module.exports = React.createClass({
   },
   // defining our helper method
   renderList: function() {
-    // checking the 'this.props.items' object has any entries in it. We can get access to those list of entries
-    // by using the javascript method Object.keys, and we pass this an object and that returns us a array of all
-    // the keys
-    if(this.props.items && Object.keys(this.props.items).length === 0) {
+    // checking the 'this.props.items' object has any entries in it. 
+    if(!this.props.items) {
       return <h4>
         Add a todo to get started.
       </h4>
