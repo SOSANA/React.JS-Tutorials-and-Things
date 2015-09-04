@@ -3,7 +3,7 @@ var React = require('react');
 var Firebase = require('firebase');
 // where we want firebase to reach out too to look for our data
 // refer to apiKey.js for url info, don't forget the '/' at end of url
-var rootURL = 'https://your-url.firebaseio.com/';
+var rootURL = 'https://blistering-inferno-5460.firebaseio.com/';
 
 module.exports = React.createClass({
   getInitialState: function() {

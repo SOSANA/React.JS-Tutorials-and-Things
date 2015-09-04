@@ -7,7 +7,7 @@ var Header = require('./header');
 var List = require('./list');
 // where we want firebase to reach out too to look for our data
 // refer to apiKey.js for url info, don't forget the '/' at end of url
-var rootURL = 'https://your-url.firebaseio.com/';
+var rootURL = 'https://blistering-inferno-5460.firebaseio.com/';
 
 var App = React.createClass({
   // a mixin is a group of methods that sits on one object, that gets copied over to another object
