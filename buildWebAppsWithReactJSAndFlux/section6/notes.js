@@ -5,6 +5,7 @@
  * 
  * Src code found here:
  *  https://github.com/StephenGrider/ReactStarter
+ *  https://github.com/StephenGrider/ReactCasts
  * 
  * install the following for react=router version:
 *   - $ npm install react-router@1.0.0-beta2 --save
