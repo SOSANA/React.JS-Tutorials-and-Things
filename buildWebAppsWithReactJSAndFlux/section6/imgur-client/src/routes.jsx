@@ -9,7 +9,7 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 
 var Main = require('./components/main');
-
+/*
 module.exports = React.createClass({
   render: function() {
     return <Router history={new HashHistory}>
@@ -19,8 +19,8 @@ module.exports = React.createClass({
   </Router>
   }
 });
+*/
 
-/*
 module.exports = {
   <Router history={new HashHistory}>
     <Route path="/" component={Main}>
@@ -28,4 +28,3 @@ module.exports = {
     </Route>
   </Router>
 }
-*/
