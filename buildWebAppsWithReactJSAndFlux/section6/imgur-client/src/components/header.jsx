@@ -7,7 +7,7 @@ module.exports = React.createClass({
         <a href="/" className="navbar-brand">
           Imgur browser
         </a>
-        <ul className="nav navbar-nav navbar-right>
+        <ul className="nav navbar-nav navbar-right">
           <li> <a>Topic #1</a> </li>
         </ul>
       </div>
