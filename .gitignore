@@ -18,5 +18,6 @@ apiKey.js
 
 *.module-cache*
 node_modules
+style.css
 static/assets/css/*.css
 static/assets/js/*.js
