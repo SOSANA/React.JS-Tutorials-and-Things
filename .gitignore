@@ -14,6 +14,7 @@
 .settings
 main.js
 apiKey.js
+apiKeyMaster.js
 .c9
 
 *.module-cache*
