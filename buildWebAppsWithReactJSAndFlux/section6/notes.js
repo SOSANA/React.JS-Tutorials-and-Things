@@ -8,5 +8,11 @@
  *  https://github.com/StephenGrider/ReactCasts
  * 
  * install the following for react=router version:
-*   - $ npm install react-router@1.0.0-beta2 --save
+ * - $ npm install react-router@1.0.0-beta2 --save
+ * 
+ * install the following for fetch version:
+ * - native fetch function for browers, its like jquery's ajax 
+ *   function but without the entire weight of jquery around it
+ * - more info found at src: https://github.com/github/fetch
+ * - $ npm install --save whatwg-fetch
  */
