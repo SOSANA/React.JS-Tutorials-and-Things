@@ -15,4 +15,8 @@
  *   function but without the entire weight of jquery around it
  * - more info found at src: https://github.com/github/fetch
  * - $ npm install --save whatwg-fetch
+ * 
+ *  install the following for Flux (reflux) version:
+ *  - $ npm install --save reflux
+ *  - more info found at src: https://github.com/reflux/refluxjs
  */
