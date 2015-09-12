@@ -3,9 +3,30 @@
   */
 var Fetch = require('whatwg-fetch');
 var rootUrl = 'https://api.imgur.com/3/';
-var apiKey = 'grab the Client ID api key';
+// manually add Client-ID API KEY
+var apiKey = 'Add Client-ID API';
 
-module.exports = window.api = {
+/** 
+  * making a request with fetch returns a promise object
+  * we use promises to deal with code that might take a long time to complete
+  * like ex: ajax requests. When the response is complete. It will call what ever
+  * function we pass to .then(). The function we pass to .then() is called with this
+  * response object. The response object itself doesn't contain any data that is 
+  * useful to us. To make use of the data we have to call the function json() on it.
+  * Once we call response.json() we are going to chain on another .then() and pass it
+  * in function that in turn gets a paremeter of data and this data object is the 
+  * actual useful data that we want to work with
+  * ex:
+    module.exports = window.api = {
+    ...
+  * Api.get('topics/defaults')
+    .then(function(response){
+      // Do something with the data ex:
+      return response.json();
+    })
+  */
+
+module.exports = {
   
   get: function(url) {
     // to make the actual ajax request we used the fetch library
@@ -17,22 +38,6 @@ module.exports = window.api = {
         'Authorization': 'Client-ID ' + apiKey
       }
     })
-    /** making a request with fetch returns a promise object
-      * we use promises to deal with code that might take a long time to complete
-      * like ex: ajax requests. When the response is complete. It will call what ever
-      * function we pass to .then(). The function we pass to .then() is called with this
-      * response object. The response object itself doesn't contain any data that is 
-      * useful to us. To make use of the data we have to call the function json() on it.
-      * Once we call response.json() we are going to chain on another .then() and pass it
-      * in function that in turn gets a paremeter of data and this data object is the 
-      * actual useful data that we want to work with
-      * ex:
-      * Api.get('topics/defaults')
-        .then(function(response){
-          // Do something with the data ex:
-          return response.json();
-        })
-      */
     .then(function(response){
       return response.json();
     });
