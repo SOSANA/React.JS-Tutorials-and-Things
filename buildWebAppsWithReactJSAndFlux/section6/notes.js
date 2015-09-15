@@ -18,5 +18,5 @@
  * 
  *  install the following for Flux (reflux) version:
  *  - $ npm install --save reflux
- *  - src: https://github.com/github/fetch
+ *  - more info found at src: https://github.com/github/fetch
  */
