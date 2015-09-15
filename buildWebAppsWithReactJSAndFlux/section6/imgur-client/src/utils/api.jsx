@@ -4,7 +4,7 @@
 var Fetch = require('whatwg-fetch');
 var rootUrl = 'https://api.imgur.com/3/';
 // manually add Client-ID API KEY
-var apiKey = 'Add Client-ID API';
+var apiKey = 'add Client-ID API KEY';
 
 /** 
   * making a request with fetch returns a promise object
@@ -27,7 +27,6 @@ var apiKey = 'Add Client-ID API';
   */
 
 module.exports = {
-  
   get: function(url) {
     // to make the actual ajax request we used the fetch library
     // we pass fetch the absolute url and specific api endpoint we want to hit
@@ -39,8 +38,7 @@ module.exports = {
       }
     })
     .then(function(response){
-      return response.json();
-    });
+      return response.json()
+    })
   }
 };
-
