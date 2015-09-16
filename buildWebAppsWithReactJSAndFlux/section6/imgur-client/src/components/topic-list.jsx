@@ -1,23 +1,28 @@
 var React = require('react');
-var Api = require('../utils/api');
+var TopicStore = require('../stores/topic-store');
 
 module.exports = React.createClass({
   getInitialState: function() {
     return {
       topics: []
-    }
+    };
   },
   // always ran right before the component is rendered and only runs once
   componentWillMount: function() {
-    Api.get('topics/defaults')
-    // our function has a reference to 'this'
-    .then(function(data) {
-      this.setState({
-        // function is getting called that we are calling data and it so happens that
-        // object contains a key called data as well which is an array of topics
-        topics: data.data
-      });
-    }.bind(this));
+    // when ever we call getTopics, the TopicStore will reach out and grab 
+    // our data and assign it to 'this.topics'
+    TopicStore.getTopics()
+      // when we pass a function to .then we know that 'TopicStore.topics'
+      // will be defined with our list of data or all the data we want. We
+      // then assign it to setState which will cause our component to render
+      // which will show us a list of topics
+      .then(function(){
+        // once this is run we have successfully fetched topics and topics are
+        // available on TopicStore.topics
+        this.setState({
+          topics: TopicStore.topics
+        });
+   }.bind(this));
   },
   render: function() {
     return <div className="list-group">
