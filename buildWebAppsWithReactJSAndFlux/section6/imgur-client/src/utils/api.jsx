@@ -1,6 +1,7 @@
-/** making a special api module that will make all our requests to imgur by
-  * centralizing all our data we want to work with 
-  */
+/** 
+ * making a special api module that will make all our requests to imgur by
+ * centralizing all our data we want to work with 
+ */
 var Fetch = require('whatwg-fetch');
 var rootUrl = 'https://api.imgur.com/3/';
 // manually add Client-ID API KEY
