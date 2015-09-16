@@ -7,7 +7,7 @@ module.exports = React.createClass({
       topics: []
     }
   },
-  // always ran right before the component is rendered
+  // always ran right before the component is rendered and only runs once
   componentWillMount: function() {
     Api.get('topics/defaults')
     // our function has a reference to 'this'
