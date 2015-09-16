@@ -7,12 +7,14 @@ module.exports = React.createClass({
       topics: []
     }
   },
+  // always ran right before the component is rendered
   componentWillMount: function() {
     Api.get('topics/defaults')
     // our function has a reference to 'this'
     .then(function(data) {
       this.setState({
-        // so happens that our object data we created has a key called data 
+        // function is getting called that we are calling data and it so happens that
+        // object contains a key called data as well which is an array of topics
         topics: data.data
       });
     }.bind(this));
@@ -20,6 +22,7 @@ module.exports = React.createClass({
   render: function() {
     return <div className="list-group">
       Topic List
+      {this.renderTopics()}
     </div>
   },
   renderTopics: function() {
