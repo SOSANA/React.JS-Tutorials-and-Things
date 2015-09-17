@@ -1,7 +1,15 @@
 var React = require('react');
+var Reflux = require('reflux');
 var TopicStore = require('../stores/topic-store');
 
 module.exports = React.createClass({
+  // this mixin says this component that we are writing right needs to listen to
+  // any event that is triggered by TopicStore, when TopicStore triggers an event
+  // run the function 'onChange', which is a direct mapping to the function we 
+  // declared at the bottom
+  mixins: [
+    Reflux.listenTo(TopicStore, 'onChange')
+  ],
   getInitialState: function() {
     return {
       topics: []
@@ -9,20 +17,7 @@ module.exports = React.createClass({
   },
   // always ran right before the component is rendered and only runs once
   componentWillMount: function() {
-    // when ever we call getTopics, the TopicStore will reach out and grab 
-    // our data and assign it to 'this.topics'
-    TopicStore.getTopics()
-      // when we pass a function to .then we know that 'TopicStore.topics'
-      // will be defined with our list of data or all the data we want. We
-      // then assign it to setState which will cause our component to render
-      // which will show us a list of topics
-      .then(function(){
-        // once this is run we have successfully fetched topics and topics are
-        // available on TopicStore.topics
-        this.setState({
-          topics: TopicStore.topics
-        });
-   }.bind(this));
+    TopicStore.getTopics();
   },
   render: function() {
     return <div className="list-group">
@@ -36,5 +31,17 @@ module.exports = React.createClass({
         {topic}
       </li>
     });
+  },
+  /**
+   * Whenever TropicStore emits an event, onChange is going to run. We know 
+   * that the second argument to this function is going to be the new data, 
+   * the list of topics. The First one is going to be the name of the event.
+   * We are going to take the array, data, or list of topics and set it on 
+   * state using '.setState', as always when we '.setState' its going to trigger
+   * a re-render of this component. Its going to run our 'render' function 
+   * again which in turn calls 'renderTopics' 
+   */
+  onChange: function(event, topics) {
+    this.setState({ topics: topics });
   }
 });
