@@ -1,6 +1,7 @@
 var React = require('react');
 var Reflux = require('reflux');
 var TopicStore = require('../stores/topic-store');
+var Actions = require('../actions/topic-action');
 
 module.exports = React.createClass({
   // this mixin says this component that we are writing right needs to listen to
@@ -17,7 +18,7 @@ module.exports = React.createClass({
   },
   // always ran right before the component is rendered and only runs once
   componentWillMount: function() {
-    TopicStore.getTopics();
+    Actions.getTopics();
   },
   render: function() {
     return <div className="list-group">
