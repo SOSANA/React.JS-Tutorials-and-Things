@@ -1,4 +1,7 @@
 /**
+ * check out lecture 52 for recap on Flux data fetching
+ *  src: https://www.udemy.com/learn-and-understand-reactjs/
+ * 
  * remember the following: 
  *  - the only way we can pass data between components is through 'this.props' object
  *    and the component needs to render its child component to have access
