@@ -2,6 +2,8 @@ var React = require('react');
 var Reflux = require('reflux');
 var TopicStore = require('../stores/topic-store');
 var Actions = require('../actions/topic-action');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 module.exports = React.createClass({
   // this mixin says this component that we are writing right needs to listen to
@@ -28,9 +30,10 @@ module.exports = React.createClass({
   },
   renderTopics: function() {
     return this.state.topics.map(function(topic) {
-      return <li>
-        {topic}
-      </li>
+      return <link className="list-group-item" key={topic.id}>
+        <h4>{topic.name}</h4>
+        <p>{topic.description}</p>
+      </link>
     });
   },
   /**
