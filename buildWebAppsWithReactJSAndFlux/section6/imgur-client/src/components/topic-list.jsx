@@ -30,10 +30,10 @@ module.exports = React.createClass({
   },
   renderTopics: function() {
     return this.state.topics.map(function(topic) {
-      return <link className="list-group-item" key={topic.id}>
+      return <Link to={"topics/" + topic.id} className="list-group-item" key={topic.id}>
         <h4>{topic.name}</h4>
         <p>{topic.description}</p>
-      </link>
+      </Link>
     });
   },
   /**
@@ -46,6 +46,6 @@ module.exports = React.createClass({
    * again which in turn calls 'renderTopics' 
    */
   onChange: function(event, topics) {
-    this.setState({ topics: topics });
+    this.setState({topics: topics});
   }
 });
