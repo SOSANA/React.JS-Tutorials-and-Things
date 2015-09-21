@@ -6,6 +6,8 @@
  var Actions = require('../actions/topic-action');
  
  module.exports = Reflux.createStore({
+  // listenables provided by reflux
+  // listening to all the actions via the property listenables
   listenables: [Actions],
   getTopics: function() {
    return Api.get('topics/defaults')
@@ -15,8 +17,7 @@
       // triggerChange()
       this.triggerChange();
       }.bind(this));
-},
-   
+  },
 /**
  * Define our trigger change
  * - 'this.trigger' is a method provided from Reflux and we get access because we use
@@ -30,7 +31,7 @@
  *   would call a function to which we got an event object, and that event object contained some amount 
  *   of information about what just occured
  */
- triggerChange: function () {
-  this.trigger('change', this.topics);
- }
+   triggerChange: function () {
+    this.trigger('change', this.topics);
+   }
  });
