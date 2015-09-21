@@ -16,7 +16,7 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       topics: []
-    };
+    }
   },
   // always ran right before the component is rendered and only runs once
   componentWillMount: function() {
