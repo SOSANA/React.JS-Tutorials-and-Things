@@ -14,7 +14,8 @@ var Topic = require('./components/topic');
 module.exports = (
   <Router history={new HashHistory}>
     <Route path="/" component={Main}>
-      <Route path="topics/id" component={Topic} />
+      {/* using '/:' for parameters */}
+      <Route path="topics/:id" component={Topic} />
 
     </Route>
   </Router>
