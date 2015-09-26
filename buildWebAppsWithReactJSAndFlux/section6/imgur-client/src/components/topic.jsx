@@ -20,7 +20,7 @@ module.exports = React.createClass({
   },
   // componentWillReceiveProps is invoked when a component is receiving new properties. 
   // This is a react method that gets called with an object called 'nextProps'. 'nextProps' 
-  // means whenever this function is called, we are about t get new set of properties and 
+  // means whenever this function is called, we are about to get new set of properties and 
   // when that happens you have to rerender yourself
   componentWillReceiveProps: function(nextProps) {
     Actions.getImages(nextProps.params.id);
