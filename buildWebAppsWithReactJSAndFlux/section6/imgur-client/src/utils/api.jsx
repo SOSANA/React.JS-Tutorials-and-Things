@@ -5,7 +5,7 @@
 var Fetch = require('whatwg-fetch');
 var rootUrl = 'https://api.imgur.com/3/';
 // manually add Client-ID API KEY
-var apiKey = 'add Client-ID API KEY';
+var apiKey = '2f86dc640a7d780';
 
 /** 
   * making a request with fetch returns a promise object
