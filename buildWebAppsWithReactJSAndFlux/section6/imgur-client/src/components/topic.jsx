@@ -2,6 +2,7 @@ var React = require('react');
 var Actions = require('../actions/topic-action');
 var ImageStore = require('../stores/image-store');
 var Reflux = require('reflux');
+var ImagePreview = require('./image-preview');
 
 module.exports = React.createClass({
   mixins: [
@@ -15,7 +16,7 @@ module.exports = React.createClass({
   // componentWillMount Method is invoked once both on the client and on the server
   componentWillMount: function() {
     // for testing
-    console.log('Topic is about to render and fetch data');
+    //console.log('Topic is about to render and fetch data');
     Actions.getImages(this.props.params.id);
   },
   // componentWillReceiveProps is invoked when a component is receiving new properties. 
@@ -27,14 +28,19 @@ module.exports = React.createClass({
   },
   render: function() {
     // for testing
-    console.log('Topic is rendering with ID', this.props.params.id);
-    console.log('I have this many images', this.state.images.length);
+    //console.log('Topic is rendering with ID', this.props.params.id);
+    //console.log('I have this many images', this.state.images.length);
     return <div>
-      I am a topic with ID {this.props.params.id}
-      
+      { this.renderImages() }
     </div>
+  },
+  renderImages: function() {
+    return this.state.images.slice(0, 20).map(function(image){
+      // rather than apply this.props.image, this.props.name, this.props.description, etc we use '...'
+      return <ImagePreview key={image.id} {...image} />
+    });
   },
   onChange: function(event, images) {
     this.setState({images: images});
   }
-})
+});
