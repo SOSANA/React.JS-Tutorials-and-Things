@@ -4,6 +4,14 @@
 .image-preview {
   display: inline-block;
   position: relative; }
+  .image-preview .inset {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    opacity: .7; }
   .image-preview .glyphicon {
     position: absolute;
     top: 50%;
