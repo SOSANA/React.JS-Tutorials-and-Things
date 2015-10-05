@@ -35,14 +35,14 @@ module.exports = Reflux.createStore({
         this.triggerChange();
       }.bind(this));
   },
-  find: function(id) {
+  find: function(id){
     /**
      * using another lodash method. '_.findWhere' takes a collection of
      * data ex 'this.images' and finds the first record in that collection
      * that has an key id that is equal to the property id that we passed in
      * ex {id: id}
      */
-    var image = _.findWhere(this.images, {id: id})   ;
+    var image = _.findWhere(this.images, {id: id});
     
     if(image) {
       return image
