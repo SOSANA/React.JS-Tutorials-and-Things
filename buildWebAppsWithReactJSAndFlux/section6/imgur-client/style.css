@@ -1,6 +1,12 @@
 .header .active {
   font-weight: 900; }
 
+.image-detail .panel-body {
+  text-align: center; }
+
+.image-detail img, .image-detail video {
+  max-width: 100%; }
+
 .image-preview {
   display: inline-block;
   position: relative; }
