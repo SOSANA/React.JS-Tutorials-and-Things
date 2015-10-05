@@ -41,3 +41,11 @@
 
 .topic {
   text-align: center; }
+  .topic .image-preview {
+    animation: fadin 0.65s ease-out; }
+
+@keyframes fadin {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1.0; } }
