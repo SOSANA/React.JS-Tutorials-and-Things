@@ -4,7 +4,9 @@ var Link = ReactRouter.Link;
 
 module.exports = React.createClass({
   getInitialState: function() {
-    hovering: false
+    return {
+      hovering: false
+    }
   },
   render: function() {
     // react provides onMouseEnter & onMouseLeave
