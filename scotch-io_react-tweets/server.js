@@ -1,5 +1,5 @@
 // require our dependencies
-var express = require('express');
+var express = require('express'),
 exphbs = require('express-handlebars'),
 http = require('http'),
 mongoose = require('mongoose'),
