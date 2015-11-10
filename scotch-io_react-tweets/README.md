@@ -26,7 +26,9 @@ package.json
 routes.js // Route definitions
 server.js   // Server side main
 ```
+
 npm commands we can use:
+
 `npm run watch` – Running this command starts a watchify watch, so when we edit our js files, they get browserified on save.
 
 `npm run build` – Running this command builds our bundle.js and minifies it for production
