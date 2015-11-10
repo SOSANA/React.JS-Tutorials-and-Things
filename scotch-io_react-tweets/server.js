@@ -52,6 +52,6 @@ var server = http.createServer(app).listen(port, function() {
 var io = require('socket.io').listen(server);
 
 // set a stream listener fo retweets matching tracking keywords
-twit.stream('statuses/filter', { track: 'scotch_io', #scotchio}, function (stream) {
+twit.stream('statuses/filter', { track: 'scotch_io', #scotchio}, function(stream) {
   streamHandler(stream, io);
 });
