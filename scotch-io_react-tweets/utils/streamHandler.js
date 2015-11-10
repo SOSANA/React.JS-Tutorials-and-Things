@@ -2,6 +2,10 @@
  * When our Twitter stream connection sends a new Tweet event, we need a method
  * to take that data, save it to our database, and emit an event to the client
  * side with the tweet data
+ *
+ * We start by requiring our Model, and when our stream emits an event, we grab
+ * the data we want to save, save it, and emit our socket event to the client
+ * with the Tweet we just saved.
  */
 var Tweet = require('../models/Tweet');
 
@@ -33,5 +37,5 @@ module.exports = function (stream, io) {
     });
 
   });
-  
+
 };
