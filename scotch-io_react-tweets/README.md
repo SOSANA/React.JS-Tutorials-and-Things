@@ -28,10 +28,7 @@ server.js   // Server side main
 ```
 npm commands we can use:
 
-`npm run watch` – Running this command starts a watchify watch, so when we edit our js files, they get browserified on save.
-
-`npm run build` – Running this command builds our bundle.js and minifies it for production
-
-`npm start` – Running this command sets up a watch and runs our app via nodemon
-
-`node server` – This command is what we use to run our app. In a production environment, I would recommend using something like forever or pm2.
+#`npm run watch` – Running this command starts a watchify watch, so when we edit our js files, they get browserified on save.
+#`npm run build` – Running this command builds our bundle.js and minifies it for production
+#`npm start` – Running this command sets up a watch and runs our app via nodemon
+#`node server` – This command is what we use to run our app. In a production environment, I would recommend using something like forever or pm2.
