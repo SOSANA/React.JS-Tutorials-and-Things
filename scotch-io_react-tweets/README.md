@@ -1,9 +1,10 @@
 # [react-tweets](https://github.com/scotch-io/react-tweets)
  A Real-Time Twitter Stream with Node and React.js
 
-`components/ // React Components Directory
----- Loader.react.js            // Loader Component
----- NotificationBar.react.js   // Notification Bar Component
+```
+#components/ // React Components Directory
+#---- Loader.react.js            // Loader Component
+#---- NotificationBar.react.js   // Notification Bar Component
 ---- Tweet.react.js             // Single Tweet Component
 ---- Tweets.react.js            // Tweets Component
 ---- TweetsApp.react.js         // Main App Component
@@ -23,4 +24,6 @@ app.js      // Client side main
 config.js   // App configuration
 package.json
 routes.js // Route definitions
-server.js   // Server side main`
+server.js   // Server side main
+
+```
