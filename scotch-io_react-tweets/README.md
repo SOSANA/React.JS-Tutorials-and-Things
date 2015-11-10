@@ -1,6 +1,6 @@
 # [react-tweets](https://github.com/scotch-io/react-tweets)
- A Real-Time Twitter Stream with Node and React.js
-### Project Directory Structure
+### A Real-Time Twitter Stream with Node and React.js
+Project Directory Structure
 ```
 components/ // React Components Directory
 ---- Loader.react.js            // Loader Component
@@ -26,7 +26,7 @@ package.json
 routes.js // Route definitions
 server.js   // Server side main
 ```
-### We now have a couple of commands we can use:
+We now have a couple of commands we can use:
 ```
 npm run watch – Running this command starts a watchify watch, so when we edit our js files, they get browserified on save.
 npm run build – Running this command builds our bundle.js and minifies it for production
