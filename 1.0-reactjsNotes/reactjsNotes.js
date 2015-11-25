@@ -22,4 +22,13 @@
  *  	refactor it by splitting it into smaller sub-components.
  *  - The top-level App component contains Navbar, Homepage and Footer components.
  *  	Homepage component contains two Character components.
+ *  - So, whenever you have a certain UI design in mind, start by breaking it
+ *  	apart from top-down and always be mindful of how your data propagates from
+ *   	parent to child, child to parent and between sibling components or you
+ *    will quickly find yourself completely lost. It may be difficult initially,
+ *    but it will become second nature to you after building a few React apps.
+ *  - So, next time you decide to build a new app in React, before writing any
+ *  	code, do this hierarchy outline first. It will help you to visualize the
+ *   relationships between multiple components and build them accordingly.
+ * 	- ref: thinkingInReact.png
  */
