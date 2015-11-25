@@ -1,3 +1,6 @@
+// Babel ES6/JSX Compiler
+require('babel-core/register');
+
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -9,6 +12,7 @@ var colors = require('colors');
 var mongoose = require('mongoose');
 var request = require('request');
 var React = require('react');
+var ReactDOM = require('react-dom/server');
 var Router = require('react-router');
 var swig  = require('swig');
 var xml2js = require('xml2js');
@@ -73,7 +77,6 @@ app.get('/api/characters', function(req, res, next) {
         });
     });
 });
-
 
 /**
  * PUT /api/characters
@@ -433,56 +436,21 @@ app.post('/api/report', function(req, res, next) {
   });
 });
 
-app.post('/api/subscribe', function(req, res, next) {
-  var email = req.body.email;
-  var characterId = req.body.characterId;
-
-  if (!validator.isEmail(email)) {
-    return res.status(400).send('Invalid email address.');
-  }
-
-  if (!characterId) {
-    return res.status(400).send({ message: 'Character ID is missing.' });
-  }
-
-  Subscriber.findOne({ email: email }, function(err, subscriber) {
-    if (err) return next(err);
-
-    if (!subscriber) {
-      subscriber = new Subscriber();
-      subscriber.email = email;
-    }
-
-    if (_.contains(subscriber.characters, characterId)) {
-      return res.status(409).send({ message: 'You are already subscribed to this character.' });
-    }
-
-    subscriber.characters.push(characterId);
-
-    subscriber.save(function(err) {
-      if (err) return next(err);
-
-      var weeklyReport = agenda.schedule('Sunday at noon', 'send weekly report', { email: email, characterId: characterId });
-      weeklyReport.repeatEvery('1 week').save();
-      agenda.start();
-
-      res.status(200).end();
-    });
-  });
-});
-
-app.post('/api/unsubscribe', function(req, res, next) {
-
-});
-
 app.use(function(req, res) {
-  Router.run(routes, req.path, function(Handler) {
-    var html = React.renderToString(React.createElement(Handler));
-    var page = swig.renderFile('views/index.html', { html: html });
-    res.send(page);
+  Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {
+    if (err) {
+      res.status(500).send(err.message)
+    } else if (redirectLocation) {
+      res.status(302).redirect(redirectLocation.pathname + redirectLocation.search)
+    } else if (renderProps) {
+        var html = ReactDOM.renderToString(React.createElement(Router.RoutingContext, renderProps));
+        var page = swig.renderFile('views/index.html', { html: html });
+        res.status(200).send(page);
+    } else {
+      res.status(404).send('Page Not Found')
+    }
   });
 });
-
 
 app.use(function(err, req, res, next) {
   console.log(err.stack.red);
