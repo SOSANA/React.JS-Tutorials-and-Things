@@ -3,21 +3,21 @@
  *  - online src http://facebook.github.io/react/docs/events.html
  *  - common occurance for events this.handle than whatever event
  *  - ex: onclick={this.handleChange} or onKeyPress={this.handlKeyPress}
- *  - keep in mind you can't put event handlers inside another react 
- *    component, instead it gets passed in as a property. 
+ *  - keep in mind you can't put event handlers inside another react
+ *    component, instead it gets passed in as a property.
  *    See buildWebAppsWithReactJSAndFlux/section4/dropdown/dropdown.jsx
- *    
- * 
+ *
+ *
  *  - Clipboard Events
- *          - onCopy 
- *          - onCut 
+ *          - onCopy
+ *          - onCut
  *          - onPaste
  *      - Properties
- *          - DOMDataTransfer 
+ *          - DOMDataTransfer
  *          - clipboardData
  *  - Keyboard Events
- *          - onKeyDown 
- *          - onKeyPress 
+ *          - onKeyDown
+ *          - onKeyPress
  *          - onKeyUp
  *      - Properties
  *          - boolean altKey
@@ -33,63 +33,63 @@
  *          - boolean shiftKey
  *          - Number which
  * Focus Events
- *          - onFocus 
+ *          - onFocus
  *          - onBlur
  *      - Properties
- *          - DOMEventTarget 
+ *          - DOMEventTarget
  *          - relatedTarget
  * Form Events
- *          - onChange 
- *          - onInput 
+ *          - onChange
+ *          - onInput
  *          - onSubmit
  * Mouse Events
- *          - onClick 
- *          - onContextMenu 
- *          - onDoubleClick 
- *          - onDrag 
- *          - onDragEnd 
- *          - onDragEnter 
- *          - onDragExit 
- *          - onDragLeave 
- *          - onDragOver 
- *          - onDragStart 
- *          - onDrop 
- *          - onMouseDown 
- *          - onMouseEnter 
- *          - onMouseLeave 
- *          - onMouseMove 
- *          - onMouseOut 
- *          - onMouseOver 
+ *          - onClick
+ *          - onContextMenu
+ *          - onDoubleClick
+ *          - onDrag
+ *          - onDragEnd
+ *          - onDragEnter
+ *          - onDragExit
+ *          - onDragLeave
+ *          - onDragOver
+ *          - onDragStart
+ *          - onDrop
+ *          - onMouseDown
+ *          - onMouseEnter
+ *          - onMouseLeave
+ *          - onMouseMove
+ *          - onMouseOut
+ *          - onMouseOver
  *          - onMouseUp
  *      - Properties
- *          - boolean altKey 
- *          - Number button 
- *          - Number clientX 
- *          - Number clientY 
- *          - boolean ctrlKey 
- *          - function getModifierState(key) 
- *          - boolean metaKey 
- *          - Number pageX 
- *          - Number pageY 
- *          - DOMEventTarget 
- *          - relatedTarget 
- *          - Number screenX 
- *          - Number screenY 
+ *          - boolean altKey
+ *          - Number button
+ *          - Number clientX
+ *          - Number clientY
+ *          - boolean ctrlKey
+ *          - function getModifierState(key)
+ *          - boolean metaKey
+ *          - Number pageX
+ *          - Number pageY
+ *          - DOMEventTarget
+ *          - relatedTarget
+ *          - Number screenX
+ *          - Number screenY
  *          - boolean shiftKey
  * Touch events
  *  - To enable touch events, call React.initializeTouchEvents(true)
- *          - onTouchCancel 
- *          - onTouchEnd 
- *          - onTouchMove 
+ *          - onTouchCancel
+ *          - onTouchEnd
+ *          - onTouchMove
  *          - onTouchStart
  *      - Properties
- *          - boolean altKey 
- *          - DOMTouchList changedTouches 
- *          - boolean ctrlKey 
- *          - function getModifierState(key) 
- *          - boolean metaKey 
- *          - boolean shiftKey 
- *          - DOMTouchList targetTouches 
+ *          - boolean altKey
+ *          - DOMTouchList changedTouches
+ *          - boolean ctrlKey
+ *          - function getModifierState(key)
+ *          - boolean metaKey
+ *          - boolean shiftKey
+ *          - DOMTouchList targetTouches
  *          - DOMTouchList touches
  * UI Events
  *          - onScroll

@@ -3,7 +3,7 @@
  *  - JSX lets us write HTML inside our javascript
  *  - first we write jsx than compile it to javascript
  *  - refer to ..masterReactJS/jsxTools folder for example
- *  - <script src="../js/JSXTransformer.js"></script> is a heavy file and advised to convert it to a 
+ *  - <script src="../js/JSXTransformer.js"></script> is a heavy file and advised to convert it to a
  *    normal js file for use in production
  *  - you can visit https://facebook.github.io/react/jsx-compiler.html for a side by side comparison
  *  - you can also get the Production CDN URL From http://facebook.github.io/react/downloads.html
@@ -16,5 +16,5 @@
  *      > jsx --watch js/ build/
  *      - once this is done you should see a new folder with build in it containing the new files
  *        that have been transpiled to js
- *      - remember to use html files that don't include jsx script tag and use the minified script files 
+ *      - remember to use html files that don't include jsx script tag and use the minified script files
  */
