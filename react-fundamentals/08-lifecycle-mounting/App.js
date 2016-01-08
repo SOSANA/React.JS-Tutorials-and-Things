@@ -1,5 +1,5 @@
 /**
- * when a component is added or removed this is called mounting
+ * - when a component is added or removed this is called mounting and unmounting
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
