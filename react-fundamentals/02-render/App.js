@@ -1,3 +1,6 @@
+/**
+ * - render method of react is only allowed to return a single node
+ */
 import React from 'react';
 
 // one way to create a component, called a 'class component' which has state
