@@ -1,3 +1,10 @@
+/**
+ * - we can pass values into our component using something called props or
+ * 	 properties. This is going to look at a lot like passing or setting an
+ *   attribute on a standard HTML element
+ * - props are meant to be passed into our component as static values or
+ * 	 methods
+ */
 import React from 'react';
 
 class App extends React.Component {
