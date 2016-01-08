@@ -1,3 +1,8 @@
+/**
+ * - when one component renders another component, this is what react refer's
+ * 	 to as the 'owner-ownee' relationship where the parent component is also
+ * 	 called a composite component
+ */
 import React from 'react';
 
 class App extends React.Component {
