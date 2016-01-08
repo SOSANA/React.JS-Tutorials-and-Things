@@ -1,3 +1,7 @@
+/**
+ * - refs are a way to reference an instance of a component from within our
+ * 	 react application
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
