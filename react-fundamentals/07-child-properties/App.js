@@ -1,3 +1,7 @@
+/**
+ * - when we want to access the inner HTML or nested components of another
+ * 	 Component we can use 'this.props.children' in react
+ */
 import React from 'react';
 
 class App extends React.Component {
