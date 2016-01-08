@@ -1,3 +1,8 @@
+/**
+ * - unlike props which are meant to passed into our component as static values
+ * 	 or methods, state is a collection of values thats meant to be managed by
+ * 	 our component itself
+ */
 import React from 'react';
 
 class App extends React.Component {
