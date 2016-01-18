@@ -14,6 +14,7 @@
 .settings
 .c9
 config.js
+bundle.js
 
 *.module-cache*
 node_modules
