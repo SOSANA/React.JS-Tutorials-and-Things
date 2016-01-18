@@ -1,8 +1,6 @@
 #
 .project
 *.log
-*.sublime-project
-*.sublime-workspace
 *.orig
 .idea/
 *.dmp
