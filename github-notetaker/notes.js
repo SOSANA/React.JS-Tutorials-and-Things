@@ -6,6 +6,8 @@
  * 	- $ npm install --S react-dom
  * 	- $ npm install --S react-router
  * 	- $ npm install --S history
+ * 	- $ npm install --S babel-register // for registering babel on server and using es6
+ * 	- $ npm install --S react-engine // for server side react rendering
  * 	- $ npm install --save-dev babel-core
  * 	- $ npm install --save-dev babel-loader
  * 	- $ npm install --save-dev babel-preset-es2015
