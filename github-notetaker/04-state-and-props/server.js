@@ -34,6 +34,12 @@ app.set('view', ReactEngine.expressView);
 // expose public folder as static assets
 app.use(express.static(path.join(__dirname, '/public')));
 
+// handle every other route with index.html, which will contain
+// a script tag to your application's JavaScript file(s).
+app.get('*', function(req, res) {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+
 var server = app.listen(PORT, function() {
   console.log('Express app is listening at http://localhost:%s', PORT);
 });

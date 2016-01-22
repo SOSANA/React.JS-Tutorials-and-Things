@@ -5,6 +5,6 @@ var routes = require('./config/routes');
 var browserHistory = require('react-router').browserHistory;
 
 ReactDom.render(
-  <Router history={browserHistory}>{routes}</Router>,
+  <Router history={browserHistory} routes={routes} />,
   document.getElementById('app')
 );
