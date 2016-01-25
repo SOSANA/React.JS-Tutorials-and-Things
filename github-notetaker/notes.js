@@ -20,4 +20,8 @@
  *
  * ReactDom:
  *  - tells react to render on the dom and not the server
+ *
+ * Ref:
+ * 	-is like a name tag that you give a input field so you can access that
+ * 	 specific value later
  */
