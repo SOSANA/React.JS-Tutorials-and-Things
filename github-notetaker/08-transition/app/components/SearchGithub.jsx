@@ -2,7 +2,9 @@ var React = require('react');
 var Router = require('react-router');
 
 var SearchGithub = React.createClass({
-  mixins: [Router.History],
+  contextTypes: {
+    router: React.PropTypes.object.isRequired,
+  },
   getRef: function(ref) {
     this.usernameRef = ref;
   },
@@ -10,7 +12,7 @@ var SearchGithub = React.createClass({
   handleSubmit: function() {
     var username = this.usernameRef.value;
     this.usernameRef.value = '';
-    this.history.pushState(null, 'profile/' + username);
+    this.context.router.push('profile/' + username, null);
   },
 
   render: function() {
