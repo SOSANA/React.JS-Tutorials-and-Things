@@ -5,6 +5,7 @@ var Repos = React.createClass({
     username: React.PropTypes.string.isRequired,
     repos: React.PropTypes.array.isRequired,
   },
+
   render: function() {
     console.log('REPOS', this.props.repos);
     return (

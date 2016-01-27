@@ -1,15 +1,15 @@
 var axios = require('axios');
 
 function getRepos(username) {
-  return axios.get('https://api.gethub.com/users/' + username + '/repos');
+  return axios.get('https://api.github.com/users/' + username + '/repos');
 };
 
 function getUserInfo(username) {
-  return axios.get('https://api.gethub.com/users/' + username);
+  return axios.get('https://api.github.com/users/' + username);
 };
 
 var helpers = {
-  getGithubInfo: function() {
+  getGithubInfo: function(username) {
     return axios.all([getRepos(username), getUserInfo(username)])
     .then(function(arr) {
       return {

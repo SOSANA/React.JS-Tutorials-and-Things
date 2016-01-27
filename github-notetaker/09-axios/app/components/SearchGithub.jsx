@@ -1,10 +1,11 @@
 var React = require('react');
-var Router = require('react-router').Router;
+var Router = require('react-router');
 
 var SearchGithub = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired,
   },
+
   getRef: function(ref) {
     this.usernameRef = ref;
   },
