@@ -13,7 +13,7 @@ var SearchGithub = React.createClass({
   handleSubmit: function() {
     var username = this.usernameRef.value;
     this.usernameRef.value = '';
-    this.context.router.push('profile/' + username, null);
+    this.context.router.push('/profile/' + username);
   },
 
   render: function() {
