@@ -6,7 +6,7 @@ var Repos = React.createClass({
     repos: React.PropTypes.array.isRequired,
   },
 
-  render: function() {
+  render: function () {
     console.log('REPOS', this.props.repos);
     return (
       <div>
