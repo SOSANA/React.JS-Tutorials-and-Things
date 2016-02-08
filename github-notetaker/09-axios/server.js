@@ -1,7 +1,7 @@
 'use strict';
 
 require('babel-register')({
-  presets: ['react'],
+  presets: ['react', 'es2015'],
 });
 
 var PORT = 3000;
@@ -36,10 +36,10 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // handle every other route with index.html, which will contain
 // a script tag to your application's JavaScript file(s).
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
-var server = app.listen(PORT, function() {
+var server = app.listen(PORT, function () {
   console.log('Express app is listening at http://localhost:%s', PORT);
 });
