@@ -6,7 +6,7 @@
  * 	- $ npm i -S react-dom
  * 	- $ npm i -S react-router
  * 	- $ npm i -S history
- * 	- $ npm i -S babel-register // for registering babel on server and using es6
+ * 	- $ npm i -S babel-register // for registering babel on server and using es6, see server.js
  * 	- $ npm i -S react-engine // for server side react rendering
  * 	- $ npm i -S reactfire // for using react with firebase
  * 	- $ npm i -S firebase // for firebase
@@ -15,6 +15,7 @@
  * 	- $ npm i --save-dev babel-loader
  * 	- $ npm i --save-dev babel-preset-es2015
  * 	- $ npm i --save-dev babel-preset-react
+ * 	- $ npm i --save-dev colors // for cli colors
  *
  * Start webpack:
  * 	- $ webpack -w
