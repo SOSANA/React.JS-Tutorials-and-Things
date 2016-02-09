@@ -1,0 +1,33 @@
+{
+  "name": "github-notetaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "webpack -p --progress --colors",
+    "dev": "webpack --progress --colors --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.9.1",
+    "babel-register": "^6.5.1",
+    "express": "^4.13.3",
+    "firebase": "^2.4.0",
+    "history": "^2.0.0-rc2",
+    "re-base": "^1.5.1",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-engine": "^3.0.0",
+    "react-router": "^2.0.0-rc5",
+    "reactfire": "^0.5.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.3.13",
+    "colors": "^1.1.2"
+  }
+}
