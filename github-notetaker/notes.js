@@ -11,6 +11,7 @@
  * 	- $ npm i -S reactfire // for using react with firebase
  * 	- $ npm i -S firebase // for firebase
  * 	- $ npm i -S axios // for http requests and promise based
+ * 	- $ npm i -S re-base // similar to reactfire but uses es6 classes
  * 	- $ npm i --save-dev babel-core
  * 	- $ npm i --save-dev babel-loader
  * 	- $ npm i --save-dev babel-preset-es2015
