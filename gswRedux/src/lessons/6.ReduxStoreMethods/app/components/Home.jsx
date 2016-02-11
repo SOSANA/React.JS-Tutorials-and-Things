@@ -3,9 +3,9 @@ import React from 'react';
 // stateless function - only has a render method or no methods at all
 const Home = () => {
   return (
-    <h2 className="text-center">
+    <h1 className="text-left">
       Hello World
-    </h2>
+    </h1>
   );
 };
 
