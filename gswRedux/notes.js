@@ -45,11 +45,42 @@
  *
  * Reducers:
  *  - src: http://redux.js.org/docs/basics/Reducers.html
+ *  - Actions describe the fact that something happened, but don’t specify how the application’s state changes in
+ *  	response. This is the job of a reducer.
+ *  - The reducer is a pure function that takes the previous state and an action, and returns the next state.
+ *  	(previousState, action) => newState
+ *  - It’s called a reducer because it’s the type of function you would pass to
+ *  	Array.prototype.reduce(reducer, ?initialValue). It’s very important that the reducer stays pure. Things you
+ *  	should never do inside a reducer:
+ *  	 - Mutate its arguments;
+ *  	 - Perform side effects like API calls and routing transitions;
+ *  	 - Calling non-pure functions, e.g. Date.now() or Math.random()
+ *  - remember that the reducer must be pure. Given the same arguments, it should calculate the next state and return
+ *  	it. No surprises. No side effects. No API calls. No mutations. Just a calculation.
+ *  - all application state is stored as a single object. It’s a good idea to think of its shape before writing any
+ *  	code. What’s the minimal representation of your app’s state as an object?
+ *  - You’ll often find that you need to store some data, as well as some UI state, in the state tree. This is fine,
+ *  	but try to keep the data separate from the UI state.
+ *  - with regards to relationships in a more complex app, you’re going to want different entities to reference each
+ *  	other. We suggest that you keep your state as normalized as possible, without any nesting. Keep every entity in
+ *  	an object stored with an ID as a key, and use IDs to reference it from other entities, or lists. Think of the app’s
+ *  	state as a database. This approach is described in normalizr's documentation in detail. For example, keeping
+ *  	todosById: { id -> todo } and todos: array<id> inside the state would be a better idea in a real app
  *  -
  *
  * Store:
- *  - src:
- * 	-
+ *  - src: http://redux.js.org/docs/basics/Store.html
+ * 	- holds the state and takes care of calling your reducer when you dispatch an action
+ * 	- we defined the actions that represent the facts about “what happened” and the reducers that update the state
+ * 		according to those actions. The Store is the object that brings them together. The store has the following
+ * 		responsibilities:
+ * 		 - Holds application state;
+ * 		 - Allows access to state via getState();
+ * 		 - Allows state to be updated via dispatch(action);
+ * 		 - Registers listeners via subscribe(listener);
+ * 		 - Handles unregistering of listeners via the function returned by subscribe(listener).
+ * 	- It’s important to note that you’ll only have a single store in a Redux application. When you want to split your
+ * 		data handling logic, you’ll use reducer composition instead of many stores
  *
  * Ecosytem:
  * - src: http://redux.js.org/docs/introduction/Ecosystem.html
