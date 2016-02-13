@@ -66,7 +66,6 @@
  *  	an object stored with an ID as a key, and use IDs to reference it from other entities, or lists. Think of the app’s
  *  	state as a database. This approach is described in normalizr's documentation in detail. For example, keeping
  *  	todosById: { id -> todo } and todos: array<id> inside the state would be a better idea in a real app
- *  -
  *
  * Store:
  *  - src: http://redux.js.org/docs/basics/Store.html
