@@ -1,6 +1,8 @@
 /**
  * Redux Notes
  *
+ * Course notes: https://github.com/tayiorbeii/egghead.io_redux_course_notes
+ *
  * Examples:
  * 	- src: http://redux.js.org/docs/introduction/Examples.html
  *
