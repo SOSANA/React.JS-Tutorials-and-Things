@@ -130,6 +130,13 @@
  *  	holding.
  */
 
+/**
+ * Dispatch Action:
+ *  - To dispatch an action we need to a dispatch function
+ *  - dispatch function is provided by Redux and will propagate our action to all of our reducers.
+ *  	The dispatch function is accessible through the Redux instance property "dispatch"
+ */
+
 // The Redux instance is called a store and can be created like this:
 import { createStore } from 'redux'
 // using only one reducer
@@ -157,6 +164,8 @@ console.log('store_3 state after initialization:', store_3.getState())
 // Output: redux state after initialization: {}
 
 
+// flow of our application
+// ActionCreator -> Action -> dispatcher -> reducer
 // using mulitple reducers with combineReducers
 // userReducer got an initial state in the form of a literal object ({})
 var userReducer = function (state = {}, action) {
@@ -189,6 +198,7 @@ var itemsReducer = function (state = [], action) {
     }
 
   }
+
 // using combineReducers for mulitple reducers
 // here is how you create a Redux instance with multiple reducers:
 import { createStore, combineReducers } from 'redux';
@@ -197,4 +207,32 @@ var reducer = combineReducers({
   user: userReducer,
   tems: itemsReducer
 });
+console.log("\n", '### It starts here')
 console.log('store_0 state after initialization:', store_0.getState())
+
+// To dispatch an action, simply call:
+store_0.dispatch({
+    type: 'AN_ACTION'
+})
+// Output:
+// userReducer was called with state {} and action { type: 'AN_ACTION' }
+// itemsReducer was called with state [] and action { type: 'AN_ACTION' }
+// Each reducer is effectively called but since none of our reducers care about this action type,
+// the state is left unchanged:
+
+var setNameActionCreator = function (name) {
+    return {
+        type: 'SET_NAME',
+        name: name
+    }
+}
+
+store_0.dispatch(setNameActionCreator('bob'))
+// Output:
+// userReducer was called with state {} and action { type: 'SET_NAME', name: 'bob' }
+// itemsReducer was called with state [] and action { type: 'SET_NAME', name: 'bob' }
+
+// We just handled our first action and it changed the state of our application!
+console.log('store_0 state after action SET_NAME:', store_0.getState())
+// Output:
+// store_0 state after action SET_NAME: { user: { name: 'bob' }, items: [] }
