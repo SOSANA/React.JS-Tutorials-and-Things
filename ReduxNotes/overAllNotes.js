@@ -71,6 +71,7 @@
 
 /**
  * Redux instance:
+ * 	- src: reduxNotes/stepByStepNotes/02_about-state-and-meet-redux.js
  *  - holds the state of our application
  *  - when creating a Redux instance you must give it a reducer function
  *  - expects a reducer function that will allow it to reduce your state.
@@ -115,12 +116,14 @@
 
 /**
  * Get State:
+ * 	- src: reduxNotes/stepByStepNotes/04_get-state.js
  *  - to get the state that Redux is holding for us, you call getState()
  *  - this is how we retrieve the state from our Redux instance
  */
 
 /**
  * combineReducers:
+ * 	- src: reduxNotes/stepByStepNotes/05_combine-reducers.js
  *  - We use Redux combineReducers({}) helper function to hold the state of multiple reducers
  *  - a single reducer function cannot hold all our application's actions handling (it could hold it,
  *    but wouldn't be maintainable). Redux doesn't care if we have one reducer or a dozen and it
@@ -132,9 +135,62 @@
 
 /**
  * Dispatch Action:
+ * 	- src: reduxNotes/stepByStepNotes/06_dispatch-action.js
  *  - To dispatch an action we need to a dispatch function
  *  - dispatch function is provided by Redux and will propagate our action to all of our reducers.
  *  	The dispatch function is accessible through the Redux instance property "dispatch"
+ * Dispatch Async Action:
+ *  - requires the use of redux middleware for asynchronous
+ */
+
+/**
+ * Middleware:
+ *  - src: reduxNotes/stepByStepNotes/09_middleware.js
+ *  - is something that goes between parts A and B of an application to
+ *  	transform what A sends before passing it to B.
+ *  	 - So instead of having:
+ *  	 - A -----> B
+ *  	 - We end up having:
+ *  	 - A ---> middleware 1 ---> middleware 2 ---> middleware 3 --> ... ---> B
+ *  - middleware between our action creator and our reducers, we could transform this function into
+ *  	something that suits Redux:
+ *  	 - action ---> dispatcher ---> middleware 1 ---> middleware 2 ---> reducers
+ *  - Our middleware will be called each time an action (or whatever else, like a function in our
+ *  	async action creator case) is dispatched and it should be able to help our action creator
+ *  	dispatch the real action when it wants to (or do nothing - this is a totally valid and
+ *  	sometimes desired behavior)
+ *  - In Redux, middleware are functions that must conform to a very specific signature and follow
+ *  	a strict structure:
+ *   	 var anyMiddleware = function ({ dispatch, getState }) {
+ *     		return function(next) {
+ *     		  return function (action) {
+ *     		  	// your middleware-specific code goes here
+ *     		  }
+ *     		}
+ * 		 }
+ * 	- As you can see above, a middleware is made of 3 nested functions (that will get called sequentially):
+ * 	   1) The first level provide the dispatch function and a getState function (if your middleware or
+ * 	   		your action creator needs to read data from state) to the 2 other levels.
+ * 	   2) The second level provide the next function that will allow you to explicitly hand over your
+ * 	   		transformed input to the next middleware or to Redux (so that Redux can finally call all reducers).
+ * 	   3) the third level provides the action received from the previous middleware or from your dispatch
+ * 	   		and can either trigger the next middleware (to let the action continue to flow) or process
+ * 	   		the action in any appropriate way.
+ * 	- can apply a functional pattern: "currying" may come any functional programming library
+ * 		 (lodash, ramda, etc.)
+ * 		   var thunkMiddleware = curry(
+ * 		     ({dispatch, getState}, next, action) => (
+ * 		       // your middleware-specific code goes here
+ * 		     )
+ * 		   );
+ * 	- The middleware we have to build for our async action creator is called a thunk middleware and
+ * 		- its code is provided here: https://github.com/gaearon/redux-thunk.
+ * 	  - To tell Redux that we have one or more middlewares, we must use one of Redux's
+ * 	  	helper functions: applyMiddleware
+ * 	  - "applyMiddleware" takes all your middlewares as parameters and returns a function to be called
+ * 	  	with Redux createStore. When this last function is invoked, it will produce "a higher-order
+ * 	  	store that applies middleware to a store's dispatch".
+ * 	  	(from https://github.com/rackt/redux/blob/v1.0.0-rc/src/utils/applyMiddleware.js)
  */
 
 // The Redux instance is called a store and can be created like this:
