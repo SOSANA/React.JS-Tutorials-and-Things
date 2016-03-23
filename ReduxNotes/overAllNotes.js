@@ -196,6 +196,10 @@
 
 /**
  * State Subscriber using Provider and Connect:
+ * 	- src: reduxNotes/stepByStepNotes/10_state-subscriber.js
+ * 	- src: reduxNotes/stepByStepNotes/11_Provider-and-connect.js
+ * 	- src: reduxNotes/stepByStepNotes/11_src/src/application.jsx
+ * 	- src: reduxNotes/stepByStepNotes/11_src/src/home.jsx
  * 	- react-redux (https://github.com/rackt/react-redux) holds all the bindings we need to simplify
  * 		our life when using Redux inside React.
  * 	- react-redux brings us: an API that will allow us to seamlessly fill the gap between the raw
