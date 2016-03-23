@@ -194,6 +194,23 @@
  * 	  - For multiple middlewares, write: applyMiddleware(middleware1, middleware2, ...)(createStore)
  */
 
+/**
+ * State Subscriber using Provider and Connect:
+ * 	- react-redux (https://github.com/rackt/react-redux) holds all the bindings we need to simplify
+ * 		our life when using Redux inside React.
+ * 	- react-redux brings us: an API that will allow us to seamlessly fill the gap between the raw
+ * 		Redux subscribing mechanism and our developer expectations. In the end, you won't need to use
+ * 		"subscribe" directly. Instead you will use bindings such as "provide" or "connect" and those
+ * 		will hide from you the "subscribe" method. The "subscribe" method will still be used but it will
+ * 		be done through a higher order API that handles access to redux state for you.
+ *  - Provider:
+ *  	 - is a React Component designed to be used as a wrapper of your application's root component.
+ *  	 	 Its purpose is to provide your redux instance to all of your application's components. How
+ *  	 	 it does that does not really matter to us but just to let you know, it's using React's
+ *  	 	 context feature (it's undocumented so you don't have to know about it, but if you're curious:
+ *  	   https://www.tildedave.com/2014/11/15/introduction-to-contexts-in-react-js.html).
+ */
+
 // The Redux instance is called a store and can be created like this:
 import { createStore } from 'redux'
 // using only one reducer
