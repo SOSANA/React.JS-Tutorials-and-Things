@@ -191,6 +191,7 @@
  * 	  	with Redux createStore. When this last function is invoked, it will produce "a higher-order
  * 	  	store that applies middleware to a store's dispatch".
  * 	  	(from https://github.com/rackt/redux/blob/v1.0.0-rc/src/utils/applyMiddleware.js)
+ * 	  - For multiple middlewares, write: applyMiddleware(middleware1, middleware2, ...)(createStore)
  */
 
 // The Redux instance is called a store and can be created like this:
