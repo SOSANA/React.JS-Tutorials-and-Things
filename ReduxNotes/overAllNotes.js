@@ -83,6 +83,7 @@
  *  	({ type: '@@redux/INIT' })
  */
 
+
 /**
  * Reducers:
  *  - reducers are called "stores" in traditional flux.
@@ -114,12 +115,14 @@
  *  	     absolutely NOT opinionated on this (remember, Redux is a state container).
  */
 
+
 /**
  * Get State:
  * 	- src: reduxNotes/stepByStepNotes/04_get-state.js
  *  - to get the state that Redux is holding for us, you call getState()
  *  - this is how we retrieve the state from our Redux instance
  */
+
 
 /**
  * combineReducers:
@@ -133,6 +136,7 @@
  *  	holding.
  */
 
+
 /**
  * Dispatch Action:
  * 	- src: reduxNotes/stepByStepNotes/06_dispatch-action.js
@@ -142,6 +146,7 @@
  * Dispatch Async Action:
  *  - requires the use of redux middleware for asynchronous
  */
+
 
 /**
  * Middleware:
@@ -193,6 +198,7 @@
  * 	  	(from https://github.com/rackt/redux/blob/v1.0.0-rc/src/utils/applyMiddleware.js)
  * 	  - For multiple middlewares, write: applyMiddleware(middleware1, middleware2, ...)(createStore)
  */
+
 
 /**
  * State Subscriber using Provider and Connect:
