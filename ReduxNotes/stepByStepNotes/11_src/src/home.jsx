@@ -10,19 +10,19 @@
 // avoid asking you to use such a "dark" React API, React-Redux is exposing a function that you can use
 // on a component class.
 
-// The function we're talking about is "connect" and it allows to literally connect your component with your Redux's store.
-// By doing so, it provides your store's dispatch function through a component's prop and also adds any
-// properties you want to expose as part of your store's state.
+// The function we're talking about is "connect" and it allows to literally connect your component with your
+// Redux's store. By doing so, it provides your store's dispatch function through a component's prop and also
+// adds any properties you want to expose as part of your store's state.
 
 // Using "connect", you'll turn a dumb component into a smart component with very little code overhead
 // (https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
 // "connect" is a function that takes as parameters few mapping functions and that returns a function expecting
-// the actual component class you want to connect. Such a function (connect) is called a Higher Order Component (HOC).
-// Higher Order functions comes from a functional pattern designed to add features / behaviors to
-// their inputs (component, store, ...) without using inheritance. This approach favors composition over inheritance
-// which is the prefered way to build React applications (actually this is not limited at all to React applications).
-// Read more about HOCs and composition here:
+// the actual component class you want to connect. Such a function (connect) is called a Higher Order Component
+// (HOC). Higher Order functions comes from a functional pattern designed to add features / behaviors to their
+// inputs (component, store, ...) without using inheritance. This approach favors composition over inheritance
+// which is the prefered way to build React applications (actually this is not limited at all to React
+// applications). Read more about HOCs and composition here:
 // - https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.lpp7we7mx
 // - http://natpryce.com/articles/000814.html
 
