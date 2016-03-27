@@ -137,12 +137,12 @@ export default ConnectedHome
 // Before going to ./12_final-words.js, read this side-note about an alternative way to use "connect" HOC...
 
 // Because connect(...) returns a function that accept a class and returns another class, you can use it as
-// an ES7 decorator if you want to. Decorators are an experimental ES7 features that make it possible to annotate
-// and modify classes and properties at design time (https://github.com/wycats/javascript-decorators).
+// an ES7 decorator if you want to. Decorators are an experimental ES7 features that make it possible to
+// annotate and modify classes and properties at design time (https://github.com/wycats/javascript-decorators).
 
-// This feature being experimental, it is subject to change and breakage. This means that by using it today, you must be
-// fully aware of and accept the uncertainty regarding its evolution. Decorators provide syntax sugar to write the
-// code above slightly differently. Instead of writing:
+// This feature being experimental, it is subject to change and breakage. This means that by using it today,
+// you must be fully aware of and accept the uncertainty regarding its evolution. Decorators provide syntax
+// sugar to write the code above slightly differently. Instead of writing:
 
 /*
   class MyClass {}
