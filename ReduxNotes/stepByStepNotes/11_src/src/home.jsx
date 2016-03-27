@@ -46,8 +46,8 @@
 // You'll see below that we named this function "mapStateToProps". This name is just a semantic name
 // for our function that clearly expresses what the function does: it maps (read "extracts some of")
 //  the state to a few component props.
-// The props of the component are also provided as arguments to handle common cases like extracting a slice of your
-// state depending on a prop value (Ex: state.items[props.someID]).
+// The props of the component are also provided as arguments to handle common cases like extracting a slice of
+// your state depending on a prop value (Ex: state.items[props.someID]).
 // "mapStateToProps" is expected to return the props that you wish to expose to your component (usually via
 // an object literal). It's up to you to eventually transform the state you're receiving before returning it.
 // You can have a look right at that simplest 'connect' usage below (just after the component class definition).
@@ -65,8 +65,9 @@ class Home extends React.Component {
     // There are alternative ways to call actionCreators that are already bound to dispatch and those
     // imply providing the second parameter to 'connect':
     // https://github.com/rackt/react-redux/blob/v4.0.0/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
-    // The "delay" value given to actionCreators.getTime is a delay to simulate an async work being done before we
-    // are able to get the current time. Try to change this value to verify that the delay correctly impacts our UI.
+    // The "delay" value given to actionCreators.getTime is a delay to simulate an async work being done before
+    // we are able to get the current time. Try to change this value to verify that the delay correctly impacts
+    // our UI.
     this.props.dispatch(actionCreators.getTime(delay))
   }
   render () {
@@ -121,14 +122,14 @@ const ConnectedHome = connect(mapStateToProps)(Home)
 
 export default ConnectedHome
 
-// You might have noticed that thanks to redux, while we have a dynamic component that requires some state (to keep
-// the current time), this state is by no mean present inside the component. Our component only receives props with
-// needed data.
-// What we have here is called a stateless component. You should always try to have more stateless components (presented
-// above as dumb components) in your applications than stateful ones because they are much more reusable.
-// As suggested in "onTimeButtonClick" handler, we could even go further by passing our click callback as a prop
-// via "connect" second parameter "mapDispatchToProps". Doing so, we would extract our button behavior outside of
-// our component, making it even more reusable by allowing for a different click behavior.
+// You might have noticed that thanks to redux, while we have a dynamic component that requires some state
+// (to keep the current time), this state is by no mean present inside the component. Our component only
+// receives props with needed data.
+// What we have here is called a stateless component. You should always try to have more stateless components
+// (presented above as dumb components) in your applications than stateful ones because they are much more
+// reusable.As suggested in "onTimeButtonClick" handler, we could even go further by passing our click callback
+// as a prop via "connect" second parameter "mapDispatchToProps". Doing so, we would extract our button
+// behavior outside of our component, making it even more reusable by allowing for a different click behavior.
 // Reusability might seem like a fancy overused concept but what having a reusable component also means, is that it's
 // one component that can be very easily tested (because you can then inject in your component whatever data and
 // test handlers you want and easily ensure its correct behavior).
