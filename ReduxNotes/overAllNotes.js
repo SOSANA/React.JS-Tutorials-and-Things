@@ -219,6 +219,46 @@
  *  	 	 it does that does not really matter to us but just to let you know, it's using React's
  *  	 	 context feature (it's undocumented so you don't have to know about it, but if you're curious:
  *  	   https://www.tildedave.com/2014/11/15/introduction-to-contexts-in-react-js.html).
+ * - Connect:
+ *  	 - Provider component we allow all components of our app to access Redux. But this access can only
+ *  	 	 be made through the undocumented feature "React's context". To avoid asking you to use such a "dark"
+ *  	 	 React API, React-Redux is exposing a function that you can use on a component class. The function
+ *  	 	 we're talking about is "connect" and it allows to literally connect your component with your Redux's
+ *  	 	 store. By doing so, it provides your store's dispatch function through a component's prop and also
+ *  	 	 adds any properties you want to expose as part of your store's state.
+ *  	 - Using "connect", you'll turn a dumb component into a smart component with very little code overhead
+ *  	 	 (https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
+ *  	 - "connect" is a function that takes as parameters few mapping functions and that returns a function
+ *  	   expecting the actual component class you want to connect. Such a function (connect) is called a
+ *  	   Higher Order Component (HOC). Higher Order functions comes from a functional pattern designed to add
+ *  	   features / behaviors to their inputs (component, store, ...) without using inheritance. This approach
+ *  	   favors composition over inheritance which is the prefered way to build React applications (actually
+ *  	   this is not limited at all to React applications). Read more about HOCs and composition here:
+ *  	   - https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.lpp7we7mx
+ *  	   - http://natpryce.com/articles/000814.html
+ *  	 - the dispatch function "automatically" provided by connect in a prop. There are alternative ways to call
+ *  	   actionCreators that are already bound to dispatch and those imply providing the second parameter to
+ *  	   'connect': https://github.com/rackt/react-redux/blob/v4.0.0/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
+ *  	 - The "connect" HOC is designed to address all use-cases, from the most simple to the most complex ones.
+ *  	   In the present example, we're not going to use the most complex form of 'connect' but you can find all
+ *  	   information about it in the complete 'connect' API documentation here:
+ *  	   https://github.com/rackt/react-redux/blob/v4.0.0/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
+ *  	 - Here is the complete 'connect' signature:
+ *  	   connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+ *  	   and here is how you're supposed to use it:
+ *  	   const wrappedComponentClass = connect(...)(ComponentClass)
+ *  	 - "connect" takes, as its first parameter, a function that will select which slice of your state you
+ *  	   want to expose to your component. This function is logically called a "selector" and receives 2
+ *  	   parameters: the state of your store and the current props of your component. "mapStateToProps" name
+ *  	   is just a semantic name for our function that clearly expresses what the function does:
+ *  	   it maps (read "extracts some of") the state to a few component props. The props of the component
+ *  	   are also provided as arguments to handle common cases like extracting a slice of your state depending
+ *  	   on a prop value (Ex: state.items[props.someID]). "mapStateToProps" is expected to return the props that you wish to expose to your component
+ *  	   (usually via an object literal). It's up to you to eventually transform the state you're receiving
+ *  	   before returning it.
+ *  	 - connect(...) returns a function that accept a class and returns another class, you can use it as an
+ *  	   ES7 decorator if you want to. Decorators are an experimental ES7 features that make it possible to
+ *  	   annotate and modify classes and properties at design time (https://github.com/wycats/javascript-decorators)
  */
 
 // The Redux instance is called a store and can be created like this:
