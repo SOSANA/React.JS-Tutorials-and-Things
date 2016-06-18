@@ -1,6 +1,7 @@
 /node_modules
 bundle.js
 npm-debug.log
+API_KEY.js
 
 # IntelliJ
 *.iml

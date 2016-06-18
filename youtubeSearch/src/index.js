@@ -4,9 +4,10 @@
  */
 import React from 'react';
 import ReactDom from 'react-dom';
+import API_KEY from '../API_KEY';
 
 const App = () => {
-  return <div> Hi!</div>;
+  return <div> <h1>Hello There!!!</h1></div>;
 }
 
 // making an instance of our component
