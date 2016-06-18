@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import ReactDom from 'react-dom';
-import API_KEY from '../API_KEY';
+import API_KEY from '../config/API_KEY';
 
 const App = () => {
   return <div> <h1>Hello There!!!</h1></div>;
