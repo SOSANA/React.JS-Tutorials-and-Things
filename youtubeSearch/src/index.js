@@ -1,19 +1,31 @@
-/**
- * tasks:
- *  [x] create a new component, this component should produce some html
- */
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import API_KEY from '../config/API_KEY'; // eslint-disable-line
-import SearchBar from './components/search_bar';
+import yTSearch from 'youtube-api-search';
 
-const App = () => {
-  return (
-    <div>
-      <SearchBar />
-    </div>
-  );
-};
+import API_KEY from '../config/API_KEY';
+import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { videos: [] };
+
+    yTSearch({ key: API_KEY, term: 'Surfboards' }, (videos) => {
+      // same as doing ({ videos: videos})
+      this.setState({ videos });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <SearchBar />
+        <VideoList videos={this.state.videos} />
+      </div>
+    );
+  }
+}
 
 // making an instance of our component
 ReactDom.render(<App />, document.querySelector('.container'));
