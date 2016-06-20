@@ -5,9 +5,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import API_KEY from '../config/API_KEY';
+import SearchBar from './components/search_bar';
 
 const App = () => {
-  return <div> <h1>Hello There!!!</h1></div>;
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 }
 
 // making an instance of our component
