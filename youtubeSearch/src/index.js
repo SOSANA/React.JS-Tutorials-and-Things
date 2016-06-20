@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import ReactDom from 'react-dom';
-import API_KEY from '../config/API_KEY';
+import API_KEY from '../config/API_KEY'; // eslint-disable-line
 import SearchBar from './components/search_bar';
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
       <SearchBar />
     </div>
   );
-}
+};
 
 // making an instance of our component
 ReactDom.render(<App />, document.querySelector('.container'));
