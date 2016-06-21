@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import yTSearch from 'youtube-api-search';
@@ -28,9 +29,14 @@ class App extends Component {
   }
 
   render() {
+    // throttle user input every 300ms to avoid lag issues when typing
+    const videoSearch = _.debounce((term) => {
+      this.videoSearch(term);
+    }, 300);
+
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
+        <SearchBar onSearchTermChange={videoSearch} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
