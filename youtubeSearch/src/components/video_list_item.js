@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+// example of using functional component (not handling state)
 // passing video same as passing in props parameter and setting variable to const video = props.video;
 const VideoListItem = ({ video, onVideoSelect }) => {
   // console.log(video); // looking up object to get info for imageUrl and video title

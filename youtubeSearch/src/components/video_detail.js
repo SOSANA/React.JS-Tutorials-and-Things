@@ -1,5 +1,6 @@
 import React from 'react';
 
+// example of using functional component (not handling state)
 const VideoDetail = ({ video }) => {
   if (!video) {
     return <div>Loading...</div>;

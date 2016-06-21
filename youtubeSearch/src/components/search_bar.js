@@ -1,6 +1,7 @@
 // same as doing const Component = React.Component;
 import React, { Component } from 'react';
 
+// using class component as we are dealing with state
 class SearchBar extends Component {
   constructor(props) {
     super(props);

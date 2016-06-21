@@ -7,6 +7,8 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 import API_KEY from '../config/API_KEY';
 
+// remember class component is used anytime we want to handle state, while a
+// functional component is used when its stateless
 class App extends Component {
   constructor(props) {
     super(props);
