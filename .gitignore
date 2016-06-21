@@ -11,11 +11,11 @@
 .codio
 .settings
 .c9
-config.js
-bundle.js
 
 *.module-cache*
 node_modules
-style.css
-static/assets/css/*.css
-static/assets/js/*.js
+bundle.js
+npm-debug.log
+config.js
+API_KEY.js
+bundle.js
