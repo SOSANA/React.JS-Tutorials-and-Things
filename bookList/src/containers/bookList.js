@@ -1,16 +1,8 @@
-/**
- * creating a container:
- *  - is a react Component that has direct connection to the state managed by redux
- *  - forms the bridge between react and redux, in our mockup its part of that app
- *  	that joins these two libraries
- *  - we inject data/state into a container
- *  - also called smart component
- *  - our most parent component should be our container
- */
-
 import React, { Component } from 'react';
+// react-redux is the glue between react and redux
+import { connect } from 'react-redux';
 
-export default class BookList extends Component {
+class BookList extends Component {
   renderList() {
     return this.props.books.map((book) => {
       return (
@@ -27,3 +19,13 @@ export default class BookList extends Component {
     );
   }
 }
+
+// this function is the glue between react and redux
+function mapStateToProps(state) {
+  // whatever is returned will show up as props inside of BookList
+  return {
+    books: state.books,
+  };
+}
+
+export default connect(mapStateToProps)(BookList);
