@@ -12,4 +12,11 @@
  *  - using form vs div we get out of the box handlers for click and enter without having
  *  	to create handlers for each.
  *  - Use a form tag for any type of user input
+ *
+ * redux bindActionCreators:
+ *  - makes sure our actions flow through to our reducers
+ *
+ * redux middleware:
+ *  - have the ability to stop or manipulate actions before the hit any reducers
+ *  	- ex: redux-promise or redux-thunk
  */

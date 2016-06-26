@@ -24,8 +24,9 @@ class SearchBar extends Component {
     event.preventDefault();
 
 
-    // fetch weather data
+    // hooking up our fetchWeather action creator
     this.props.fetchWeather(this.state.term); // eslint-disable-line
+    // setting our state to input passed through onFormSubmit handler
     this.setState({ term: '' });
   }
 
@@ -52,4 +53,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 // passing in null as this container doesn't need any state here
+// we get acess to fetchWeather action creator by connecting our component to mapDispatchToProps
 export default connect(null, mapDispatchToProps)(SearchBar);

@@ -10,8 +10,11 @@ export function fetchWeather(city) {
   // promise, than we pass that promise into the actions payload property
   const REQUEST = axios.get(url);
 
+  // also uncomment in weatherReducer to see action creator cycle
+  // console.log('Request:', REQUEST);
   return {
     type: FETCH_WEATHER,
+    // returning the promise as the payload
     payload: REQUEST,
   };
 }
