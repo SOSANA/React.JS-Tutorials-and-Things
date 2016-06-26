@@ -1,17 +1,16 @@
-/**
- * using form vs div we get out of the box handlers for click and enter without having
- * to create handlers for each. Use a form tag for any type of user input
- */
-
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/index';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props);
 
     this.state = { term: '' };
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   onInputChange(event) {
@@ -24,8 +23,10 @@ export default class SearchBar extends Component {
     // tells the brower don't submit the form
     event.preventDefault();
 
+
     // fetch weather data
-    // http://openweathermap.org/forecast5
+    this.props.fetchWeather(this.state.term); // eslint-disable-line
+    this.setState({ term: '' });
   }
 
   render() {
@@ -44,3 +45,11 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+// binding fetchWeather to dispatch
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+// passing in null as this container doesn't need any state here
+export default connect(null, mapDispatchToProps)(SearchBar);
