@@ -1,32 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchWeather } from '../actions/index';
-
+import Chart from '../components/chart'; // reusable chart component
 
 class WeatherList extends Component {
   renderWeather(cityData) {
-    // remember rule for adding key to a react listis you add to the top element
-    // in the list and just has to be some unique piece of data
+    // pulls city name from weather api object
     const name = cityData.city.name;
+    // maps through weather api object and pulls temperature into an array
+    // maps through weather api object and pulls pressure into an array
+    // maps through weather api object and pulls humidity into an array
+    const temps = cityData.list.map(weather => weather.main.temp);
+    // console.log(temps); // shows array of temps in calvin
+    const pressures = cityData.list.map(weather => weather.main.pressure);
+    const humidities = cityData.list.map(weather => weather.main.humidity);
 
     return (
       <tr key={name}>
-        <td>
-          {name}
-        </td>
+        <td>{name}</td>
+        <td><Chart data={temps} color="orange" units="k" /></td>
+        <td><Chart data={pressures} color="green" units="hPa" /></td>
+        <td><Chart data={humidities} color="black" units="%" /></td>
       </tr>
     );
   }
+
   render() {
     return (
       <table className="table table-hover">
         <thead>
           <tr>
             <th>City</th>
-            <th>Temperature</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
+            <th>Temperature (K)</th>
+            <th>Pressure (hPa)</th>
+            <th>Humidity (%)</th>
           </tr>
         </thead>
         <tbody>
