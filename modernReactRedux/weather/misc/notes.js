@@ -19,4 +19,8 @@
  * redux middleware:
  *  - have the ability to stop or manipulate actions before the hit any reducers
  *  	- ex: redux-promise or redux-thunk
+ *
+ * redux reducer:
+ *  - we never want to mutate our state in a reducer, always return a new instance of state
+ *  - always create an entirely new array or object
  */
