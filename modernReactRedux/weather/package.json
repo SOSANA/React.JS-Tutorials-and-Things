@@ -37,6 +37,7 @@
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-google-maps": "^4.7.1",
     "react-redux": "^4.0.0",
     "react-router": "^2.0.1",
     "react-sparklines": "^1.5.2",
