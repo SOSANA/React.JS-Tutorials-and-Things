@@ -13,6 +13,10 @@
  *  	to create handlers for each.
  *  - Use a form tag for any type of user input
  *
+ * react keys:
+ *  - remember rule for adding key to a react list is you add to the top element in the
+ *  	list and just has to be some unique piece of data as show in weatherList.js
+ *
  * redux bindActionCreators:
  *  - makes sure our actions flow through to our reducers
  *
