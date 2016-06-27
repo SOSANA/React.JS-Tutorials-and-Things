@@ -7,3 +7,9 @@ td, th {
   vertical-align: middle !important;
   text-align: center !important;
 }
+
+/* selecting the first column in our table */
+td:first-of-type {
+  height: 200px;
+  width: 250px;
+}
