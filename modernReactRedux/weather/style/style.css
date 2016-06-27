@@ -1,0 +1,9 @@
+.input-group {
+  margin: 20px 0px;
+}
+
+td, th {
+  /* adding !important to make it work with bootstrap */
+  vertical-align: middle !important;
+  text-align: center !important;
+}
