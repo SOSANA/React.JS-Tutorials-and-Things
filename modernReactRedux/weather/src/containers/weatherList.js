@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart'; // reusable chart component
+import GoogleMap from '../components/googleMap'; // reusable google map component
 
 class WeatherList extends Component {
   renderWeather(cityData) {
@@ -13,10 +14,15 @@ class WeatherList extends Component {
     // console.log(temps); // shows array of temps in calvin
     const pressures = cityData.list.map(weather => weather.main.pressure);
     const humidities = cityData.list.map(weather => weather.main.humidity);
+    // wiring up our longitude and latitude for googleMap component
+    // use es6 destructuring assignment, could be written in es5 like so
+    // const lon = cityData.city.coord.lon;
+    // const lat = cityData.city.coord.lat;
+    const { lon, lat } = cityData.city.coord;
 
     return (
       <tr key={name}>
-        <td>{name}</td>
+        <td><GoogleMap lon={lon} lat={lat} /></td>
         <td><Chart data={temps} color="orange" units="k" /></td>
         <td><Chart data={pressures} color="green" units="hPa" /></td>
         <td><Chart data={humidities} color="black" units="%" /></td>
