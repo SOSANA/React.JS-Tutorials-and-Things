@@ -22,7 +22,7 @@ class PostsIndex extends Component {
             Add a Post
           </Link>
         </div>
-          List of blog posts.
+          <h1>List of blog posts...</h1>
       </div>
     );
   }
