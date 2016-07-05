@@ -1,3 +1,8 @@
 form a {
   margin-left: 5px;
 }
+
+.text-xs-right .btn.btn-primary {
+  margin-bottom: -40px;
+  margin-top: 40px;
+}
