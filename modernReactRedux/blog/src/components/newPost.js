@@ -1,13 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { createPost } from '../actions/index';
 import { Link } from 'react-router';
 
 class NewPost extends Component {
+  // using contextTypes for routing after we successfully submit form
+  static contextTypes = {
+    router: PropTypes.object,
+  }
+
+  onSubmit(props) {
+    this.props.createPost(props)
+      .then(() => { // passing in our promise
+        // blog post has been created, navigate the user to the index
+        // we navigate by calling this.context.router.push with the new
+        // path to navigate to
+        this.context.router.push('/');
+      });
+  }
+
   render() {
     // same as doing const handleSubmit = this.props.handleSubmit;
     // same as doing const title = this.props.fields.title
     const { fields: { title, categories, content }, handleSubmit } = this.props;
+
+    // adding alternative option for danger and success errors
+    const dangerStyle = `form-group ${title.touched && title.invalid ? 'has-danger' : ''}`;
+    const successStyle = `form-group ${title.touched && title.valid ? 'has-success' : ''}`;
 
     // console.log(title); // title configuration object
 
@@ -18,29 +37,29 @@ class NewPost extends Component {
     // onChange, onBlur, etc show up inside our input
     // passing in our action creator in handleSubmit()
     return (
-      <form onSubmit={handleSubmit(this.props.createPost)}>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h3>Create a New Post</h3>
 
-        <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-          <label>Title</label>
+        <div className={title.touched && title.invalid ? dangerStyle : successStyle}>
+          <label className="form-control-label" htmlFor="inputDanger1">Title</label>
           <input type="text" className="form-control" {...title} />
-          <div className="text-help">
+          <div className="text-danger">
           {title.touched ? title.error : ''}
           </div>
         </div>
 
         <div className={`form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`}>
-          <label>categories</label>
+          <label className="form-control-label" htmlFor="inputDanger1">categories</label>
           <input type="text" className="form-control" {...categories} />
-          <div className="text-help">
+          <div className="text-danger">
           {categories.touched ? categories.error : ''}
           </div>
         </div>
 
         <div className={`form-group ${content.touched && content.invalid ? 'has-danger' : ''}`}>
-          <label>content</label>
+          <label className="form-control-label" htmlFor="inputDanger1">content</label>
           <textarea className="form-control" {...content} />
-          <div className="text-help">
+          <div className="text-danger">
           {content.touched ? content.error : ''}
           </div>
         </div>
@@ -57,10 +76,10 @@ function validate(values) {
   const errors = {};
 
   if (!values.title) {
-    errors.title = 'Enter a username';
+    errors.title = 'Enter a title';
   }
   if (!values.categories) {
-    errors.categories = 'Enter a categories';
+    errors.categories = 'Enter some categories';
   }
   if (!values.content) {
     errors.content = 'Enter a content';
