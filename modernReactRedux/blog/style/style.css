@@ -3,6 +3,11 @@ form a {
 }
 
 .text-xs-right .btn.btn-primary {
-  margin-bottom: -40px;
-  margin-top: 40px;
+  margin-bottom: -30px;
+  margin-top: 30px;
+}
+
+ul li .text-xs-right .list-group-item {
+  margin-bottom: -25px;
+  margin-top: 25px;
 }
