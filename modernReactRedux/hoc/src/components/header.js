@@ -31,6 +31,11 @@ class Header extends Component {
   }
 }
 
+Header.propTypes = {
+  authenticate: React.PropTypes.func.isRequired,
+  authenticated: React.PropTypes.bool.isRequired,
+};
+
 function mapStateToProps(state) {
   return {
     authenticated: state.authenticated,
