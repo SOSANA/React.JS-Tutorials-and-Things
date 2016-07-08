@@ -5,9 +5,18 @@ export function fetchUsers() {
     type: FETCH_USERS,
     // hard coding user data
     payload: [
-      { name: 'Jane' },
-      { name: 'Alex' },
-      { name: 'Jim' },
+      {
+        name: 'Jane',
+        work: 'Cheese Factory',
+      },
+      {
+        name: 'Alex',
+        work: 'ACME Anvil',
+      },
+      {
+        name: 'Jim',
+        work: 'Road Warrior Construction',
+      },
     ],
   };
 }
