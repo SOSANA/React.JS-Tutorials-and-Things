@@ -9,6 +9,11 @@ class NewPost extends Component {
     router: PropTypes.object,
   }
 
+  constructor(props) {
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
   onSubmit(props) {
     this.props.createPost(props)
       .then(() => { // passing in our promise
@@ -37,7 +42,7 @@ class NewPost extends Component {
     // onChange, onBlur, etc show up inside our input
     // passing in our action creator in handleSubmit()
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <h3>Create a New Post</h3>
 
         <div className={title.touched && title.invalid ? dangerStyle : successStyle}>
@@ -70,6 +75,12 @@ class NewPost extends Component {
     );
   }
 }
+
+NewPost.propTypes = {
+  handleSubmit: React.PropTypes.func.isRequired,
+  fields: React.PropTypes.object.isRequired,
+  createPost: React.PropTypes.func.isRequired,
+};
 
 // creting a validate function for our form validation
 function validate(values) {

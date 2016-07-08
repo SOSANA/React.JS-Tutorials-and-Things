@@ -4,13 +4,18 @@ import { fetchPost, deletePost } from '../actions/index';
 import { Link } from 'react-router';
 
 class ShowPost extends Component {
-  componentWillMount() {
-    this.props.fetchPost(this.props.params.id);
-  }
-
   // using contextTypes for routing after we successfully submit form
   static contextTypes = {
     router: PropTypes.object,
+  }
+
+  constructor(props) {
+    super(props);
+    this.onDeleteClick = this.onDeleteClick.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.fetchPost(this.props.params.id);
   }
 
   onDeleteClick() {
@@ -25,7 +30,7 @@ class ShowPost extends Component {
 
   render() {
     // same as doing const post = this.props.post;
-    const { post } = this.props;
+    const { post } = this.props; // eslint-disable-line
 
     if (!post) {
       return <div>Loading...</div>;
@@ -38,7 +43,7 @@ class ShowPost extends Component {
         <Link to="/">Back To Index</Link>
         <button
           className="btn btn-danger pull-xs-right"
-          onClick={this.onDeleteClick.bind(this)}
+          onClick={this.onDeleteClick}
         >
           Delete Post
         </button>
@@ -49,6 +54,12 @@ class ShowPost extends Component {
     );
   }
 }
+
+ShowPost.propTypes = {
+  fetchPost: React.PropTypes.func.isRequired,
+  deletePost: React.PropTypes.func.isRequired,
+  params: React.PropTypes.object.isRequired,
+};
 
 function mapStateToProps(state) {
   return { post: state.posts.post };

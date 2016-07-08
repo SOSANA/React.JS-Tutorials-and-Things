@@ -18,7 +18,7 @@ class PostsIndex extends Component {
     return this.props.posts.map((post) => {
       return (
         <li className="list-group-item" key={post.id}>
-          <Link to={'posts/' + post.id}>
+          <Link to={`posts/${post.id}`}>
             <span className="pull-xs-right">{post.categories}</span>
             <strong>{post.title}</strong>
           </Link>
@@ -43,6 +43,11 @@ class PostsIndex extends Component {
     );
   }
 }
+
+PostsIndex.propTypes = {
+  fetchPosts: React.PropTypes.func.isRequired,
+  posts: React.PropTypes.array.isRequired,
+};
 
 function mapStateToProps(state) {
   return { posts: state.posts.all };
