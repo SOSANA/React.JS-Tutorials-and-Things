@@ -21,6 +21,22 @@ export default function (ComposedComponent) {
       router: React.PropTypes.object,
     }
 
+    // at time of render, only runs once
+    componentWillMount() {
+      // if the user is not authenticated route the use back to the root route
+      if (!this.props.authenticated) {
+        this.context.router.push('/');
+      }
+    }
+
+    // after render, gets called when a component is about to get a new set of props
+    componentWillUpdate(nextProps) {
+      // if user views is looking at resources page and signs out, kick them out of page
+      if (!nextProps.authenticated) {
+        this.context.router.push('/');
+      }
+    }
+
     render() {
       // should log a function with props etc
       // console.log('Rendering', ComposedComponent);
@@ -33,6 +49,10 @@ export default function (ComposedComponent) {
       );
     }
   }
+
+  Authentication.propTypes = {
+    authenticated: React.PropTypes.bool.isRequired,
+  };
 
   function mapStateToProps(state) {
     return {
