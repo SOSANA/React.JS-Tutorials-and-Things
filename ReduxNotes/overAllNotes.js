@@ -259,6 +259,8 @@
  *  	 - connect(...) returns a function that accept a class and returns another class, you can use it as an
  *  	   ES7 decorator if you want to. Decorators are an experimental ES7 features that make it possible to
  *  	   annotate and modify classes and properties at design time (https://github.com/wycats/javascript-decorators)
+ *  	 - connect: 1st argument is mapStateToProps, 2nd is mapDispatchToProps
+ *  	 - reduxForm: 1st argument is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
  */
 
 // The Redux instance is called a store and can be created like this:
