@@ -1,7 +1,26 @@
+import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { createPost } from '../actions/index';
 import { Link } from 'react-router';
+
+// creating an object at the top level for our configuration object
+const FIELDS = {
+  title: {
+    type: 'input',
+    label: 'Title for Post',
+  },
+  categories: {
+    type: 'input',
+    label: 'Enter some categories for this post',
+  },
+  content: {
+    type: 'textarea',
+    label: 'Post Contents',
+  },
+};
+
+// ['title', 'categories', 'content'];
 
 class NewPost extends Component {
   // using contextTypes for routing after we successfully submit form
@@ -12,6 +31,7 @@ class NewPost extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
+    this.renderField = this.renderField.bind(this);
   }
 
   onSubmit(props) {
@@ -24,59 +44,37 @@ class NewPost extends Component {
       });
   }
 
-  handleStyle(field) {
-    const warningStyle = `form-group ${'has-warning'}`;
-    const successStyle = `form-group ${'has-success'}`;
+  renderField(fieldConfig, field) {
+    // 'fieldHelper' is the object provided by redux-form
+    const fieldHelper = this.props.fields[field];
 
-    if (field.touched && field.invalid) return warningStyle;
-    if (field.touched && field.valid) return successStyle;
-  }
-
-  render() {
-    // same as doing const handleSubmit = this.props.handleSubmit;
-    // same as doing const title = this.props.fields.title
-    const { fields: { title, categories, content }, handleSubmit } = this.props;
-
-    // adding alternative option for danger and success errors
-    // const dangerStyle = `form-group ${title.touched && title.invalid ? 'has-danger' : ''}`;
-    // const successStyle = `form-group ${title.touched && title.valid ? 'has-success' : ''}`;
-
-    // console.log(title); // title configuration object
-
-    // using destructoring object in input tag with {...title} which allows every
+    // using destructoring object in input tag with {...fieldHelper} which allows every
     // property on the title object to show up inside the input, so it destructures
     // the object into its seperate keys and values and passes it into the input.
     // So in effect all the properties we saw in our console.log above like
     // onChange, onBlur, etc show up inside our input
     // passing in our action creator in handleSubmit()
     return (
+      <div className={`form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-danger' : ''}`}>
+        <label>{fieldConfig.label}</label>
+        <fieldConfig.type type="text" className="form-control" {...fieldHelper} />
+        <div className="text-help">
+        {fieldHelper.touched ? fieldHelper.error : ''}
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    // same as doing const handleSubmit = this.props.handleSubmit;
+    const { handleSubmit } = this.props;
+    // console.log(title); // title configuration object
+
+    return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <h3>Create a New Post</h3>
 
-        <div className={this.handleStyle(title)}>
-          <label className="form-control-label">Title</label>
-          <input type="text" className="form-control" {...title} />
-          <div className="text-warning">
-          {title.touched ? title.error : ''}
-          </div>
-        </div>
-
-        <div className={`form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`}>
-          <label className="form-control-label" htmlFor="inputDanger1">categories</label>
-          <input type="text" className="form-control" {...categories} />
-          <div className="text-danger">
-          {categories.touched ? categories.error : ''}
-          </div>
-        </div>
-
-        <div className={`form-group ${content.touched && content.invalid ? 'has-danger' : ''}`}>
-          <label className="form-control-label" htmlFor="inputDanger1">content</label>
-          <textarea className="form-control" {...content} />
-          <div className="text-danger">
-          {content.touched ? content.error : ''}
-          </div>
-        </div>
-
+        {_.map(FIELDS, this.renderField)}
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/" className="btn btn-danger">Cancel</Link>
       </form>
@@ -94,15 +92,11 @@ NewPost.propTypes = {
 function validate(values) {
   const errors = {};
 
-  if (!values.title) {
-    errors.title = 'Enter a title';
-  }
-  if (!values.categories) {
-    errors.categories = 'Enter some categories';
-  }
-  if (!values.content) {
-    errors.content = 'Enter a content';
-  }
+  _.each(FIELDS, (type, field) => {
+    if (!values[field]) {
+      errors[field] = `Enter a ${field}`;
+    }
+  });
 
   return errors;
 }
@@ -115,6 +109,6 @@ export default reduxForm({
   // setting up our redux form configuration
   form: 'NewPostForm', // NewPostForm is our unique token
   // defining the form fields
-  fields: ['title', 'categories', 'content'],
+  fields: _.keys(FIELDS), // will return an array of keys on all the fields on the configuration object
   validate,
 }, null, { createPost })(NewPost);
