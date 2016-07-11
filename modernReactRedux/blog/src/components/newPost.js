@@ -20,8 +20,6 @@ const FIELDS = {
   },
 };
 
-// ['title', 'categories', 'content'];
-
 class NewPost extends Component {
   // using contextTypes for routing after we successfully submit form
   static contextTypes = {
@@ -54,8 +52,9 @@ class NewPost extends Component {
     // So in effect all the properties we saw in our console.log above like
     // onChange, onBlur, etc show up inside our input
     // passing in our action creator in handleSubmit()
+    // console.log(fieldHelper.name); // logs FIELDS object names
     return (
-      <div className={`form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-danger' : ''}`}>
+      <div key={fieldHelper.name} className={`form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-danger' : ''}`}>
         <label>{fieldConfig.label}</label>
         <fieldConfig.type type="text" className="form-control" {...fieldHelper} />
         <div className="text-help">
@@ -75,6 +74,7 @@ class NewPost extends Component {
         <h3>Create a New Post</h3>
 
         {_.map(FIELDS, this.renderField)}
+
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/" className="btn btn-danger">Cancel</Link>
       </form>
