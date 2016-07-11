@@ -24,14 +24,22 @@ class NewPost extends Component {
       });
   }
 
+  handleStyle(field) {
+    const warningStyle = `form-group ${'has-warning'}`;
+    const successStyle = `form-group ${'has-success'}`;
+
+    if (field.touched && field.invalid) return warningStyle;
+    if (field.touched && field.valid) return successStyle;
+  }
+
   render() {
     // same as doing const handleSubmit = this.props.handleSubmit;
     // same as doing const title = this.props.fields.title
     const { fields: { title, categories, content }, handleSubmit } = this.props;
 
     // adding alternative option for danger and success errors
-    const dangerStyle = `form-group ${title.touched && title.invalid ? 'has-danger' : ''}`;
-    const successStyle = `form-group ${title.touched && title.valid ? 'has-success' : ''}`;
+    // const dangerStyle = `form-group ${title.touched && title.invalid ? 'has-danger' : ''}`;
+    // const successStyle = `form-group ${title.touched && title.valid ? 'has-success' : ''}`;
 
     // console.log(title); // title configuration object
 
@@ -45,10 +53,10 @@ class NewPost extends Component {
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <h3>Create a New Post</h3>
 
-        <div className={title.touched && title.invalid ? dangerStyle : successStyle}>
-          <label className="form-control-label" htmlFor="inputDanger1">Title</label>
+        <div className={this.handleStyle(title)}>
+          <label className="form-control-label">Title</label>
           <input type="text" className="form-control" {...title} />
-          <div className="text-danger">
+          <div className="text-warning">
           {title.touched ? title.error : ''}
           </div>
         </div>
