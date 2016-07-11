@@ -20,6 +20,44 @@ const FIELDS = {
   },
 };
 
+/*
+const FIELDSVALIDATIONSTYLE = {
+  success: {
+    divclass: 'form-group has-success',
+    label: {
+      class: 'form-control-label',
+      for: 'inputSuccess1',
+    },
+    input: {
+      class: 'form-control form-control-success',
+      id: 'inputSuccess1',
+    },
+  },
+  warning: {
+    divclass: 'form-group has-warning',
+    label: {
+      class: 'form-control-label',
+      for: 'inputWarning1',
+    },
+    input: {
+      class: 'form-control form-control-warning',
+      id: 'inputWarning1',
+    },
+  },
+  danger: {
+    divclass: 'form-group has-danger',
+    label: {
+      class: 'form-control-label',
+      for: 'inputDanger1',
+    },
+    input: {
+      class: 'form-control form-control-danger',
+      id: 'inputDanger1',
+    },
+  },
+};
+*/
+
 class NewPost extends Component {
   // using contextTypes for routing after we successfully submit form
   static contextTypes = {
@@ -88,7 +126,7 @@ NewPost.propTypes = {
   createPost: React.PropTypes.func.isRequired,
 };
 
-// creting a validate function for our form validation
+// creating a validate function for our form validation
 function validate(values) {
   const errors = {};
 
