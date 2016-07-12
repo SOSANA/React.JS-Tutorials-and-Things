@@ -4,59 +4,7 @@ import { reduxForm } from 'redux-form';
 import { createPost } from '../actions/index';
 import { Link } from 'react-router';
 
-// creating an object at the top level for our configuration object
-const FIELDS = {
-  title: {
-    type: 'input',
-    label: 'Title for Post',
-  },
-  categories: {
-    type: 'input',
-    label: 'Enter some categories for this post',
-  },
-  content: {
-    type: 'textarea',
-    label: 'Post Contents',
-  },
-};
-
-/*
-const FIELDSVALIDATIONSTYLE = {
-  success: {
-    divclass: 'form-group has-success',
-    label: {
-      class: 'form-control-label',
-      for: 'inputSuccess1',
-    },
-    input: {
-      class: 'form-control form-control-success',
-      id: 'inputSuccess1',
-    },
-  },
-  warning: {
-    divclass: 'form-group has-warning',
-    label: {
-      class: 'form-control-label',
-      for: 'inputWarning1',
-    },
-    input: {
-      class: 'form-control form-control-warning',
-      id: 'inputWarning1',
-    },
-  },
-  danger: {
-    divclass: 'form-group has-danger',
-    label: {
-      class: 'form-control-label',
-      for: 'inputDanger1',
-    },
-    input: {
-      class: 'form-control form-control-danger',
-      id: 'inputDanger1',
-    },
-  },
-};
-*/
+import { FIELDS } from './newPostFields';
 
 class NewPost extends Component {
   // using contextTypes for routing after we successfully submit form
@@ -91,8 +39,10 @@ class NewPost extends Component {
     // onChange, onBlur, etc show up inside our input
     // passing in our action creator in handleSubmit()
     // console.log(fieldHelper.name); // logs FIELDS object names
+    const warning = `form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-warning' : ''}`;
+    const success = `form-group ${fieldHelper.touched && fieldHelper.valid ? 'has-success' : ''}`;
     return (
-      <div key={fieldHelper.name} className={`form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-danger' : ''}`}>
+      <div key={fieldHelper.name} className={`${warning} ? ${warning} : ${success}`}>
         <label>{fieldConfig.label}</label>
         <fieldConfig.type type="text" className="form-control" {...fieldHelper} />
         <div className="text-help">
