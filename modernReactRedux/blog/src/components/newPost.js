@@ -28,10 +28,20 @@ class NewPost extends Component {
       });
   }
 
+  renderStyle() {
+
+  }
+
   renderField(fieldConfig, field) {
     // 'fieldHelper' is the object provided by redux-form
     const fieldHelper = this.props.fields[field];
-
+    // form logic based on events
+    const warningFormGroupClassName = `form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-warning' : ''}`;
+    const warningTypeclassName = `form-control ${fieldHelper.touched && fieldHelper.invalid ? 'form-control-warning' : ''}`;
+    const warningTypeId = `${fieldHelper.touched && fieldHelper.invalid ? 'inputWarning1' : ''}`;
+    const successFormGroupClassName = `form-group ${fieldHelper.touched && fieldHelper.valid ? 'has-success' : ''}`;
+    const successTypeclassName = `form-control ${fieldHelper.touched && fieldHelper.valid ? 'form-control-success' : ''}`;
+    const successTypeId = `${fieldHelper.touched && fieldHelper.valid ? 'inputSuccess1' : ''}`;
     // using destructoring object in input tag with {...fieldHelper} which allows every
     // property on the title object to show up inside the input, so it destructures
     // the object into its seperate keys and values and passes it into the input.
@@ -39,12 +49,14 @@ class NewPost extends Component {
     // onChange, onBlur, etc show up inside our input
     // passing in our action creator in handleSubmit()
     // console.log(fieldHelper.name); // logs FIELDS object names
-    const warning = `form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-warning' : ''}`;
-    const success = `form-group ${fieldHelper.touched && fieldHelper.valid ? 'has-success' : ''}`;
     return (
-      <div key={fieldHelper.name} className={`${warning} ? ${warning} : ${success}`}>
+      <div key={fieldHelper.name} className={`${warningFormGroupClassName} ? ${warningFormGroupClassName} : ${successFormGroupClassName}`}>
         <label>{fieldConfig.label}</label>
-        <fieldConfig.type type="text" className="form-control" {...fieldHelper} />
+        <fieldConfig.type
+          type="text"
+          className={`${warningTypeclassName} ? ${warningTypeclassName} : ${successTypeclassName}`} {...fieldHelper}
+          id={`${warningTypeId} ? ${warningTypeId} : ${successTypeId}`}
+        />
         <div className="text-help">
         {fieldHelper.touched ? fieldHelper.error : ''}
         </div>
