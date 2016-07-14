@@ -5,8 +5,12 @@ import { createStore, applyMiddleware } from 'redux';
 
 import App from './components/app';
 import reducers from './reducers';
+// our created asynchronous middleware
+import Async from './middlewares/async';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+// everytime we make a dispatch, make sure it flows thru this middleware
+// apply as many middlewares as needed seperated by comma's
+const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
