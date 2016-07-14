@@ -28,13 +28,10 @@ class NewPost extends Component {
       });
   }
 
-  renderStyle() {
-
-  }
-
   renderField(fieldConfig, field) {
     // 'fieldHelper' is the object provided by redux-form
     const fieldHelper = this.props.fields[field];
+    // console.log(fieldHelper);
     // form logic based on events
     const warningFormGroupClassName = `form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-warning' : ''}`;
     const warningTypeclassName = `form-control ${fieldHelper.touched && fieldHelper.invalid ? 'form-control-warning' : ''}`;
@@ -49,6 +46,24 @@ class NewPost extends Component {
     // onChange, onBlur, etc show up inside our input
     // passing in our action creator in handleSubmit()
     // console.log(fieldHelper.name); // logs FIELDS object names
+    /*
+    if (fieldHelper.submitFalse === true) {
+      return (
+        <div key={fieldHelper.name} className="form-group has-danger">
+          {console.log('this is being rendered!!!!')}
+          <label>{fieldConfig.label}</label>
+          <fieldConfig.type
+            type="text"
+            className="form-control form-control-danger" {...fieldHelper}
+            id="inputDanger1"
+          />
+          <div className="text-help">
+          {fieldHelper.touched ? fieldHelper.error : ''}
+          </div>
+        </div>
+      );
+    }
+  */
     return (
       <div key={fieldHelper.name} className={`${warningFormGroupClassName} ? ${warningFormGroupClassName} : ${successFormGroupClassName}`}>
         <label>{fieldConfig.label}</label>
@@ -67,7 +82,6 @@ class NewPost extends Component {
   render() {
     // same as doing const handleSubmit = this.props.handleSubmit;
     const { handleSubmit } = this.props;
-    // console.log(title); // title configuration object
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
