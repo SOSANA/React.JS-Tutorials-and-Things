@@ -20,7 +20,7 @@ class UserList extends Component {
   // mapping over our list of users and for each user call the renderUser() helper method and than return it root jsx below
   render() {
     return (
-      <div>
+      <div className="user-list">
         {/*
           mapping over our list of users and for each user call the renderUser()
           helper method and than return it root jsx below
