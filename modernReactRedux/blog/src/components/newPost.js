@@ -17,7 +17,13 @@ class NewPost extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.renderField = this.renderField.bind(this);
   }
-
+  /*
+  componentWillUpdate(nextProps) {
+    console.log(nextProps);
+    console.log('componentWillUpdate!!!!');
+    return nextProps.renderField;
+  }
+  */
   onSubmit(props) {
     this.props.createPost(props)
       .then(() => { // passing in our promise
@@ -47,7 +53,7 @@ class NewPost extends Component {
     // passing in our action creator in handleSubmit()
     // console.log(fieldHelper.name); // logs FIELDS object names
     /*
-    if (fieldHelper.submitFalse === true) {
+    if (fieldHelper.untouched && fieldHelper.error) {
       return (
         <div key={fieldHelper.name} className="form-group has-danger">
           {console.log('this is being rendered!!!!')}
@@ -63,7 +69,7 @@ class NewPost extends Component {
         </div>
       );
     }
-  */
+    */
     return (
       <div key={fieldHelper.name} className={`${warningFormGroupClassName} ? ${warningFormGroupClassName} : ${successFormGroupClassName}`}>
         <label>{fieldConfig.label}</label>
