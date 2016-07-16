@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt-nodejs';
-
 const Schema = mongoose.Schema;
 
 // define our model
@@ -10,27 +9,42 @@ const userSchema = new Schema({
 });
 
 // on save hook, encrypt password
-userSchema.pre('save', (next) => {
-  const user = this;
+// before saving a model, run this function
+// keep in mind we have to use es5 here as arrow functions won't work properly
+// here do to context/scrope
+userSchema.pre('save', function(next) { // eslint-disable-line
+  // get access to the user model by setting the context to the user model
+  const user = this; // user.email, user.password
 
-  return bcrypt.genSalt(10, (err, salt) => {
+  // generate a salt, then run a callback
+  bcrypt.genSalt(10, function(err, salt) { // eslint-disable-line
     if (err) {
-      console.error('error: bcrypt not salting password'); // eslint-disable-line no-console
-      return next(err);
+      console.error('error: bcrypt could not create salt'); // eslint-disable-line
+      next(err);
     }
 
-    return bcrypt.hash(user.password, salt, null, (hash) => {
+    // after salt has been created, hash (aka encrypt) our password using the salt,
+    // then run a callback with a hash
+    bcrypt.hash(user.password, salt, null, function(err, hash) { // eslint-disable-line
       if (err) {
         console.error('error: bcrypt not hashing password'); // eslint-disable-line no-console
-        return next(err);
+        next(err);
       }
 
+      // overwrite plain text password with encrypted password
       user.password = hash;
-      return next();
+      // final step call next and save password
+      next();
     });
   });
 });
 
-// export our created model class
+// create the model class
 // loads schema into mongoDB and corresponds to a collection 'user'
 export default mongoose.model('user', userSchema);
+
+// or could do this instead
+// const modelClass = mongoose.model('user', userSchema);
+// or could do this instead
+// export the model
+// export default modelClass;
