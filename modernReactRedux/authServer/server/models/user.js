@@ -16,7 +16,7 @@ userSchema.pre('save', function(next) { // eslint-disable-line
   // get access to the user model by setting the context to the user model
   const user = this; // user.email, user.password
 
-  // generate a salt, then run a callback
+  // generate a salt, then run a callback, first argument is number of rounds to hash
   bcrypt.genSalt(10, function(err, salt) { // eslint-disable-line
     if (err) {
       console.error('error: bcrypt could not create salt'); // eslint-disable-line

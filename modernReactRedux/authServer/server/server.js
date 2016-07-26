@@ -10,7 +10,7 @@ const app = new Express();
 
 // import required modules
 import userRoutes from './routes/user';
-import serverConfig from './serverConfig';
+import serverConfig from './config/serverConfig';
 
 // DB setup
 mongoose.connect(serverConfig.mongoURL, (err) => {
