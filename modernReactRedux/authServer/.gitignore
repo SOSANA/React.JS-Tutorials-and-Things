@@ -2,6 +2,3 @@
 bundle.js
 npm-debug.log
 dist
-# IntelliJ
-*.iml
-/.idea
