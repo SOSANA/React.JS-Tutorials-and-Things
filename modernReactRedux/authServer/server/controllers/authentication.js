@@ -13,6 +13,7 @@ function tokenForUser(user) {
   return jwt.encode({ sub: user.id, iat: timeStamp }, jwtConfig.secret);
 }
 
+// our signup controller
 export function signup(req, res, next) {
   // in postman add raw to body with defaults to see log below
   // { "email": "test@example.com", "password": "test" }
@@ -57,4 +58,10 @@ export function signup(req, res, next) {
       return res.json({ token: tokenForUser(user) });
     });
   });
+}
+
+// our signin controller
+export function signin(req, res, next) {
+  // user has already had their email and password auth'd
+  // we just need to gibve them a token
 }

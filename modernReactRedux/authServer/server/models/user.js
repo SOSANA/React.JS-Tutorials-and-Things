@@ -25,19 +25,36 @@ userSchema.pre('save', function(next) { // eslint-disable-line
 
     // after salt has been created, hash (aka encrypt) our password using the salt,
     // then run a callback with a hash
-    bcrypt.hash(user.password, salt, null, function(err, hash) { // eslint-disable-line
+    bcrypt.hash(user.password, salt, null, function(err, encrypt) { // eslint-disable-line
       if (err) {
         console.error('error: bcrypt not hashing password'); // eslint-disable-line no-console
         next(err);
       }
 
       // overwrite plain text password with encrypted password
-      user.password = hash;
+      user.password = encrypt;
       // final step call next and save password
       next();
     });
   });
 });
+
+// adding a method object to our user model, basically says when ever create a user object its
+// going to have access to any functions that we define on this method property
+userSchema.methods.comparePassword = (candidatePassword, cb) => {
+  // bcrypt behind the scenes is taking care of comparing passwords, its taking the
+  // salt + hash password, its going to internally doing the hashing process on the
+  // candidatePassword and than decide are these things two things equal, if they
+  // are equal isMatch will be true
+  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+    if (err) {
+      console.error('error: there was an error with the password comparison'); // eslint-disable-line
+      return cb(err);
+    }
+
+    return cb(null, isMatch);
+  });
+};
 
 // create the model class
 // loads schema into mongoDB and corresponds to a collection 'user'
