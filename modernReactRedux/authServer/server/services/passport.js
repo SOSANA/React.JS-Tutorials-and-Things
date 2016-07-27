@@ -12,7 +12,8 @@ import LocalStrategy from 'passport-local'; // strategy for verifying signin wit
 
 // create local Strategy for existing users
 const localOptions = { usernameField: 'email' }; // not using username we are using email
-const localLogin = new LocalStrategy(localOptions, function (email, password, done) {
+
+const localLogin = new LocalStrategy(localOptions, function(email, password, done) { // eslint-disable-line
   // verify this username (in our case email) and password, call done with user
   // if it is the correct email and password
   // otherwise, call done with false
