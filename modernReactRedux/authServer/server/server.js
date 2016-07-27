@@ -2,7 +2,7 @@
 import Express from 'express';
 import http from 'http';
 import bodyParser from 'body-parser'; // parsing incoming requests into json
-import morgan from 'morgan'; // logging incoming requests
+import logger from 'morgan'; // logging incoming requests
 import mongoose from 'mongoose';
 
 // initialize the express app
@@ -21,7 +21,7 @@ mongoose.connect(serverConfig.mongoURL, (err) => {
 });
 
 // app middleware setup
-app.use(morgan('combined'));
+app.use(logger('combined'));
 app.use(bodyParser.json({ type: '*/*' }));
 app.use('/', userRoutes);
 
