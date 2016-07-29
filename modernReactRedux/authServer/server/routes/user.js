@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import passport from 'passport';
 import * as Authentication from '../controllers/authentication';
-import passportService from '../services/passport';
+import passportService from '../services/passport'; // eslint-disable-line
 
 const router = new Router();
 // any requests coming in, must pass this requireAuth step
@@ -10,9 +10,11 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 
 // defining a route handler for a get request for our root route
+/*
 router.route('/').get(requireAuth, (req, res) => {
   res.send({ hi: 'there' });
 });
+*/
 
 // defining a route handler for a post request for our signup route
 router.route('/signup').post(Authentication.signup);

@@ -4,13 +4,42 @@
   "description": "node.js auth server",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --display-error-details",
+    "postinstall": "npm run build",
+    "babelbuild": "babel lib -d dist",
     "start": "nodemon index.js --exec babel-node --presets es2015,stage-2",
-    "build": "babel lib -d dist",
     "serve": "node dist/index.js",
     "test": "mocha --compilers js:babel-register"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "babel-plugin-react-transform": "^2.0.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-validator": "^2.20.8",
+    "jwt-simple": "^0.5.0",
+    "mongoose": "^4.5.4",
+    "morgan": "^1.7.0",
+    "nunjucks": "^2.4.2",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.1.0",
+    "passport-local": "^1.0.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-engine": "^4.0.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.5.2",
+    "react-transform-catch-errors": "^1.0.2",
+    "react-transform-hmr": "^1.0.4",
+    "redbox-react": "^1.2.10",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.12.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
@@ -30,21 +59,7 @@
     "nodemon": "^1.9.2",
     "react-addons-test-utils": "^15.2.1"
   },
-  "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "jwt-simple": "^0.5.0",
-    "mongoose": "^4.5.4",
-    "morgan": "^1.7.0",
-    "passport": "^0.3.2",
-    "passport-jwt": "^2.1.0",
-    "passport-local": "^1.0.0",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1",
-    "react-engine": "^4.0.0",
-    "react-redux": "^4.4.5",
-    "react-router": "^2.5.2",
-    "redux": "^3.5.2"
+  "engines": {
+    "node": "6.2.2"
   }
 }

@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/style/style.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My App</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
   </head>
   <body>
-    <div class="container"></div>
+  <div class="container">{{html|safe}}</div>
+
+  <script>
+    window.INITIAL_STATE = {{initialState|safe}};
+  </script>
+
+  <script src="/js/bundle.js"></script>
   </body>
-  <script src="/bundle.js"></script>
 </html>
