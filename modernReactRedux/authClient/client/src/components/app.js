@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import Header from './header';
 
-export default class App extends Component {
+export default class App extends Component { // eslint-disable-line
   render() {
     return (
-      <div>React simple starter</div>
+      <div>
+        <Header />
+        {this.props.children}
+      </div>
     );
   }
 }
+
+App.propTypes = {
+  children: React.PropTypes.node,
+};
