@@ -27,11 +27,8 @@ app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 app.use('/', userRoutes);
 
-// server setup
-const server = http.createServer(app);
-
 // start app
-server.listen(serverConfig.port, (err) => {
+app.listen(serverConfig.port, (err) => {
   if (!err) {
     console.log(`Server listening on: ${serverConfig.port}!`); // eslint-disable-line
   }
