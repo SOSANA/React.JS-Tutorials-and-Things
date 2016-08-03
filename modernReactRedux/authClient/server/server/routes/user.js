@@ -11,7 +11,7 @@ const requireSignin = passport.authenticate('local', { session: false });
 
 // defining a route handler for a get request for our root route
 router.route('/').get(requireAuth, (req, res) => {
-  res.send({ hi: 'there' });
+  res.send({ message: 'Super secret code is ABC123' });
 });
 
 // defining a route handler for a post request for our signup route

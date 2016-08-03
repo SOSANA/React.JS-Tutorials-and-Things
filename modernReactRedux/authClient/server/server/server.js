@@ -4,6 +4,7 @@ import http from 'http';
 import bodyParser from 'body-parser'; // parsing incoming requests into json
 import morgan from 'morgan'; // logging incoming requests
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 // initialize the express app
 const app = new Express();
@@ -22,6 +23,7 @@ mongoose.connect(serverConfig.mongoURL, (err) => {
 
 // app middleware setup
 app.use(morgan('combined'));
+app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 app.use('/', userRoutes);
 
