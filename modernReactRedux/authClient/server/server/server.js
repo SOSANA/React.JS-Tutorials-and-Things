@@ -1,6 +1,5 @@
 // main starting point for app
 import Express from 'express';
-import http from 'http';
 import bodyParser from 'body-parser'; // parsing incoming requests into json
 import morgan from 'morgan'; // logging incoming requests
 import mongoose from 'mongoose';
