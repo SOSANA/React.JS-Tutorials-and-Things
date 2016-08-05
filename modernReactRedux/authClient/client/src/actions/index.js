@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { browserHistorhy } from 'react-router';
+import { browserHistory } from 'react-router';
 import { AUTH_USER, AUTH_ERROR } from './types';
 
 const ROOT_URL = 'http://localhost:8089';
@@ -22,7 +22,7 @@ export function signinUser({ email, password }) {
       // save the JWT token to localStorage (which is a method available via the window scope)
       localStorage.setItem('token', res.data.token);
       // redirect to the route '/feature'
-      browserHistorhy.push('/feature');
+      browserHistory.push('/feature');
     })
     .catch(() => {
       // if request is bad...
