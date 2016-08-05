@@ -14,17 +14,17 @@ class Signin extends Component { // eslint-disable-line
   }
 
   renderAlert() {
-    // let rAlert;
+    let rAlert;
 
     if (this.props.errorMessage) {
-      return (
+      rAlert = (
         <div className="alert alert-danger">
           <strong>Oops</strong> {this.props.errorMessage}
         </div>
       );
     }
 
-    // return rAlert;
+    return rAlert;
   }
 
   render() {
