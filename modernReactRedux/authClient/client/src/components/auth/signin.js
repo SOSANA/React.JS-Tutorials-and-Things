@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 
-class Signin extends Component { // eslint-disable-line
+class Signin extends Component {
   constructor(props) {
     super(props);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);

@@ -42,8 +42,11 @@ export function signupUser({ email, password }) {
         // redirect to the route '/feature'
         browserHistory.push('/feature');
       })
-      // if request is bad, show an error to the user provided by the server
-      .catch(res => dispatch(authError(res.data.error)));
+      .catch(response => {
+        // if request is bad, show an error to the user provided by the server
+        // api issue with axios, quick fix add extra response object
+        dispatch(authError(response.response.data.error));
+      });
   };
 }
 
