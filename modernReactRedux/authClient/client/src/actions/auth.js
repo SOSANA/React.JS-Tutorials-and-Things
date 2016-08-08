@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE } from './types';
 
 const ROOT_URL = 'http://localhost:8089';
 
@@ -47,6 +47,25 @@ export function signupUser({ email, password }) {
         // api issue with axios, quick fix add extra response object
         dispatch(authError(response.response.data.error));
       });
+  };
+}
+
+// this could be used for a list of posts, list of emails, or list of tweets etc or what ever
+// piece of resource you are tring to retrieve from the back-end
+export function fetchMessage() {
+  return (dispatch) => {
+    // key is including our jwt in our header to make our authenticated request
+    axios.get(ROOT_URL, {
+      headers: { authorization: localStorage.getItem('token') },
+    })
+    .then(res => {
+      // see the json response body object
+      // console.log(response); // eslint-disable-line
+      dispatch({
+        type: FETCH_MESSAGE,
+        payload: res.data.message,
+      });
+    });
   };
 }
 
