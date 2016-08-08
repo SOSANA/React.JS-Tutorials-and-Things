@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import passport from 'passport';
 import * as Authentication from '../controllers/authentication';
-import passportService from '../services/passport';
+import passportService from '../services/passport'; // eslint-disable-line
 
 const router = new Router();
 // any requests coming in, must pass this requireAuth step
