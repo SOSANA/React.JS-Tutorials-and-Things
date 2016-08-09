@@ -17,9 +17,9 @@ export default function (ComposedComponent) {
     // using static syntax defines class level property. Using 'static contextTypes'
     // gives us the ability reference and access 'Authentication.contextTypes' any
     // where inside our application
-    static contextTypes = {
-      router: React.PropTypes.object,
-    }
+    // static contextTypes = {
+    //   router: React.PropTypes.object,
+    // }
 
     // at time of render, only runs once
     componentWillMount() {

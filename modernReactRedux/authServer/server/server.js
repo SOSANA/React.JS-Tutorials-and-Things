@@ -26,11 +26,7 @@ import configureStore from '../client/store/configureStore';
 // initialize the express app
 const app = new Express();
 
-if (app.get('env') === 'development') {
-  const compiler = webpack(webpackConfig);
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-  app.use(webpackHotMiddleware(compiler));
-}
+const compiler = webpack(webpackConfig);
 
 // DB setup
 mongoose.connect(serverConfig.mongoURL, (err) => {
@@ -46,11 +42,17 @@ nunjucks.configure('public', {
   express: app,
 });
 
+// webpack development setup
+if (app.get('env') === 'development') {
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+  app.use(webpackHotMiddleware(compiler));
+}
+
 // app middleware setup
+// app.set('public', path.join(__dirname, 'public'));
 app.set('view engine', 'html');
 app.use(logger('combined'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json('*/*'));
 app.use(expressValidator());
 app.use(Express.static(path.join(__dirname, 'public')));
 app.use('/', User);
@@ -61,7 +63,7 @@ app.use((req, res) => {
 
   const store = configureStore(initialState);
 
-  Router.match({ routes: routes.default(store), location: req.url }, (err, redirectLocation, renderProps) => {
+  Router.match({ routes: routes(store), location: req.url }, (err, redirectLocation, renderProps) => {
     if (err) {
       res.status(500).send(err.message);
     }
