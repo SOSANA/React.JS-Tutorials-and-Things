@@ -26,7 +26,13 @@ import configureStore from '../client/store/configureStore';
 // initialize the express app
 const app = new Express();
 
+// webpack development setup
 const compiler = webpack(webpackConfig);
+
+if (app.get('env') === 'development') {
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+  app.use(webpackHotMiddleware(compiler));
+}
 
 // DB setup
 mongoose.connect(serverConfig.mongoURL, (err) => {
@@ -41,12 +47,6 @@ nunjucks.configure('public', {
   autoescape: true,
   express: app,
 });
-
-// webpack development setup
-if (app.get('env') === 'development') {
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-  app.use(webpackHotMiddleware(compiler));
-}
 
 // app middleware setup
 // app.set('public', path.join(__dirname, 'public'));

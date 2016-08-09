@@ -9,14 +9,12 @@ import Feature from './components/feature';
 import requireAuth from './components/auth/requireAuth';
 import Welcome from './components/welcome';
 
-export default function getRoutes() {
-  return (
-    <Route path="/" component={App}>
-      <IndexRoute component={Welcome} />
-      <Route path="signin" component={Signin} />
-      <Route path="signout" component={Signout} />
-      <Route path="signup" component={Signup} />
-      <Route path="feature" component={requireAuth(Feature)} />
-    </Route>
+export default (
+  <Route path="/" component={App}>
+    <IndexRoute component={Welcome} />
+    <Route path="signin" component={Signin} />
+    <Route path="signout" component={Signout} />
+    <Route path="signup" component={Signup} />
+    <Route path="feature" component={requireAuth(Feature)} />
+  </Route>
   );
-}
