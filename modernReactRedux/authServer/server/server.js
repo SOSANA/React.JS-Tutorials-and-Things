@@ -44,9 +44,10 @@ nunjucks.configure('public', {
 // app.set('public', path.join(__dirname, 'public'));
 app.set('view engine', 'html');
 app.use(logger('combined'));
-app.use(bodyParser.json('*/*'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
-app.use(Express.static(path.join(__dirname, 'public')));
+app.use(Express.static(path.join(__dirname, '/public')));
 app.use('/', User);
 
 app.get('/', (req, res) => {

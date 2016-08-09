@@ -26,6 +26,10 @@ const webpackConfig = {
   module: {
     loaders: [
       {
+        test: /\.css$/,
+        loader: 'style!css?modules',
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
