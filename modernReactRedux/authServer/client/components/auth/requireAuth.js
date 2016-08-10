@@ -13,14 +13,7 @@ import { connect } from 'react-redux';
 // HOC purpose is to render a component that we pass to this function. The purpose
 // of '...this.props' is to satisfy and props being passed down in the component
 export default function (ComposedComponent) {
-  class Authentication extends Component { //eslint-disable-line
-    // using static syntax defines class level property. Using 'static contextTypes'
-    // gives us the ability reference and access 'Authentication.contextTypes' any
-    // where inside our application
-    // static contextTypes = {
-    //   router: React.PropTypes.object,
-    // }
-
+  class Authentication extends Component {
     // at time of render, only runs once
     componentWillMount() {
       // if the user is not authenticated route the use back to the root route
@@ -51,7 +44,11 @@ export default function (ComposedComponent) {
   }
 
   Authentication.propTypes = {
-    authenticated: React.PropTypes.bool,
+    authenticated: React.PropTypes.bool.isRequired,
+  };
+
+  Authentication.contextTypes = {
+    router: React.PropTypes.object.isRequired,
   };
 
   function mapStateToProps(state) {
