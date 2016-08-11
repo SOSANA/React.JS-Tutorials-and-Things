@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import * as actions from '../../actions/auth';
+import { domOnlyProps } from './reduxFormProps';
 
 class Signin extends Component {
   constructor(props) {
@@ -36,11 +37,11 @@ class Signin extends Component {
       <form onSubmit={handleSubmit(this.handleFormSubmit)}>
         <fieldset className="form-group">
           <label>Email:</label>
-          <input {...email} type="email" className="form-control" />
+          <input {...domOnlyProps(email)} type="email" className="form-control" />
         </fieldset>
         <fieldset className="form-group">
           <label>Password:</label>
-          <input {...password} type="password" className="form-control" />
+          <input {...domOnlyProps(password)} type="password" className="form-control" />
         </fieldset>
         {this.renderAlert()}
         <button action="submit" className="btn btn-primary">Sign in</button>
@@ -55,6 +56,7 @@ function mapStateToProps(state) {
 
 Signin.propTypes = {
   handleSubmit: React.PropTypes.func.isRequired,
+  domOnlyProps: React.PropTypes.func.isRequired,
   fields: React.PropTypes.object.isRequired,
   signinUser: React.PropTypes.func.isRequired,
   errorMessage: React.PropTypes.string,
@@ -64,4 +66,5 @@ Signin.propTypes = {
 export default reduxForm({
   form: 'signin',
   fields: ['email', 'password'],
+  domOnlyProps,
 }, mapStateToProps, actions)(Signin);
