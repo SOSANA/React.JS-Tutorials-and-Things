@@ -2,7 +2,7 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE } from './types';
 
-const ROOT_URL = 'http://localhost:8080';
+const ROOT_URL = 'http://localhost:8080/api';
 
 export function authError(error) {
   return {
@@ -55,10 +55,10 @@ export function signupUser({ email, password }) {
 export function fetchMessage() {
   return (dispatch) => {
     // key is including our jwt in our header to make our authenticated request
-    axios.get(ROOT_URL, {
+    axios.get(`${ROOT_URL}/feature`, {
       headers: { authorization: localStorage.getItem('token') },
     })
-    .then((response) => {
+    .then(response => {
       // see the json response body object
       // console.log(response); // eslint-disable-line
       dispatch({

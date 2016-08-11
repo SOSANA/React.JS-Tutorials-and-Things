@@ -10,7 +10,7 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 
 // defining a route handler for a get request for serverside message
-router.route('/').get(requireAuth, (req, res) => {
+router.route('/feature').get(requireAuth, (req, res) => {
   res.send({ message: 'Super secret code is ABC123' });
 });
 

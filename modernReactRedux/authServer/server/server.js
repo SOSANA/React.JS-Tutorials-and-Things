@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(Express.static(path.resolve(__dirname, '../public')));
-app.use('/', User);
+app.use('/api', User);
 
 // webpack development setup
 const compiler = webpack(webpackConfig);
