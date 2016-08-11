@@ -4,7 +4,6 @@ import path from 'path';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import expressValidator from 'express-validator';
-import nunjucks from 'nunjucks';
 import mongoose from 'mongoose';
 import User from './routes/user';
 import serverConfig from './config/serverConfig';
@@ -18,14 +17,6 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 // initialize the express app
 const app = new Express();
 
-// webpack development setup
-const compiler = webpack(webpackConfig);
-
-if (app.get('env') === 'development') {
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-  app.use(webpackHotMiddleware(compiler));
-}
-
 // DB setup
 mongoose.connect(serverConfig.mongoURL, (err) => {
   if (err) {
@@ -34,15 +25,7 @@ mongoose.connect(serverConfig.mongoURL, (err) => {
   }
 });
 
-// view engine setup
-nunjucks.configure('public', {
-  autoescape: true,
-  express: app,
-});
-
 // app middleware setup
-// app.set('public', path.join(__dirname, 'public'));
-app.set('view engine', 'html');
 app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,8 +33,16 @@ app.use(expressValidator());
 app.use(Express.static(path.resolve(__dirname, '../public')));
 app.use('/', User);
 
-app.get('/', (req, res) => {
-  res.render('index.html');
+// webpack development setup
+const compiler = webpack(webpackConfig);
+
+if (app.get('env') === 'development') {
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+  app.use(webpackHotMiddleware(compiler));
+}
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 // start app
@@ -60,5 +51,3 @@ app.listen(serverConfig.port, (err) => {
     console.log(`Server listening on: ${serverConfig.port}!`); // eslint-disable-line
   }
 });
-
-export default app;

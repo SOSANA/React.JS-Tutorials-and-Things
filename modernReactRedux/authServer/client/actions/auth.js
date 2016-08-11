@@ -55,7 +55,7 @@ export function signupUser({ email, password }) {
 export function fetchMessage() {
   return (dispatch) => {
     // key is including our jwt in our header to make our authenticated request
-    axios.get(`${ROOT_URL}/feature`, {
+    axios.get(ROOT_URL, {
       headers: { authorization: localStorage.getItem('token') },
     })
     .then(res => {

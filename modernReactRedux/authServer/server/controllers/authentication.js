@@ -65,4 +65,5 @@ export function signin(req, res, next) {
   // user has already had their email and password auth'd
   // we just need to gibve them a token
   res.send({ token: tokenForUser(req.user) });
+  next();
 }
