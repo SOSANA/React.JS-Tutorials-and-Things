@@ -58,12 +58,12 @@ export function fetchMessage() {
     axios.get(`${ROOT_URL}/feature`, {
       headers: { authorization: localStorage.getItem('token') },
     })
-    .then(response => {
+    .then(res => {
       // see the json response body object
       // console.log(response); // eslint-disable-line
       dispatch({
         type: FETCH_MESSAGE,
-        payload: response.data.message,
+        payload: res.data.message,
       });
     })
     .catch((error) => {
