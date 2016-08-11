@@ -58,13 +58,26 @@ export function fetchMessage() {
     axios.get(ROOT_URL, {
       headers: { authorization: localStorage.getItem('token') },
     })
-    .then(res => {
+    .then((response) => {
       // see the json response body object
       // console.log(response); // eslint-disable-line
       dispatch({
         type: FETCH_MESSAGE,
-        payload: res.data.message,
+        payload: response.data.message,
       });
+    })
+    .catch((error) => {
+      if (error.response) {
+        // The request was made, but the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log(error.response.data); // eslint-disable-line
+        console.log(error.response.status); // eslint-disable-line
+        console.log(error.response.headers); // eslint-disable-line
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message); // eslint-disable-line
+      }
+      console.log(error.config); // eslint-disable-line
     });
   };
 }
