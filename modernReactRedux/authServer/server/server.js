@@ -30,7 +30,7 @@ app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
-app.use(Express.static(path.resolve(__dirname, '../public')));
+app.use(Express.static(path.join(__dirname, '../public')));
 app.use('/api', User);
 
 // webpack development setup
@@ -45,9 +45,20 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
+// Production error handler
+if (app.get('env') === 'production') {
+  app.use((err, req, res, next) => {
+    console.error(err.stack); // eslint-disable-line no-console
+    res.sendStatus(err.status || 500);
+    next();
+  });
+}
+
 // start app
 app.listen(serverConfig.port, (err) => {
   if (!err) {
     console.log(`Server listening on: ${serverConfig.port}!`); // eslint-disable-line
   }
 });
+
+export default app;
