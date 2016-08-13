@@ -8,6 +8,7 @@ import createLogger from 'redux-logger';
 import getRoutes from './routes';
 import rootReducer from './reducers';
 import { AUTH_USER } from './actions/types';
+// import '../public/css/style.css'; // importing css so webpack knows that its a dependency
 
 const logger = createLogger();
 const token = localStorage.getItem('token');
@@ -24,6 +25,14 @@ const store = createStore(
 if (token) {
   // we need to update application state
   store.dispatch({ type: AUTH_USER });
+}
+
+if (module.hot) {
+    // Enable hot module replacement for reducers
+  module.hot.accept('./reducers', () => {
+    const nextReducer = require('./reducers/index').default; // eslint-disable-line
+    store.replaceReducer(nextReducer);
+  });
 }
 
 ReactDOM.render(
