@@ -1,19 +1,25 @@
 import path from 'path';
 import webpack from 'webpack';
 
+const PATHS = {
+  app: path.join(__dirname, 'client/main.js'),
+  build: path.join(__dirname, 'public', 'js'),
+  style: path.join(__dirname, 'public', 'css'),
+};
+
 const webpackConfig = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './client/main.js',
+    PATHS.app,
   ],
-  output: {
-    path: path.join(__dirname, 'public', 'js'),
-    filename: 'bundle.js',
-    publicPath: '/js',
-  },
   resolve: {
     extensions: ['', '.js', '.jsx'],
+  },
+  output: {
+    path: PATHS.build,
+    filename: 'bundle.js',
+    publicPath: '/js',
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -29,7 +35,11 @@ const webpackConfig = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['babel'],
-        include: path.join(__dirname, 'client'),
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: PATHS.style,
       }
     ]
   }
