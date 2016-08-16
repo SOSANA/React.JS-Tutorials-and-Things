@@ -8,7 +8,7 @@ import createLogger from 'redux-logger';
 import getRoutes from './routes';
 import rootReducer from './reducers';
 import { AUTH_USER } from './actions/types';
-// import '../public/css/style.css'; // importing css so webpack knows that its a dependency
+import '../public/css/style.css'; // importing css so webpack knows that its a dependency
 
 const logger = createLogger();
 const token = localStorage.getItem('token');
