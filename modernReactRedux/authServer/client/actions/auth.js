@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE } from './types';
+import serverConfig from '../../server/config/serverConfig';
 
-const ROOT_URL = 'http://localhost:8080/api';
+const ROOT_URL = serverConfig.ROOT_URL;
 
 export function authError(error) {
   return {
