@@ -27,14 +27,6 @@ if (token) {
   store.dispatch({ type: AUTH_USER });
 }
 
-if (module.hot) {
-    // Enable hot module replacement for reducers
-  module.hot.accept('./reducers', () => {
-    const nextReducer = require('./reducers/index'); // eslint-disable-line
-    store.replaceReducer(nextReducer);
-  });
-}
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} routes={getRoutes} />
