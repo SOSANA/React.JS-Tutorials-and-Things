@@ -36,13 +36,11 @@ const compiler = webpack(webpackConfig);
 
 if (process.env.NODE_ENV === 'development') {
   app.use(webpackDevMiddleware(compiler, {
-    hot: true,
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
     stats: {
       colors: true,
     },
-    historyApiFallback: true,
   }));
   app.use(webpackHotMiddleware(compiler));
 }
@@ -52,7 +50,7 @@ app.get('*', (req, res) => {
 });
 
 // Production error handler
-if (app.get('env') === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use((err, req, res, next) => {
     console.error(err.stack); // eslint-disable-line no-console
     res.sendStatus(err.status || 500);
