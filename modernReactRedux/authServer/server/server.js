@@ -3,7 +3,6 @@ import Express from 'express';
 import path from 'path';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
-import expressValidator from 'express-validator';
 import mongoose from 'mongoose';
 import User from './routes/user';
 import serverConfig from './config/serverConfig';
@@ -29,7 +28,6 @@ mongoose.connect(serverConfig.mongoURL, (err) => {
 app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(expressValidator());
 app.use(Express.static(path.join(__dirname, '../public')));
 app.use('/api', User);
 
@@ -37,7 +35,15 @@ app.use('/api', User);
 const compiler = webpack(webpackConfig);
 
 if (app.get('env') === 'development') {
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+  app.use(webpackDevMiddleware(compiler, {
+    hot: true,
+    noInfo: true,
+    publicPath: webpackConfig.output.publicPath,
+    stats: {
+      colors: true,
+    },
+    historyApiFallback: true,
+  }));
   app.use(webpackHotMiddleware(compiler));
 }
 

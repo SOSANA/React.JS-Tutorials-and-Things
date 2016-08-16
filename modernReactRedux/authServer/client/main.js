@@ -30,7 +30,7 @@ if (token) {
 if (module.hot) {
     // Enable hot module replacement for reducers
   module.hot.accept('./reducers', () => {
-    const nextReducer = require('./reducers/index').default; // eslint-disable-line
+    const nextReducer = require('./reducers/index'); // eslint-disable-line
     store.replaceReducer(nextReducer);
   });
 }
