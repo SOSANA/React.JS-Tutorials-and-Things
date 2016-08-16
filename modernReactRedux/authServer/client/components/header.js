@@ -17,7 +17,7 @@ class Header extends Component { // eslint-disable-line
     return [
       // show a link to sign in or sign up
       <li className="nav-item" key={1}>
-        <Link className="nav-link" to="/signin">Sign In</Link>
+        <Link className="nav-link test" to="/signin">Sign In</Link>
       </li>,
       <li className="nav-item" key={2}>
         <Link className="nav-link" to="/signup">Sign Up</Link>
