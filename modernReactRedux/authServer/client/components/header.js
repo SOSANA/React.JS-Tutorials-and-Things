@@ -9,7 +9,7 @@ class Header extends Component { // eslint-disable-line
       // show a link to sign out
       return (
         <li className="nav-item">
-          <Link className="nav-link" to="/signout">Sign Out</Link>
+          <Link className="nav-link" to="/signout">Sign out</Link>
         </li>
       );
     }

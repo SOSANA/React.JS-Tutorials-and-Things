@@ -25,7 +25,7 @@ mongoose.connect(serverConfig.mongoURL, (err) => {
 });
 
 // app middleware setup
-app.use(logger('combined'));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(Express.static(path.join(__dirname, '../public')));
@@ -34,7 +34,7 @@ app.use('/api', User);
 // webpack development setup
 const compiler = webpack(webpackConfig);
 
-if (app.get('env') === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app.use(webpackDevMiddleware(compiler, {
     hot: true,
     noInfo: true,
@@ -47,7 +47,7 @@ if (app.get('env') === 'development') {
   app.use(webpackHotMiddleware(compiler));
 }
 
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 

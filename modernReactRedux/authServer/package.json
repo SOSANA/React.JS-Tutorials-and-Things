@@ -4,7 +4,8 @@
   "description": "node.js auth server",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js && NODE_ENV=development",
+    "start": "cross-env NODE_ENV=development nodemon index.js",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js",
     "clean": "rimraf node_modules",
     "slate": "rimraf node_modules && npm install",
     "test": "mocha --compilers js:babel-register"
@@ -15,6 +16,7 @@
     "axios": "^0.13.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
+    "cross-env": "^2.0.0",
     "express": "^4.14.0",
     "jwt-simple": "^0.5.0",
     "mongoose": "^4.5.4",
