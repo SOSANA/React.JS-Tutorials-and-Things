@@ -1,11 +1,11 @@
 {
   "name": "auth-server",
   "version": "1.0.0",
-  "description": "node.js auth server",
+  "description": "Mern Stack project for Universal Apps using React and Redux",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development nodemon index.js",
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "clean": "rimraf node_modules",
     "slate": "rimraf node_modules && npm install",
     "test": "mocha --compilers js:babel-register"
