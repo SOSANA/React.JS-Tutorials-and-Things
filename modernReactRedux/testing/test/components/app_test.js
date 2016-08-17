@@ -1,0 +1,19 @@
+import { renderComponent, expect } from '../test_helper';
+import App from '../../client/components/app';
+
+// use 'describe' to group together similar tests. 'describe' function conveys
+// to other developers that a certain number of tests are related in fashion
+// 'describe' takes a first argument of string and second argument of a function
+// and inside this function is our specs
+describe('App', () => {
+  // use 'it' to test a single attribute of a target. 'it' blocks try to make an
+  // assertion about a very particular fact about the testing subject
+  it('shows the correct text', () => {
+    // create an instance of App
+    const component = renderComponent(App);
+    // use 'expect' to make an 'assertion' about a target. Used for a very particular
+    // attribute for our target, in this case the app component
+    // expect is a function that have whats called matchers that are chainable functions
+    expect(component).to.contain('React simple starter');
+  });
+});
