@@ -11,7 +11,7 @@ const userSchema = new Schema({
 // on save hook, encrypt password
 // before saving a model, run this function
 // keep in mind we have to use es5 here as arrow functions won't work properly
-// here do to context/scrope
+// here do to context/scope
 userSchema.pre('save', function(next) { // eslint-disable-line
   // get access to the user model by setting the context to the user model
   const user = this; // user.email, user.password
