@@ -6,7 +6,7 @@
 
 import passport from 'passport';
 import User from '../models/user';
-import jwtConfig from '../config/jwtConfig'; // importing our secret string
+import serverConfig from '../config/serverConfig'; // importing our jwt secret string
 import { Strategy as JWTStrategy, ExtractJwt as extractJwt } from 'passport-jwt'; // Strategy for verifying auth request for resource access
 import LocalStrategy from 'passport-local'; // strategy for verifying signin with existing email/password
 
@@ -36,7 +36,7 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
 // setup options for JWT Strategy for new users when signing up
 const jwtOptions = {
   jwtFromRequest: extractJwt.fromHeader('authorization'),
-  secretOrKey: jwtConfig.secret,
+  secretOrKey: serverConfig.secret,
 };
 
 // create JWT Strategy for new user when signing up

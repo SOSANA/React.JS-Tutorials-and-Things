@@ -44,7 +44,7 @@ export default function (ComposedComponent) {
   }
 
   Authentication.propTypes = {
-    authenticated: React.PropTypes.bool.isRequired,
+    authenticated: React.PropTypes.bool,
   };
 
   Authentication.contextTypes = {

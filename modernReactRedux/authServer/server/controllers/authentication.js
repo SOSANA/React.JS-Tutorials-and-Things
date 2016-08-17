@@ -1,6 +1,6 @@
 import jwt from 'jwt-simple'; // for encoding our jwt secret
 import User from '../models/user';
-import jwtConfig from '../config/jwtConfig'; // importing our secret string
+import serverConfig from '../config/serverConfig'; // importing our jwt secret string
 
 // creating a function to take the user id and encode it with our secret
 function tokenForUser(user) {
@@ -10,7 +10,7 @@ function tokenForUser(user) {
   // we want. The second argument is the secret we are going to use to encrypt it
   // jwt is a standard or convention, as a convention 'sub' which stands for 'subject'
   // property, and 'iat' another convention which stands for 'issued at time'
-  return jwt.encode({ sub: user.id, iat: timeStamp }, jwtConfig.secret);
+  return jwt.encode({ sub: user.id, iat: timeStamp }, serverConfig.secret);
 }
 
 // our signup controller
