@@ -1,7 +1,10 @@
 /**
  * Testing using Mocha:
  *  - always all our tests will follow the same syntax for
- *    describe, it, and expect
+ *    'describe', 'it', and 'expect'
+ *  - 'describe' and 'it' take a first argument of string and second argument of a function
+ *    and inside this function is our specs
+ *
  * Three main core constructs for testing:
  *  - describe:
  *    - groups together similar tests
