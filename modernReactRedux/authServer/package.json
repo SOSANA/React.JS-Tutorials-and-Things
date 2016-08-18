@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development nodemon index.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "clean": "rimraf node_modules",
-    "slate": "rimraf node_modules && npm install",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
+    "test:watch": "cross-env NODE_ENV=production BABEL_ENV=production npm run test -- --watch"
   },
   "author": "SOSANA",
   "license": "ISC",
@@ -34,7 +33,6 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
@@ -45,16 +43,21 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "chai-jquery": "^2.0.0",
     "css-loader": "^0.23.1",
     "eslint": "^3.0.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.10.3",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
+    "jquery": "^3.1.0",
+    "jsdom": "^9.4.2",
     "mocha": "^2.5.3",
     "nodemon": "^1.9.2",
     "react-addons-test-utils": "^15.2.1",
-    "react-hot-loader": "^3.0.0-beta.2",
+    "react-transform-catch-errors": "^1.0.2",
+    "redbox-react": "^1.3.0",
     "redux-logger": "^2.6.1",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",

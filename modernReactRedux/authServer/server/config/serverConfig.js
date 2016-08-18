@@ -8,8 +8,8 @@
 
 const serverConfig = {
   mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/auth',
-  port: process.env.PORT || 8080,
-  ROOT_URL: 'http://localhost:8080/api',
+  port: process.env.PORT || 3000,
+  ROOT_URL: 'http://localhost:3000/api',
   // your jwt secret string can be any sequence of characters you want
   secret: 'sdlkfskjfldsj34ljdlkfjls4903509adsfaasfdasdf83708743',
 };
