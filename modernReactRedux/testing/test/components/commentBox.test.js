@@ -47,6 +47,7 @@ describe('CommentBox', () => {
       // argument being the value of adding in some dummy text
       component.find('textarea').simulate('change', 'new comment');
     });
+
     // stubbing out the 'it' statements
     it('shows text in the textarea', () => {
       // using juqery chai value matcher
