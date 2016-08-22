@@ -10,6 +10,8 @@
  *    - groups together similar tests
  *    - conveys to other developers that a certain number of tests
  *      are related in fashion
+ *    - when we have two similar spec's that are closely related we
+ *      can nest another describe block
  *  - it:
  *    - used to test a single attribute of a target.
  *    - 'it' blocks try to make an assertion about a very particular
