@@ -4,6 +4,7 @@ import path from 'path';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import favicon from 'serve-favicon';
 import User from './routes/user';
 import serverConfig from './config/serverConfig';
 
@@ -29,6 +30,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(Express.static(path.join(__dirname, '../public')));
+app.use(favicon(path.join(__dirname, '../public/img/favicon.ico')));
 app.use('/api', User);
 
 // webpack development setup
