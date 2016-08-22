@@ -1,6 +1,30 @@
-import { renderComponent, expect } from '../test_helper';
+/**
+ * what we care about:
+ *  - it shows a commentBox
+ */
+
+import { renderComponent, expect } from '../test.helper';
 import App from '../../client/components/app';
 
+describe('App', () => {
+  let component;
+
+  beforeEach(() => {
+    component = renderComponent(App);
+  });
+
+  it('shows a commentBox', () => {
+    return expect(component.find('.comment-box')).to.exist;
+  });
+});
+
+
+/**
+ * what we care about:
+ *  - it shows the correct text
+ */
+
+/*
 // use 'describe' to group together similar tests. 'describe' function conveys
 // to other developers that a certain number of tests are related in fashion
 // 'describe' takes a first argument of string and second argument of a function
@@ -14,6 +38,8 @@ describe('App', () => {
     // use 'expect' to make an 'assertion' about a target. Used for a very particular
     // attribute for our target, in this case the app component
     // expect is a function that have whats called matchers that are chainable functions
+    // using jquery chai contain matcher
     expect(component).to.contain('React simple starter');
   });
 });
+*/
