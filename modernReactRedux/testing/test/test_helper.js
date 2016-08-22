@@ -26,7 +26,7 @@ function renderComponent(ComponentClass, props = {}, state = {}) {
   return $(ReactDOM.findDOMNode(componentInstance));
 }
 
-$.fn.simulate = function (eventName, value) {
+$.fn.simulate = function (eventName, value) { // eslint-disable-line func-names
   if (value) {
     this.val(value);
   }
