@@ -1,6 +1,7 @@
 /**
  * what we care about:
- *  - it shows a commentBox
+ *  - it shows a commentBox component
+ *  - it shows a commentList component
  */
 
 import { renderComponent, expect } from '../test.helper';
@@ -13,8 +14,12 @@ describe('App', () => {
     component = renderComponent(App);
   });
 
-  it('shows a commentBox', () => {
+  it('shows a commentBox component', () => {
     return expect(component.find('.comment-box')).to.exist;
+  });
+
+  it('shows a commentList component', () => {
+    return expect(component.find('.comment-list')).to.exist;
   });
 });
 
