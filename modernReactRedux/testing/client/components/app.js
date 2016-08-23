@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CommentBox from './commentBox';
+import CommentList from './commentList';
 
 export default class App extends Component { // eslint-disable-line
   render() {
@@ -8,6 +9,7 @@ export default class App extends Component { // eslint-disable-line
         React simple starter
         {this.props.children}
         <CommentBox />
+        <CommentList />
       </div>
     );
   }
