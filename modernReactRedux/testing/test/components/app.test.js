@@ -7,7 +7,7 @@
 import { renderComponent, expect } from '../test.helper';
 import App from '../../client/components/app';
 
-describe('App', () => {
+describe('App Component:', () => {
   let component;
 
   beforeEach(() => {

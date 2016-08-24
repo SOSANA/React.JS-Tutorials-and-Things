@@ -1,3 +1,13 @@
 .test {
-  color: #DDDDDD
+  color: #DDDDDD;
+}
+
+.container {
+  text-align: center;
+}
+
+.comment-list {
+  text-align-last: left;
+  color: blue;
+  padding-top: 10px;
 }

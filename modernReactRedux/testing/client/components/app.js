@@ -6,7 +6,7 @@ export default class App extends Component { // eslint-disable-line
   render() {
     return (
       <div>
-        React simple starter
+        <h1> React simple starter </h1>
         {this.props.children}
         <CommentBox />
         <CommentList />

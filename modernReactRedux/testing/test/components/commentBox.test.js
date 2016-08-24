@@ -11,7 +11,7 @@
 import { renderComponent, expect } from '../test.helper';
 import CommentBox from '../../client/components/commentBox';
 
-describe('CommentBox', () => {
+describe('CommentBox Component:', () => {
   // assign our variable to get access to component scope
   let component;
 
@@ -33,7 +33,7 @@ describe('CommentBox', () => {
   });
 
   it('has a button', () => {
-    // using jquery method and using juqery chai exist matcher
+    // using jquery method and using jquery chai exist matcher
     return expect(component.find('button')).to.exist;
   });
 
@@ -50,7 +50,7 @@ describe('CommentBox', () => {
 
     // stubbing out the 'it' statements
     it('shows text in the textarea', () => {
-      // using juqery chai value matcher
+      // using jquery chai value matcher
       expect(component.find('textarea')).to.have.value('new comment');
     });
 
@@ -58,7 +58,7 @@ describe('CommentBox', () => {
       // console.log(component); // eslint-disable-line no-console
       // trigger behavior
       component.simulate('submit');
-      // using juqery chai value matcher
+      // using jquery chai value matcher
       expect(component.find('textarea')).to.have.value('');
     });
   });
