@@ -2,7 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const CommentList = (props) => {
-  const list = props.comments.map(comment => <li key={comment}>{comment}</li>);
+  const list = props.comments.map(comment =>
+    <div className="bg-primary">
+      <li key={comment}>
+      {comment}
+      </li>
+    </div>
+  );
   return (
     <ul className="comment-list">{list}</ul>
     );

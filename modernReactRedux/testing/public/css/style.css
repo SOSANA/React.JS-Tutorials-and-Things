@@ -6,8 +6,17 @@
   text-align: center;
 }
 
+.bg-primary {
+  padding: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.comment-box {
+  text-align: left;
+  display: inline-block;
+}
+
 .comment-list {
-  text-align-last: left;
-  color: blue;
-  padding-top: 10px;
+  margin-top: 20px;
 }
