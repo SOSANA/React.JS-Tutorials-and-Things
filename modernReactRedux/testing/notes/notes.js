@@ -1,5 +1,11 @@
 /**
- * Testing using Mocha:
+ * Needs of a testing suite:
+ *  - mocha: loads tests, runs them one by one, cleans up after each test ran
+ *  - chai: helpers for asserting certain properties about the test subject
+ *    - other libraries that are built on top of chai like chai-jquery redefine
+ *      these matchers from chai's api
+ *
+ * Testing:
  *  - always all our tests will follow the same syntax for
  *    'describe', 'it', and 'expect'
  *  - 'describe' and 'it' take a first argument of string and second argument of a function
@@ -17,7 +23,7 @@
  *    - 'it' blocks try to make an assertion about a very particular
  *      fact about the testing subject
  *    - uses a 'matcher' that are chainable functions
- *      - ex: https://github.com/chaijs/chai-jquery dsfafafadsfafds
+ *      - ex: https://github.com/chaijs/chai-jquery
  *        - only used for tests
  *  - expect:
  *    - used to make an 'assertion' about a target
@@ -31,4 +37,7 @@
  *        - it has a text area
  *        - it has a button
  *        - entering text into the text area updates the text
+ *
+ * JSDOM:
+ *  - runs the application in a fake browser env in the cli terminal
  */
