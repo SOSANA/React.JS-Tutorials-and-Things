@@ -1,7 +1,6 @@
 /**
  * what we care about:
- *  - it shows a commentBox component
- *  - it shows a commentList component
+ *  - it shows a Header component
  */
 
 import { renderComponent, expect } from '../test.helper';
@@ -11,17 +10,11 @@ describe('App Component:', () => {
   let component;
 
   beforeEach(() => {
-    const props = { children: [] };
-    component = renderComponent(App, null, props);
+    component = renderComponent(App);
   });
 
   it('shows a Header component', () => {
     return expect(component.find('h1')).to.exist;
-  });
-
-  it('shows children props', () => {
-    console.log(component);
-    return expect(component.find('.comment-list')).to.exist;
   });
 });
 
