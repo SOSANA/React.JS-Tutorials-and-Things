@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import CommentBox from './commentBox';
+import CommentList from './commentList';
 
 export default class Welcome extends Component { // eslint-disable-line
   render() {
     return (
-      <div className="test">
-        <h3>Welcome to our slice of paradise</h3>
+      <div>
+        <h3 className="test">Welcome to our slice of paradise</h3>
+        <CommentBox />
+        <CommentList />
       </div>
     );
   }

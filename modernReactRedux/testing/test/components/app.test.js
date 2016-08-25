@@ -5,20 +5,22 @@
  */
 
 import { renderComponent, expect } from '../test.helper';
-import App from '../../client/components/app';
+import { App } from '../../client/components/app';
 
 describe('App Component:', () => {
   let component;
 
   beforeEach(() => {
-    component = renderComponent(App);
+    const props = { children: [] };
+    component = renderComponent(App, null, props);
   });
 
-  it('shows a commentBox component', () => {
-    return expect(component.find('.comment-box')).to.exist;
+  it('shows a Header component', () => {
+    return expect(component.find('h1')).to.exist;
   });
 
-  it('shows a commentList component', () => {
+  it('shows children props', () => {
+    console.log(component);
     return expect(component.find('.comment-list')).to.exist;
   });
 });
