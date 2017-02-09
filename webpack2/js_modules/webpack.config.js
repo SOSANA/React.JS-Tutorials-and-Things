@@ -34,8 +34,9 @@ const config = {
         use: [
           {
             loader: 'url-loader',
-            // look for any images that have a value 40000 bits (40kbs) large, if so save it as a file
-            // other wise bundle if it is smaller save it in our bundle.js file output
+            // look for any images that have a value 40000 bits (40kbs) large,
+            // if so save it as a file other wise bundle if it is smaller save
+            // it in our bundle.js file output
             options: { limit: 40000 }
           },
           'image-webpack-loader'
