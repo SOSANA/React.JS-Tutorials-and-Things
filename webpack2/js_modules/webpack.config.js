@@ -13,6 +13,10 @@ const config = {
       {
         use: 'babel-loader',
         test: /\.js$/ // reg ex looks for .js files when importing in each file
+      },
+      {
+        use: ['style-loader', 'css-loader'], // order important, loaded right to left
+        test: /\.css$/ // reg ex looks for .css files when importing in each file
       }
     ]
   }
