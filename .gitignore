@@ -15,6 +15,7 @@
 *.module-cache*
 node_modules
 bundle.js
+vendor.js
 npm-debug.log
 config.js
 API_KEY.js
