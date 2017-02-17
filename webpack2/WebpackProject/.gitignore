@@ -1,3 +1,4 @@
 node_modules
 vendor.js
 bundle.js
+./dist/index.html
