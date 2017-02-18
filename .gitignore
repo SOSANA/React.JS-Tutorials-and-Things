@@ -11,6 +11,7 @@
 .codio
 .settings
 .c9
+.vscode
 
 *.module-cache*
 node_modules
