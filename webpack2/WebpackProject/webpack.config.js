@@ -16,7 +16,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js' // grabs entry.bundle name key ex: 'bundle.js'
+    filename: '[name].[chunkhash].js' // grabs entry.bundle name key ex: 'bundle.js'
   },
   module: {
     rules: [
