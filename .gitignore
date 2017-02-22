@@ -12,8 +12,8 @@
 .settings
 .c9
 .vscode
-dist
-dist/*.html
+dist/
+dist/index.html
 dist/*.js
 
 *.module-cache*
