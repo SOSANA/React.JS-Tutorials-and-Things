@@ -12,6 +12,7 @@
 .settings
 .c9
 .vscode
+dist
 
 *.module-cache*
 node_modules
