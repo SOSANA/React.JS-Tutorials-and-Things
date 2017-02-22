@@ -36,7 +36,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'manifest'] // manifest helps tell browser when vendor changes
     }),
-    // this helps manage script tags for html and manually adds a script tag
+    // this helps manage script tags for html in dist folder and manually adds a script tag
     new HtmlWebpackPlugin({
       template: 'src/index.html' // location of html
     })
