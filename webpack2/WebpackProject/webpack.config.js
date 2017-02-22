@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     // this helps solve double including VENDOR_LIBS
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+      name: ['vendor', 'manifest'] // manifest helps tell browser when vendor changes
     }),
     // this helps manage script tags for html and manually adds a script tag
     new HtmlWebpackPlugin({
