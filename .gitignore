@@ -13,6 +13,8 @@
 .c9
 .vscode
 dist
+dist/*.html
+dist/*.js
 
 *.module-cache*
 node_modules
