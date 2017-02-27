@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run clean && webpack",
+    "build:prod": "cross-env NODE_ENV=production npm run clean && webpack -p",
     "clean": "rimraf dist",
-    "serve": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "start:prod": "webpack-dev-server"
   },
   "repository": "https://github.com/StephenGrider/WebpackProject",
   "author": "",
