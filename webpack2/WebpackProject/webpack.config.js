@@ -32,6 +32,12 @@ module.exports = {
     ]
   },
   plugins: [
+    // this helps with NODE_ENV and webpack.DefinePlugin uses window.scope to define env variables
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      // setting for production
+      // 'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     // this helps solve double including VENDOR_LIBS
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'manifest'] // manifest helps tell browser when vendor changes
